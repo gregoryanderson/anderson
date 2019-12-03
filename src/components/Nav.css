@@ -1,0 +1,12 @@
+.Nav {
+    width: 20%;
+    margin: 10vh; 
+    margin-right: 0;
+    background-color: #383756;
+    height: 80vh;
+}
+
+p, h1 {
+    margin: 10px;
+}
+

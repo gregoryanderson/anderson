@@ -1,0 +1,11 @@
+.Main {
+    margin: 10vh;
+    margin-left: 0;
+    width: 80%;
+    text-align: center;
+    background-color: #383756;
+}
+
+#main__img {
+    width: 20%
+}
