@@ -10,11 +10,36 @@ import {
     AiOutlineRocket
   } from "react-icons/ai";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
+import Home from "./Home"
+import Journal from "./Journal"
+import Experience from "./Experience"
+import Contact from "./Contact"
 
-const Main = () => {
+
+const Main = (props) => {
+    console.log("main", props.route)
+
+    const determineTheRoute = () => {
+        if (props.route === "home" || props.route === "") {
+            console.log(
+                'fuck'
+            )
+            return (<Home />)
+        }
+        if (props.route === "experience"){
+            return (<Experience />)
+        }
+        if (props.route === "journal"){
+            return (<Journal />)
+        }
+        if (props.route === "contact"){
+            return (<Contact />)
+        }
+    }
+
   return (
     <section className="Main">
-      <section id="main--content">
+      {/* <section id="main--content">
         <section id="main--rocket">
           <AiOutlineRocket size={64} color="#EB6D4A" />
         </section>
@@ -32,7 +57,8 @@ const Main = () => {
           </section>
           <button id="main--button">Hire Me</button>
         </section>
-      </section>
+      </section> */}
+      {determineTheRoute()}
     </section>
   );
 };
