@@ -9,11 +9,14 @@
 }
 
 .nav__p--links {
-    /* background-color: ; */
-    width: 100%;
     font-size: 1.25em;
     margin: 0 0 0 .5em;
-    /* opacity: 1; */
+}
+
+.nav__p--links:hover {
+    /* text-decoration: underline; */
+    color: #EB6D4A;
+    font-size: 1.5em;
 }
 
 #nav--links {
