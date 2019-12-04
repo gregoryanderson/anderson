@@ -13,7 +13,7 @@ import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 const Journal = props => {
   return (
-    <section id="main--content">
+    <section className="main--content">
         <p>This is the journal</p>
     </section>
   );

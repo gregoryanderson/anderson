@@ -14,7 +14,7 @@ export const App = props => {
           path="/"
           render={() => (
             <>
-              <Nav />
+              <Nav route=""/>
               <Main route="" />
             </>
           )}
@@ -25,7 +25,7 @@ export const App = props => {
           path="/home"
           render={() => (
             <>
-              <Nav />
+              <Nav route="home"/>
               <Main route="home" />
             </>
           )}
@@ -36,7 +36,7 @@ export const App = props => {
           path="/experience"
           render={() => (
             <>
-              <Nav />
+              <Nav route="experience"/>
               <Main route="experience" />
             </>
           )}
@@ -47,7 +47,7 @@ export const App = props => {
           path="/journal"
           render={() => (
             <>
-              <Nav />
+              <Nav route="journal"/>
               <Main route="journal" />
             </>
           )}
@@ -58,7 +58,7 @@ export const App = props => {
           path="/contact"
           render={() => (
             <>
-              <Nav />
+              <Nav route="contact"/>
               <Main route="contact" />
             </>
           )}
@@ -69,7 +69,7 @@ export const App = props => {
           path="/projects"
           render={() => (
             <>
-              <Nav />
+              <Nav route="projects"/>
               <Main route="projects" />
             </>
           )}

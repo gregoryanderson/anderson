@@ -12,9 +12,21 @@ import "./Nav.css";
 import { Route, Redirect, Link } from "react-router-dom";
 
 const Nav = props => {
-  const handleClick = route => {
-    props.handleRoute(route);
-  };
+  console.log(props)
+
+  const determineBottomLogo = (props) => {
+    if (props.route === "projects"){
+      return (<AiOutlineLaptop size={300} color="#EB6D4A" />)
+    } else if (props.route === "contact"){
+      return (<AiOutlineSound size={300} color="#EB6D4A" />)
+    } else if (props.route === "experience"){
+      return (<AiOutlineLineChart size={300} color="#EB6D4A" />)
+    } else if (props.route === "journal"){
+      return (<AiOutlineMessage size={300} color="#EB6D4A" />)
+    } else {
+      return (<AiOutlineHome size={300} color="#EB6D4A" />)
+    }
+  }
 
   return (
     <section className="Nav">
@@ -61,7 +73,7 @@ const Nav = props => {
         </Link>
       </section>
       <section className="nav__section--links nav--header">
-        <AiOutlineHome size={300} color="#EB6D4A" />
+        {determineBottomLogo(props)}
       </section>
     </section>
   );

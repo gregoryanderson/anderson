@@ -13,8 +13,8 @@ import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 const Projects = props => {
   return (
-    <section id="main--content">
-        <p>This is the Projects</p>
+    <section className="main--content">
+      <p>This is the Projects</p>
     </section>
   );
 };

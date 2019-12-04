@@ -12,12 +12,8 @@ import {
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 const Home = props => {
-    console.log('home')
   return (
-    <section id="main--content">
-      <section id="main--rocket">
-        <AiOutlineRocket size={64} color="#EB6D4A" />
-      </section>
+    <section className="main--content">
       <section id="main--outline">
         <img src={require("./man.png")} id="main__img" />
         <h1>Gregory Anderson</h1>

@@ -19,14 +19,11 @@
     justify-content: space-around;
 }
 
-#main--content {
-    margin: 1vh 1vh 1vh 0;
+.main--content {
+    margin: 0 1vh 1vh 0;
     /* padding: 20vh 0; */
     /* padding: 20% 0; */
     background-color: #454360;
-}
-
-#main--outline {
     height: 68vh;
 }
 
@@ -34,6 +31,8 @@
     height: 10vh;
     display: flex;
     justify-content: flex-end;
+    background-color: #454360;
+    margin: 1vh 1vh 0 0;
 }
 
 #main--button {
@@ -54,6 +53,6 @@
     justify-content: space-between;
 }
 
-h1 {
+h1,p {
     margin: 0;
 }

@@ -13,7 +13,7 @@ import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 const Experience = props => {
   return (
-    <section id="main--content">
+    <section className="main--content">
         <p>This is the experience</p>
     </section>
   );
