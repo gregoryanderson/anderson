@@ -1,12 +1,28 @@
 .Nav {
-    width: 20%;
-    margin: 10vh; 
-    margin-right: 0;
-    background-color: #383756;
+    width: 30%;
+    margin: 10vh 0 10vh 10vh; 
     height: 80vh;
+    background-color: #383756;
+    border-right: 1px solid #454360;
+    color: #FFF;
+    /* opacity: .5; */
 }
 
-p, h1 {
-    margin: 10px;
+.nav__p--links {
+    /* background-color: ; */
+    width: 100%;
+    font-size: 1.25em;
+    margin: 0 0 0 .5em;
+    /* opacity: 1; */
+}
+
+.nav__section--links {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+#nav--header {
+    margin-bottom: 4em;
 }
 
