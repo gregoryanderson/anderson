@@ -4,6 +4,7 @@
     text-align: center;
     background-color: #383756;
     color: white;
+    font-size: 1.5em;
 }
 
 #main__img {
@@ -32,7 +33,23 @@
 #main--rocket {
     height: 10vh;
     display: flex;
+    justify-content: flex-end;
 }
+
+#main--button {
+    color: #FFF;
+    background-color: #EB6D4A;
+    padding: .5em;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+}
+
+#main--button:hover {
+    /* background-color: #CC4E2F; */
+    font-size: 1.25em;
+}
+
 .main--link {
     justify-content: space-between;
 }

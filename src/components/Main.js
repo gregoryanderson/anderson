@@ -30,6 +30,7 @@ const Main = () => {
               <FaLinkedinIn size={24} />
             </section>
           </section>
+          <button id="main--button">Hire Me</button>
         </section>
       </section>
     </section>
