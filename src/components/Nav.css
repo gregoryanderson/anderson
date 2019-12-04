@@ -3,7 +3,7 @@
     margin: 10vh 0 10vh 10vh; 
     height: 80vh;
     background-color: #383756;
-    border-right: 1px solid #454360;
+    /* border-right: 1px solid #454360; */
     color: #FFF;
     /* opacity: .5; */
 }
@@ -16,13 +16,20 @@
     /* opacity: 1; */
 }
 
+#nav--links {
+    margin: 1vh;
+    background-color: #383756;
+    height: 30vh;
+}
+
 .nav__section--links {
     display: flex;
     width: 100%;
     align-items: center;
 }
 
-#nav--header {
-    margin-bottom: 4em;
+.nav--header {
+    display: flex;
+    justify-content: center;
 }
 

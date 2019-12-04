@@ -5,7 +5,7 @@ import {
   AiOutlineLaptop,
   AiOutlineMessage,
   AiOutlineSound,
-  AiOutlineForm, 
+  AiOutlineForm,
   AiOutlineRocket
 } from "react-icons/ai";
 import "./Nav.css";
@@ -13,9 +13,9 @@ import "./Nav.css";
 const Nav = () => {
   return (
     <section className="Nav">
-      <section className="nav__section--links" id="nav--header">
-        <AiOutlineRocket size={64} color="#EB6D4A" /> 
-      </section>
+      {/* <section className="nav__section--links nav--header">
+        <AiOutlineRocket size={64} color="#EB6D4A" />
+      </section> */}
       <section id="nav--links">
         <section className="nav__section--links">
           <AiOutlineHome size={32} color="#EB6D4A" />
@@ -37,6 +37,9 @@ const Nav = () => {
           <AiOutlineSound size={32} color="#EB6D4A" />
           <p className="nav__p--links">Contact</p>
         </section>
+      </section>
+      <section className="nav__section--links nav--header">
+        <AiOutlineRocket size={300} color="#EB6D4A" />
       </section>
     </section>
   );

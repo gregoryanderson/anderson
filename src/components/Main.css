@@ -7,8 +7,8 @@
 }
 
 #main__img {
+    margin: 17vh 0 3vh 0;
     width: 20%;
-    margin: 3em;
 }
 
 .main--links {
@@ -16,6 +16,17 @@
     display: flex;
     width: 20%;
     justify-content: space-around;
+}
+
+#main--content {
+    margin: 1vh 1vh 1vh 0;
+    /* padding: 20vh 0; */
+    /* padding: 20% 0; */
+    background-color: #454360;
+}
+
+#main--outline {
+    height: 78vh;
 }
 
 .main--link {
