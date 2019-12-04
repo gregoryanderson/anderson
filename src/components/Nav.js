@@ -39,7 +39,7 @@ const Nav = () => {
         </section>
       </section>
       <section className="nav__section--links nav--header">
-        <AiOutlineRocket size={300} color="#EB6D4A" />
+        <AiOutlineHome size={300} color="#EB6D4A" />
       </section>
     </section>
   );

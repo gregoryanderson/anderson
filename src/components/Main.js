@@ -1,11 +1,23 @@
 import React from "react";
 import "./Main.css";
+import {
+    AiOutlineLineChart,
+    AiOutlineHome,
+    AiOutlineLaptop,
+    AiOutlineMessage,
+    AiOutlineSound,
+    AiOutlineForm,
+    AiOutlineRocket
+  } from "react-icons/ai";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 const Main = () => {
   return (
     <section className="Main">
       <section id="main--content">
+        <section id="main--rocket">
+          <AiOutlineRocket size={64} color="#EB6D4A" />
+        </section>
         <section id="main--outline">
           <img src={require("./man.png")} id="main__img" />
           <h1>Gregory Anderson</h1>

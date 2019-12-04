@@ -7,7 +7,7 @@
 }
 
 #main__img {
-    margin: 17vh 0 3vh 0;
+    margin: 10vh 0 3vh 0;
     width: 20%;
 }
 
@@ -26,9 +26,13 @@
 }
 
 #main--outline {
-    height: 78vh;
+    height: 68vh;
 }
 
+#main--rocket {
+    height: 10vh;
+    display: flex;
+}
 .main--link {
     justify-content: space-between;
 }
