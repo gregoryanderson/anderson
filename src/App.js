@@ -5,10 +5,7 @@ import Nav from "./components/Nav";
 import { Route, Redirect } from "react-router-dom";
 
 export const App = props => {
-  const handleRoute = route => {
-    console.log(route);
-  };
-
+  
   return (
     <div className="App">
       {
@@ -17,7 +14,7 @@ export const App = props => {
           path="/"
           render={() => (
             <>
-              <Nav handleRoute={handleRoute} />
+              <Nav />
               <Main route="" />
             </>
           )}
@@ -28,7 +25,7 @@ export const App = props => {
           path="/home"
           render={() => (
             <>
-              <Nav handleRoute={handleRoute} />
+              <Nav />
               <Main route="home" />
             </>
           )}
@@ -39,7 +36,7 @@ export const App = props => {
           path="/experience"
           render={() => (
             <>
-              <Nav handleRoute={handleRoute} />
+              <Nav />
               <Main route="experience" />
             </>
           )}
@@ -50,7 +47,7 @@ export const App = props => {
           path="/journal"
           render={() => (
             <>
-              <Nav handleRoute={handleRoute} />
+              <Nav />
               <Main route="journal" />
             </>
           )}
@@ -61,8 +58,19 @@ export const App = props => {
           path="/contact"
           render={() => (
             <>
-              <Nav handleRoute={handleRoute} />
+              <Nav />
               <Main route="contact" />
+            </>
+          )}
+        />
+      }
+      {
+        <Route
+          path="/projects"
+          render={() => (
+            <>
+              <Nav />
+              <Main route="projects" />
             </>
           )}
         />

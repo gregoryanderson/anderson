@@ -18,9 +18,6 @@ const Nav = props => {
 
   return (
     <section className="Nav">
-      {/* <section className="nav__section--links nav--header">
-        <AiOutlineRocket size={64} color="#EB6D4A" />
-      </section> */}
       <section id="nav--links">
         <Link
           to="/home"
@@ -28,9 +25,7 @@ const Nav = props => {
           className="nav__section--links"
         >
           <AiOutlineHome size={32} color="#EB6D4A" />
-          <p className="nav__p--links" onClick={() => handleClick("home")}>
-            Home
-          </p>
+          <p className="nav__p--links">Home</p>
         </Link>
         <Link
           to="/experience"
@@ -38,12 +33,7 @@ const Nav = props => {
           className="nav__section--links"
         >
           <AiOutlineLineChart size={32} color="#EB6D4A" />
-          <p
-            className="nav__p--links"
-            onClick={() => handleClick("experience")}
-          >
-            Experience
-          </p>
+          <p className="nav__p--links">Experience</p>
         </Link>
         <Link
           to="/projects"
@@ -51,9 +41,7 @@ const Nav = props => {
           className="nav__section--links"
         >
           <AiOutlineLaptop size={32} color="#EB6D4A" />
-          <p className="nav__p--links" onClick={() => handleClick("projects")}>
-            Projects
-          </p>
+          <p className="nav__p--links">Projects</p>
         </Link>
         <Link
           to="/journal"
@@ -61,9 +49,7 @@ const Nav = props => {
           className="nav__section--links"
         >
           <AiOutlineForm size={32} color="#EB6D4A" />
-          <p className="nav__p--links" onClick={() => handleClick("journal")}>
-            Journal
-          </p>
+          <p className="nav__p--links">Journal</p>
         </Link>
         <Link
           to="/contact"
@@ -71,9 +57,7 @@ const Nav = props => {
           className="nav__section--links"
         >
           <AiOutlineSound size={32} color="#EB6D4A" />
-          <p className="nav__p--links" onClick={() => handleClick("contact")}>
-            Contact
-          </p>
+          <p className="nav__p--links">Contact</p>
         </Link>
       </section>
       <section className="nav__section--links nav--header">
