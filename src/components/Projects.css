@@ -5,11 +5,25 @@
     border-radius: 5px;
     border: none;
     font-size: 1em;
-    margin: 0 1vh 0 1vh;
+    margin: 0 3vh 0 3vh;
     border: .5vh solid #383756
 }
 
 .projects__button:hover {
-    /* text-decoration: underline; */
-    font-size: 1.5em;
+    font-size: 1.3em;
+}
+
+.projects__button--true {
+    color: #FFF;
+    background-color: #383756;
+    padding: .5em;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.3em;
+    margin: 0 1vh 0 1vh;
+    border: .5vh solid #EB6D4A
+}
+
+.projects--btns {
+    width: -webkit-fill-available;
 }

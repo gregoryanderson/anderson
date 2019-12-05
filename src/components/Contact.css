@@ -1,5 +1,6 @@
 .contact--buttons {
     height: 10vh;
+    display:flex;
 }
 .contact--text {
     background-color: #FFF;

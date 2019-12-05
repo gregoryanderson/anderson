@@ -15,15 +15,15 @@ const Nav = props => {
 
   const determineBottomLogo = (props) => {
     if (props.route === "projects"){
-      return (<AiOutlineLaptop size={300} color="#EB6D4A" />)
+      return (<AiOutlineLaptop size={300} color="#454360" />)
     } else if (props.route === "contact"){
-      return (<AiOutlineSound size={300} color="#EB6D4A" />)
+      return (<AiOutlineSound size={300} color="#454360" />)
     } else if (props.route === "experience"){
-      return (<AiOutlineLineChart size={300} color="#EB6D4A" />)
+      return (<AiOutlineLineChart size={300} color="#454360" />)
     } else if (props.route === "journal"){
-      return (<AiOutlineMessage size={300} color="#EB6D4A" />)
+      return (<AiOutlineMessage size={300} color="#454360" />)
     } else {
-      return (<AiOutlineHome size={300} color="#EB6D4A" />)
+      return (<AiOutlineHome size={300} color="#454360" />)
     }
   }
 
