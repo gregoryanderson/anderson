@@ -1,0 +1,11 @@
+.contact--buttons {
+    height: 10vh;
+}
+.contact--text {
+    background-color: #FFF;
+    color: #383756;
+    width: 80%;
+    margin: 5vh auto;
+    padding: 2vh;
+    height: 40vh;
+}

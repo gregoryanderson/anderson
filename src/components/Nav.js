@@ -12,7 +12,6 @@ import "./Nav.css";
 import { Route, Redirect, Link } from "react-router-dom";
 
 const Nav = props => {
-  console.log(props)
 
   const determineBottomLogo = (props) => {
     if (props.route === "projects"){
@@ -55,14 +54,14 @@ const Nav = props => {
           <AiOutlineLaptop size={32} color="#EB6D4A" />
           <p className="nav__p--links">Projects</p>
         </Link>
-        <Link
+        {/* <Link
           to="/journal"
           style={{ textDecoration: "none", color: "#FFF" }}
           className="nav__section--links"
         >
           <AiOutlineForm size={32} color="#EB6D4A" />
           <p className="nav__p--links">Journal</p>
-        </Link>
+        </Link> */}
         <Link
           to="/contact"
           style={{ textDecoration: "none", color: "#FFF" }}

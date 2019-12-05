@@ -1,0 +1,15 @@
+.projects__button {
+    color: #FFF;
+    background-color: #EB6D4A;
+    padding: .5em;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+    margin: 0 1vh 0 1vh;
+    border: .5vh solid #383756
+}
+
+.projects__button:hover {
+    /* text-decoration: underline; */
+    font-size: 1.5em;
+}

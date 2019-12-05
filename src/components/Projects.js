@@ -1,5 +1,5 @@
 import React from "react";
-import "./Main.css";
+import "./Projects.css";
 import {
   AiOutlineLineChart,
   AiOutlineHome,
@@ -14,7 +14,14 @@ import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 const Projects = props => {
   return (
     <section className="main--content">
-      <p>This is the Projects</p>
+      <section className="contact--buttons">
+        <button className="projects__button">Agency</button>
+        <button className="projects__button">Pallette-Picker</button>
+        <button className="projects__button">Heart</button>
+      </section>
+      <section className="contact--text">
+        <p>Here is some text</p>
+      </section>
     </section>
   );
 };

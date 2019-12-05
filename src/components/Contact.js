@@ -1,5 +1,5 @@
 import React from "react";
-import "./Main.css";
+import "./Contact.css";
 import {
   AiOutlineLineChart,
   AiOutlineHome,
@@ -14,7 +14,13 @@ import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 const Contact = props => {
   return (
     <section className="main--content">
-        <p>This is the contact</p>
+      <section className="contact--buttons">
+        <button className="projects__button">Email</button>
+        <button className="projects__button">Phone</button>
+      </section>
+      <section className="contact--text">
+        <p>phone number is 508.902.8048</p>
+      </section>
     </section>
   );
 };

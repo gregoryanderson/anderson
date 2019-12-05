@@ -15,7 +15,7 @@ const Home = props => {
   return (
     <section className="main--content">
       <section id="main--outline">
-        <img src={require("./man.png")} id="main__img" />
+        <img src={require("./GREG-01.png")} id="main__img" />        
         <h1>Gregory Anderson</h1>
         <h1>Software Engineer</h1>
         <section className="main--links">
