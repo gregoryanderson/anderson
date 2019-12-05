@@ -63,7 +63,7 @@ const Experience = props => {
   return (
     <section className="main--content">
       <section className="contact--buttons">
-        <section className="contact--btns">
+        <section className="projects--btns">
           <button
             className={teach ? "projects__button--true" : "projects__button"} onClick={() => handleClick("teach")}
             onClick={() => handleClick("teach")}
@@ -71,7 +71,7 @@ const Experience = props => {
             Preschool Teacher
           </button>
         </section>
-        <section className="contact--btns">
+        <section className="projects--btns">
           <button
             className={husband ? "projects__button--true" : "projects__button"} onClick={() => handleClick("husband")}
             onClick={() => handleClick("husband")}
@@ -79,7 +79,7 @@ const Experience = props => {
             Husband
           </button>
         </section>
-        <section className="contact--btns">
+        <section className="projects--btns">
           <button
             className={soldier ? "projects__button--true" : "projects__button"} onClick={() => handleClick("soldier")}
             onClick={() => handleClick("soldier")}
@@ -87,7 +87,7 @@ const Experience = props => {
             Soldier
           </button>
         </section>
-        <section className="contact--btns"> 
+        <section className="projects--btns"> 
           <button
             className={chief ? "projects__button--true" : "projects__button"} onClick={() => handleClick("chief")}
             onClick={() => handleClick("chief")}
