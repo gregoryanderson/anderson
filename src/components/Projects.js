@@ -38,13 +38,42 @@ const Projects = props => {
 
   const determineText = () => {
     if (agency) {
-      return <p>Agency</p>;
+      return (
+        <>
+          <section className="projects--story">
+            <p>agency</p>
+          </section>
+          <section className="projects--img">
+            <img src={require("./GREG-01.png")} className="projects--image" />
+          </section>
+        </>
+      );
     } else if (heart) {
-      return <p>Heart</p>;
+      return (
+        <>
+          <section className="projects--story">
+            <p>heart</p>
+          </section>
+          <section className="projects--img">
+            <img src={require("./GREG-01.png")} className="projects--image" />
+          </section>
+        </>
+      );
     } else if (palette) {
-      return <p>Palette</p>;
+      return (
+        <>
+          <section className="projects--story">
+            <p>palette</p>
+          </section>
+          <section className="projects--img">
+            <img src={require("./GREG-01.png")} className="projects--image" />
+          </section>
+        </>
+      );
     } else {
-      return <img src={require("./GREG-01.png")} id="main__img" />;
+      return <section>
+        <img src={require("./GREG-01.png")} className="projects--img" />
+      </section>;
     }
   };
 
@@ -52,13 +81,28 @@ const Projects = props => {
     <section className="main--content">
       <section className="contact--buttons">
         <section className="projects--btns">
-          <button className="projects__button" onClick={() => handleClick("agency")}>Agency</button>
+          <button
+            className="projects__button"
+            onClick={() => handleClick("agency")}
+          >
+            Agency
+          </button>
         </section>
         <section className="projects--btns">
-          <button className="projects__button" onClick={() => handleClick("palette")}>Pallette-Picker</button>
+          <button
+            className="projects__button"
+            onClick={() => handleClick("palette")}
+          >
+            Pallette-Picker
+          </button>
         </section>
         <section className="projects--btns">
-          <button className="projects__button" onClick={() => handleClick("heart")}>Heart</button>
+          <button
+            className="projects__button"
+            onClick={() => handleClick("heart")}
+          >
+            Heart
+          </button>
         </section>
       </section>
       <section className="contact--text">{determineText()}</section>

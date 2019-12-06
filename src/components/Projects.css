@@ -30,3 +30,20 @@
 .projects--btns {
     width: -webkit-fill-available;
 }
+
+.projects--story {
+    /* background-color: red; */
+    border: 1px solid #383756;
+    width: 200%;
+}
+
+
+.projects--image {
+    /* margin: 7vh 0 3vh 0; */
+    width: 100%;
+    /* height: 30vh; */
+}
+
+.projects--img {
+    width: 30vh;
+}

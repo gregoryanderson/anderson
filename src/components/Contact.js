@@ -28,11 +28,27 @@ const Contact = props => {
 
   const determineText = () => {
     if (phone) {
-      return <p>Phone number is 555-5555</p>;
+      return         <>
+      <section className="projects--story">
+        <p>phone</p>
+      </section>
+      <section className="projects--img">
+        <img src={require("./GREG-01.png")} className="projects--image" />
+      </section>
+    </>;
     } else if (email) {
-      return <p>Email is email@email</p>;
+      return         <>
+      <section className="projects--story">
+        <p>email</p>
+      </section>
+      <section className="projects--img">
+        <img src={require("./GREG-01.png")} className="projects--image" />
+      </section>
+    </>;
     } else {
-      return <img src={require("./GREG-01.png")} id="main__img" />;
+      return <section>
+      <img src={require("./GREG-01.png")} className="projects--img" />
+    </section>;
     }
   };
 

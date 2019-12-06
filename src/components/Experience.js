@@ -48,15 +48,53 @@ const Experience = props => {
 
   const determineText = () => {
     if (teach) {
-      return <p>teacher</p>;
+      return (
+        <>
+          <section className="projects--story">
+            <p>teacher</p>
+          </section>
+          <section className="projects--img">
+            <img src={require("./GREG-01.png")} className="projects--image" />
+          </section>
+        </>
+      );
     } else if (soldier) {
-      return <p>soldier</p>;
+      return (
+        <>
+          <section className="projects--story">
+            <p>soldier</p>
+          </section>
+          <section className="projects--img">
+            <img src={require("./GREG-01.png")} className="projects--image" />
+          </section>
+        </>
+      );
     } else if (husband) {
-      return <p>husband</p>;
+      return (
+        <>
+          <section className="projects--story">
+            <p>husband</p>
+          </section>
+          <section className="projects--img">
+            <img src={require("./GREG-01.png")} className="projects--image" />
+          </section>
+        </>
+      );
     } else if (chief) {
-      return <p>chief</p>;
+      return (
+        <>
+          <section className="projects--story">
+            <p>chief</p>
+          </section>
+          <section className="projects--img">
+            <img src={require("./GREG-01.png")} className="projects--image" />
+          </section>
+        </>
+      );
     } else {
-      return <img src={require("./GREG-01.png")} id="main__img" />;
+      return <section>
+      <img src={require("./GREG-01.png")} className="projects--img" />
+    </section>;
     }
   };
 
@@ -65,7 +103,8 @@ const Experience = props => {
       <section className="contact--buttons">
         <section className="projects--btns">
           <button
-            className={teach ? "projects__button--true" : "projects__button"} onClick={() => handleClick("teach")}
+            className={teach ? "projects__button--true" : "projects__button"}
+            onClick={() => handleClick("teach")}
             onClick={() => handleClick("teach")}
           >
             Preschool Teacher
@@ -73,7 +112,8 @@ const Experience = props => {
         </section>
         <section className="projects--btns">
           <button
-            className={husband ? "projects__button--true" : "projects__button"} onClick={() => handleClick("husband")}
+            className={husband ? "projects__button--true" : "projects__button"}
+            onClick={() => handleClick("husband")}
             onClick={() => handleClick("husband")}
           >
             Husband
@@ -81,15 +121,17 @@ const Experience = props => {
         </section>
         <section className="projects--btns">
           <button
-            className={soldier ? "projects__button--true" : "projects__button"} onClick={() => handleClick("soldier")}
+            className={soldier ? "projects__button--true" : "projects__button"}
+            onClick={() => handleClick("soldier")}
             onClick={() => handleClick("soldier")}
           >
             Soldier
           </button>
         </section>
-        <section className="projects--btns"> 
+        <section className="projects--btns">
           <button
-            className={chief ? "projects__button--true" : "projects__button"} onClick={() => handleClick("chief")}
+            className={chief ? "projects__button--true" : "projects__button"}
+            onClick={() => handleClick("chief")}
             onClick={() => handleClick("chief")}
           >
             Branch Chief

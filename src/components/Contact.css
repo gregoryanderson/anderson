@@ -9,4 +9,6 @@
     margin: 5vh auto;
     padding: 2vh;
     height: 40vh;
+    display: flex;
+    justify-content: center;
 }
