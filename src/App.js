@@ -7,6 +7,7 @@ import { Route, Redirect } from "react-router-dom";
 export const App = props => {
   
   return (
+
     <div className="App">
       {
         <Route

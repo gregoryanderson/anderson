@@ -1,18 +1,24 @@
 .projects__button {
     color: #FFF;
     background-color: #EB6D4A;
+    transition: border 0.2s ease-out;
+    transition: padding 0.2s ease-out;
     padding: .5em;
     border-radius: 5px;
     border: none;
     font-size: .7em;
     width: 80%;
     margin: 0 3vh 0 3vh;
-    border: .5vh solid #383756
+    border: .5vh solid #383756;
+    cursor: pointer
 }
 
 .projects__button:hover {
     font-size: .7em;
     padding: .8em;
+    border: .5vh solid #FFF;
+    cursor: pointer
+
 }
 
 .projects__button--true {
@@ -26,7 +32,7 @@
     margin: 0 1vh 0 1vh;
     border: .5vh solid #FFF;
     width: 80%;
-
+    cursor: pointer
 }
 
 .projects--btns {
