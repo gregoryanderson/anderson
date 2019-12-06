@@ -11,18 +11,20 @@
 }
 
 .projects__button:hover {
-    font-size: .8em;
+    font-size: .7em;
+    padding: .8em;
 }
 
 .projects__button--true {
-    color: #383756;
-    background-color: #FFF;
-    padding: .5em;
+    /* color: #383756; */
+    color: #FFF;
+    background-color: #EB6D4A;
+    padding: .8em;
     border-radius: 5px;
     border: none;
-    font-size: .8em;
+    font-size: .7em;
     margin: 0 1vh 0 1vh;
-    border: .5vh solid #383756;
+    border: .5vh solid #FFF;
     width: 80%;
 
 }

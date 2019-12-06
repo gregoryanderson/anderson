@@ -82,7 +82,7 @@ const Projects = props => {
       <section className="contact--buttons">
         <section className="projects--btns">
           <button
-            className="projects__button"
+            className={agency ? "projects__button--true" : "projects__button"}
             onClick={() => handleClick("agency")}
           >
             Agency
@@ -90,7 +90,7 @@ const Projects = props => {
         </section>
         <section className="projects--btns">
           <button
-            className="projects__button"
+            className={palette ? "projects__button--true" : "projects__button"}
             onClick={() => handleClick("palette")}
           >
             Pallette-Picker
@@ -98,7 +98,7 @@ const Projects = props => {
         </section>
         <section className="projects--btns">
           <button
-            className="projects__button"
+            className={heart ? "projects__button--true" : "projects__button"}
             onClick={() => handleClick("heart")}
           >
             Heart
