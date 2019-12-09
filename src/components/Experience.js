@@ -1,15 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Main.css";
-import {
-  AiOutlineLineChart,
-  AiOutlineHome,
-  AiOutlineLaptop,
-  AiOutlineMessage,
-  AiOutlineSound,
-  AiOutlineForm,
-  AiOutlineRocket
-} from "react-icons/ai";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 const Experience = props => {
   const [teach, setTeach] = useState(false);
@@ -54,7 +44,7 @@ const Experience = props => {
             <p>teacher</p>
           </section>
           <section className="projects--img">
-            <img src={require("./GREG-01.png")} className="projects--image" />
+            <img src={require("./GREG-01.png")} alt="Gregory Anderson" className="projects--image" />
           </section>
         </>
       );
@@ -65,7 +55,7 @@ const Experience = props => {
             <p>soldier</p>
           </section>
           <section className="projects--img">
-            <img src={require("./GREG-01.png")} className="projects--image" />
+            <img src={require("./GREG-01.png")} alt="Gregory Anderson" className="projects--image" />
           </section>
         </>
       );
@@ -76,7 +66,7 @@ const Experience = props => {
             <p>husband</p>
           </section>
           <section className="projects--img">
-            <img src={require("./GREG-01.png")} className="projects--image" />
+            <img src={require("./GREG-01.png")} alt="Gregory Anderson" className="projects--image" />
           </section>
         </>
       );
@@ -87,13 +77,13 @@ const Experience = props => {
             <p>chief</p>
           </section>
           <section className="projects--img">
-            <img src={require("./GREG-01.png")} className="projects--image" />
+            <img src={require("./GREG-01.png")} alt="Gregory Anderson" className="projects--image" />
           </section>
         </>
       );
     } else {
       return <section>
-      <img src={require("./GREG-01.png")} className="projects--img" />
+      <img src={require("./GREG-01.png")} alt="Gregory Anderson" className="projects--img" />
     </section>;
     }
   };
@@ -105,7 +95,6 @@ const Experience = props => {
           <button
             className={teach ? "projects__button--true" : "projects__button"}
             onClick={() => handleClick("teach")}
-            onClick={() => handleClick("teach")}
           >
             Preschool Teacher
           </button>
@@ -113,7 +102,6 @@ const Experience = props => {
         <section className="projects--btns">
           <button
             className={husband ? "projects__button--true" : "projects__button"}
-            onClick={() => handleClick("husband")}
             onClick={() => handleClick("husband")}
           >
             Husband
@@ -123,7 +111,6 @@ const Experience = props => {
           <button
             className={soldier ? "projects__button--true" : "projects__button"}
             onClick={() => handleClick("soldier")}
-            onClick={() => handleClick("soldier")}
           >
             Soldier
           </button>
@@ -131,7 +118,6 @@ const Experience = props => {
         <section className="projects--btns">
           <button
             className={chief ? "projects__button--true" : "projects__button"}
-            onClick={() => handleClick("chief")}
             onClick={() => handleClick("chief")}
           >
             Branch Chief

@@ -1,15 +1,5 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { Component } from "react";
 import "./Game.css";
-import {
-  AiOutlineLineChart,
-  AiOutlineHome,
-  AiOutlineLaptop,
-  AiOutlineMessage,
-  AiOutlineSound,
-  AiOutlineForm,
-  AiOutlineRocket
-} from "react-icons/ai";
-import { FaLinkedinIn, FaGithub, FaCommentsDollar } from "react-icons/fa";
 
 class Game extends Component {
   constructor(props) {
@@ -38,14 +28,23 @@ class Game extends Component {
         left: 575,
         top: 700
       },
-      reset: false
+      reset: false,
+      number: null
     };
     this.handleKeyPress = this.handleKeyPress.bind(this);
-    console.log(props)
+    this.drawHero = this.drawHero.bind(this);
+    this.drawMissiles = this.drawMissiles.bind(this);
+    this.moveMissiles = this.moveMissiles.bind(this);
+    this.drawEnemies = this.drawEnemies.bind(this);
+    this.moveEnemies = this.moveEnemies.bind(this);
+    this.collisionDetection = this.collisionDetection.bind(this);
+
+
+    console.log(props);
   }
 
-
   handleKeyPress(e) {
+      console.log("run")
     let hero = this.state.hero;
     let missiles = this.state.missiles;
     if (e.keyCode === 37) {
@@ -85,6 +84,7 @@ class Game extends Component {
 
   moveMissiles() {
     let missiles = this.state.missiles;
+    console.log("miss", missiles)
     for (var i = 0; i < missiles.length; i++) {
       missiles[i].top = missiles[i].top - 8;
     }
@@ -130,9 +130,8 @@ class Game extends Component {
   //       this.state.reset = !this.state.reset
   //   }
 
-  gameLoop(game) {
-    console.log(game);
-    setTimeout(this.reset, 1000);
+  gameLoop() {
+      console.log('fart')
     this.moveMissiles();
     this.drawMissiles();
     this.moveEnemies();
@@ -142,20 +141,34 @@ class Game extends Component {
   }
 
   componentDidMount() {
-    console.log("boom");
-    document.addEventListener("keydown", this.handleKeyPress);
-    this.gameLoop(this);
+      this.interval = setInterval(() => {
+      document.addEventListener("keydown", this.handleKeyPress);
+      this.gameLoop()
+      console.log(this.state.number);
+      this.setState({ number: this.state.number + 1 });
+      this.setState({
+        missiles: this.state.missiles,
+        enemies: this.state.enemies,
+        hero: this.state.hero
+      });
+    }, 100);
   }
 
-  handleClick(e) {
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  handleClick() {
     console.log("lalala", this.state.reset);
     //   this.setState({reset: !this.state.reset})
-    this.props.callReset(this.state.reset);
+    let opposite = !this.state.reset;
+    this.props.callReset(opposite);
   }
 
   render() {
     return (
       <section className="game">
+        <h1>{this.state.number}</h1>
         <h1>Invaders</h1>
         <button onClick={e => this.handleClick(e)}>Start Game</button>
         <div id="hero"></div>

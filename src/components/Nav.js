@@ -5,11 +5,10 @@ import {
   AiOutlineLaptop,
   AiOutlineMessage,
   AiOutlineSound,
-  AiOutlineForm,
-  AiOutlineRocket
+
 } from "react-icons/ai";
 import "./Nav.css";
-import { Route, Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Nav = props => {
 

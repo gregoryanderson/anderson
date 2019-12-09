@@ -1,21 +1,12 @@
 import React from "react";
 import "./Main.css";
-import {
-  AiOutlineLineChart,
-  AiOutlineHome,
-  AiOutlineLaptop,
-  AiOutlineMessage,
-  AiOutlineSound,
-  AiOutlineForm,
-  AiOutlineRocket
-} from "react-icons/ai";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 const Home = props => {
   return (
     <section className="main--content">
       <section id="main--outline">
-        <img src={require("./GREG-01.png")} id="main__img" />        
+        <img src={require("./GREG-01.png")} alt="Gregory Anderson" id="main__img" />        
         <h1>Gregory Anderson</h1>
         <h1>Software Engineer</h1>
         <section className="main--links">

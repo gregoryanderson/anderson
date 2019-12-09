@@ -1,18 +1,10 @@
 import React from "react";
 import "./Main.css";
 import {
-  AiOutlineLineChart,
-  AiOutlineHome,
-  AiOutlineLaptop,
-  AiOutlineMessage,
-  AiOutlineSound,
-  AiOutlineForm,
   AiOutlineRocket
 } from "react-icons/ai";
-import { Route, Redirect, Link } from "react-router-dom";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import Home from "./Home";
-import Journal from "./Journal";
 import Experience from "./Experience";
 import Contact from "./Contact";
 import Projects from "./Projects";
@@ -25,9 +17,6 @@ const Main = props => {
     }
     if (props.route === "experience") {
       return <Experience />;
-    }
-    if (props.route === "journal") {
-      return <Journal />;
     }
     if (props.route === "contact") {
       return <Contact />;

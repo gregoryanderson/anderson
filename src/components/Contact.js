@@ -1,15 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Contact.css";
-import {
-  AiOutlineLineChart,
-  AiOutlineHome,
-  AiOutlineLaptop,
-  AiOutlineMessage,
-  AiOutlineSound,
-  AiOutlineForm,
-  AiOutlineRocket
-} from "react-icons/ai";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
+
 
 const Contact = props => {
   const [email, setEmail] = useState(false);
@@ -33,7 +24,7 @@ const Contact = props => {
         <p>phone</p>
       </section>
       <section className="projects--img">
-        <img src={require("./GREG-01.png")} className="projects--image" />
+        <img src={require("./GREG-01.png")} alt="Gregory Anderson" className="projects--image" />
       </section>
     </>;
     } else if (email) {
@@ -42,12 +33,12 @@ const Contact = props => {
         <p>email</p>
       </section>
       <section className="projects--img">
-        <img src={require("./GREG-01.png")} className="projects--image" />
+        <img src={require("./GREG-01.png")} alt="Gregory Anderson" className="projects--image" />
       </section>
     </>;
     } else {
       return <section>
-      <img src={require("./GREG-01.png")} className="projects--img" />
+      <img src={require("./GREG-01.png")} alt="Gregory Anderson" className="projects--img" />
     </section>;
     }
   };

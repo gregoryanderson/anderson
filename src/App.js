@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import "./App.css";
 import Main from "./components/Main";
 import Nav from "./components/Nav";
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 class App extends Component {
   constructor() {
@@ -10,13 +10,12 @@ class App extends Component {
     this.state = {
       reset: false
     };
-
-
+    this.callReset = this.callReset.bind(this)
   }
 
   callReset(hm) {
-    console.log(hm)
-    this.setState({reset: hm}).bind(this)
+    console.log(this)
+    this.setState({reset: hm})
   }
 
   render() {

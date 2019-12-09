@@ -1,15 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Projects.css";
-import {
-  AiOutlineLineChart,
-  AiOutlineHome,
-  AiOutlineLaptop,
-  AiOutlineMessage,
-  AiOutlineSound,
-  AiOutlineForm,
-  AiOutlineRocket
-} from "react-icons/ai";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 const Projects = props => {
   const [agency, setAgency] = useState(false);
@@ -44,7 +34,7 @@ const Projects = props => {
             <p>agency</p>
           </section>
           <section className="projects--img">
-            <img src={require("./GREG-01.png")} className="projects--image" />
+            <img src={require("./GREG-01.png")} alt="Gregory Anderson" className="projects--image" />
           </section>
         </>
       );
@@ -55,7 +45,7 @@ const Projects = props => {
             <p>heart</p>
           </section>
           <section className="projects--img">
-            <img src={require("./GREG-01.png")} className="projects--image" />
+            <img src={require("./GREG-01.png")}  alt="Gregory Anderson" className="projects--image" />
           </section>
         </>
       );
@@ -66,13 +56,13 @@ const Projects = props => {
             <p>palette</p>
           </section>
           <section className="projects--img">
-            <img src={require("./GREG-01.png")} className="projects--image" />
+            <img src={require("./GREG-01.png")}  alt="Gregory Anderson" className="projects--image" />
           </section>
         </>
       );
     } else {
       return <section>
-        <img src={require("./GREG-01.png")} className="projects--img" />
+        <img src={require("./GREG-01.png")}  alt="Gregory Anderson" className="projects--img" />
       </section>;
     }
   };
