@@ -9,12 +9,14 @@ import {
   AiOutlineForm,
   AiOutlineRocket
 } from "react-icons/ai";
+import { Route, Redirect, Link } from "react-router-dom";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import Home from "./Home";
 import Journal from "./Journal";
 import Experience from "./Experience";
 import Contact from "./Contact";
 import Projects from "./Projects";
+import Game from "./Game";
 
 const Main = props => {
   const determineTheRoute = () => {
@@ -33,12 +35,17 @@ const Main = props => {
     if (props.route === "projects") {
       return <Projects />;
     }
+    if (props.route === "game") {
+      return <Game route="game" callReset={props.callReset}/>;
+    }
   };
 
   return (
     <section className="Main">
       <section id="main--rocket">
-        <AiOutlineRocket size={64} color="#EB6D4A" />
+        <Link to="/game">
+          <AiOutlineRocket size={64} color="#EB6D4A" />
+        </Link>
       </section>
       {determineTheRoute()}
     </section>
