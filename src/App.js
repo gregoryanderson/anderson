@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import "./App.css";
 import Main from "./components/Main";
 import Nav from "./components/Nav";
+import Game from './components/Game'
 import { Route } from "react-router-dom";
 
 class App extends Component {
@@ -93,8 +94,7 @@ class App extends Component {
             path="/game"
             render={() => (
               <>
-                <Nav route="" />
-                <Main route="game" callReset={this.callReset}/>
+                <Game route="game" callReset={this.callReset}/>
               </>
             )}
           />

@@ -11,18 +11,18 @@ class Game extends Component {
         { left: 300, top: 100 },
         { left: 400, top: 100 },
         { left: 500, top: 100 },
-        { left: 600, top: 100 },
-        { left: 700, top: 100 },
-        { left: 800, top: 100 },
-        { left: 900, top: 100 },
+        // { left: 600, top: 100 },
+        // { left: 700, top: 100 },
+        // { left: 800, top: 100 },
+        // { left: 900, top: 100 },
         { left: 200, top: 175 },
         { left: 300, top: 175 },
         { left: 400, top: 175 },
-        { left: 500, top: 175 },
-        { left: 600, top: 175 },
-        { left: 700, top: 175 },
-        { left: 800, top: 175 },
-        { left: 900, top: 175 }
+        { left: 500, top: 175 }
+        // { left: 600, top: 175 },
+        // { left: 700, top: 175 },
+        // { left: 800, top: 175 },
+        // { left: 900, top: 175 }
       ],
       hero: {
         left: 575,
@@ -38,13 +38,9 @@ class Game extends Component {
     this.drawEnemies = this.drawEnemies.bind(this);
     this.moveEnemies = this.moveEnemies.bind(this);
     this.collisionDetection = this.collisionDetection.bind(this);
-
-
-    console.log(props);
   }
 
   handleKeyPress(e) {
-      console.log("run")
     let hero = this.state.hero;
     let missiles = this.state.missiles;
     if (e.keyCode === 37) {
@@ -84,7 +80,6 @@ class Game extends Component {
 
   moveMissiles() {
     let missiles = this.state.missiles;
-    console.log("miss", missiles)
     for (var i = 0; i < missiles.length; i++) {
       missiles[i].top = missiles[i].top - 8;
     }
@@ -112,65 +107,59 @@ class Game extends Component {
     let missiles = this.state.missiles;
     for (var enemy = 0; enemy < enemies.length; enemy++) {
       for (var missile = 0; missile < missiles.length; missile++) {
-        if (
-          missiles[missile].left >= enemies[enemy].left &&
-          missiles[missile].left <= enemies[enemy].left + 50 &&
-          missiles[missile].top <= enemies[enemy].top + 50 &&
-          missiles[missile].top >= enemies[enemy].top
-        ) {
-          enemies.splice(enemy, 1);
-          missiles.splice(missile, 1);
+        if (!missiles[missile] || !enemies[enemy]) {
+          console.log("miss", missiles[missile]);
+          console.log("enem", enemies[enemy]);
+          return;
+        } else {
+          if (
+            missiles[missile].left >= enemies[enemy].left &&
+            missiles[missile].left <= enemies[enemy].left + 50 &&
+            missiles[missile].top <= enemies[enemy].top + 50 &&
+            missiles[missile].top >= enemies[enemy].top
+          ) {
+            enemies.splice(enemy, 1);
+            missiles.splice(missile, 1);
+          }
+
+        //   if (missiles[missile].top < 0) {
+        //     missiles.splice(missile, 1);
+        //   }
         }
       }
     }
   }
 
-  //   reset() {
-  //       console.log(this.state.reset)
-  //       this.state.reset = !this.state.reset
-  //   }
-
   gameLoop() {
-      console.log('fart')
     this.moveMissiles();
     this.drawMissiles();
     this.moveEnemies();
     this.drawEnemies();
     this.collisionDetection();
-    // this.state.reset = !this.state.reset;
   }
 
   componentDidMount() {
-      this.interval = setInterval(() => {
+    this.interval = setInterval(() => {
       document.addEventListener("keydown", this.handleKeyPress);
-      this.gameLoop()
-      console.log(this.state.number);
+      this.gameLoop();
       this.setState({ number: this.state.number + 1 });
       this.setState({
         missiles: this.state.missiles,
         enemies: this.state.enemies,
         hero: this.state.hero
       });
-    }, 100);
+    }, 50);
   }
 
   componentWillUnmount() {
     clearInterval(this.interval);
   }
 
-  handleClick() {
-    console.log("lalala", this.state.reset);
-    //   this.setState({reset: !this.state.reset})
-    let opposite = !this.state.reset;
-    this.props.callReset(opposite);
-  }
-
   render() {
     return (
       <section className="game">
-        <h1>{this.state.number}</h1>
+        <h1>{this.state.missiles.length}</h1>
         <h1>Invaders</h1>
-        <button onClick={e => this.handleClick(e)}>Start Game</button>
         <div id="hero"></div>
         <div id="missiles"></div>
         <div id="enemies"></div>

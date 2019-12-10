@@ -111,7 +111,7 @@ const Game = props => {
   }
 
   function gameLoop() {
-    setTimeout(gameLoop, 1000);
+    // setTimeout(gameLoop, 1000);
     moveMissiles();
     drawMissiles();
     moveEnemies();
