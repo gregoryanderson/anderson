@@ -121,25 +121,26 @@ class Game extends Component {
             enemies.splice(enemy, 1);
             missiles.splice(missile, 1);
           }
-
-        //   if (missiles[missile].top < 0) {
-        //     missiles.splice(missile, 1);
-        //   }
         }
       }
     }
   }
 
   gameLoop() {
-    this.moveMissiles();
-    this.drawMissiles();
-    this.moveEnemies();
-    this.drawEnemies();
-    this.collisionDetection();
+    if (this.state.enemies.length) {
+      this.moveMissiles();
+      this.drawMissiles();
+      this.moveEnemies();
+      this.drawEnemies();
+      this.collisionDetection();
+    } else {
+        this.setState({reset: true})
+    }
   }
 
   componentDidMount() {
     this.interval = setInterval(() => {
+      console.log(this.state.enemies);
       document.addEventListener("keydown", this.handleKeyPress);
       this.gameLoop();
       this.setState({ number: this.state.number + 1 });
@@ -148,7 +149,7 @@ class Game extends Component {
         enemies: this.state.enemies,
         hero: this.state.hero
       });
-    }, 50);
+    }, 30);
   }
 
   componentWillUnmount() {
@@ -158,11 +159,12 @@ class Game extends Component {
   render() {
     return (
       <section className="game">
-        <h1>{this.state.missiles.length}</h1>
+        <h1>{this.state.enemies.length}</h1>
         <h1>Invaders</h1>
         <div id="hero"></div>
         <div id="missiles"></div>
         <div id="enemies"></div>
+        {this.state.reset && <p>you have won</p>}
       </section>
     );
   }
