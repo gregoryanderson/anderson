@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import Modal from "react-modal";
 import "./Game.css";
 
 class Game extends Component {
@@ -28,8 +29,10 @@ class Game extends Component {
         left: 575,
         top: 700
       },
-      reset: false,
-      number: null
+      winner: false,
+      loser: false,
+      number: null,
+      showModal: false,
     };
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.drawHero = this.drawHero.bind(this);
@@ -99,6 +102,14 @@ class Game extends Component {
     let enemies = this.state.enemies;
     for (var i = 0; i < enemies.length; i++) {
       enemies[i].top = enemies[i].top + 1;
+      if (enemies[i].top >= 600) {
+        console.log("in");
+        console.log(this.state.enemies);
+        this.setState({ loser: true });
+        this.setState({ showModal: true });
+        // this.setState({ enemies: [] });
+        // fn called stop enemies
+      }
     }
   }
 
@@ -108,10 +119,9 @@ class Game extends Component {
     for (var enemy = 0; enemy < enemies.length; enemy++) {
       for (var missile = 0; missile < missiles.length; missile++) {
         if (!missiles[missile] || !enemies[enemy]) {
-          console.log("miss", missiles[missile]);
-          console.log("enem", enemies[enemy]);
           return;
         } else {
+          console.log(enemies[enemy]);
           if (
             missiles[missile].left >= enemies[enemy].left &&
             missiles[missile].left <= enemies[enemy].left + 50 &&
@@ -126,21 +136,49 @@ class Game extends Component {
     }
   }
 
+  checkForWinner() {
+      if(!this.state.enemies.length){
+          this.setState({winner:true})
+      }
+  }
+
   gameLoop() {
-    if (this.state.enemies.length) {
+    if (!this.winner || !this.loser) {
       this.moveMissiles();
       this.drawMissiles();
       this.moveEnemies();
       this.drawEnemies();
       this.collisionDetection();
-    } else {
-        this.setState({reset: true})
-    }
+      this.checkForWinner();
+    } 
+    // else {
+    //   this.setState({ winner: true });
+    // }
   }
+
+//   determineModal() {
+//     if (this.state.winner === true) {
+//       return (
+//         <Modal>
+//           <p>You have won</p>
+//           <button onClick={this.setState({ showModal: false })}></button>
+//         </Modal>
+//       );
+//     }
+
+//     if (this.state.loser === true) {
+//       return (
+//         <Modal>
+//           <p>You have lost</p>
+//           <button onClick={this.setState({ showModal: false })}></button>
+//         </Modal>
+//       );
+//     }
+//   }
 
   componentDidMount() {
     this.interval = setInterval(() => {
-      console.log(this.state.enemies);
+      //   console.log(this.state.enemies);
       document.addEventListener("keydown", this.handleKeyPress);
       this.gameLoop();
       this.setState({ number: this.state.number + 1 });
@@ -149,7 +187,7 @@ class Game extends Component {
         enemies: this.state.enemies,
         hero: this.state.hero
       });
-    }, 30);
+    }, 60);
   }
 
   componentWillUnmount() {
@@ -164,7 +202,20 @@ class Game extends Component {
         <div id="hero"></div>
         <div id="missiles"></div>
         <div id="enemies"></div>
-        {this.state.reset && <p>you have won</p>}
+        {this.state.winner && <p>you have won</p>}
+        {this.state.loser && <p>you have looooooost</p>}
+        {this.state.winner && (
+          <section className="modal">
+            <p>You have won</p>
+            {/* <button onClick={this.setState({ showModal: false })}></button> */}
+          </section>
+        )}
+        {this.state.loser && (
+          <section className="modal">
+            <p>You have loooost</p>
+            {/* <button onClick={this.setState({ showModal: false })}></button> */}
+          </section>
+        )}
       </section>
     );
   }

@@ -42,3 +42,13 @@ div.enemy {
     background-image: url('assets/enemy.png');
     position: absolute;
 }
+
+.modal {
+    top: 500;
+    left: 300;
+    height:10vh;
+    width: 20vh;
+    background-color: yellow;
+    position: absolute;
+
+}
