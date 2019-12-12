@@ -23,7 +23,8 @@ class Game extends Component {
       winner: false,
       loser: false,
       toggle: true,
-      round: 0
+      round: 0,
+      score: null
     };
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.drawHero = this.drawHero.bind(this);
@@ -143,7 +144,26 @@ class Game extends Component {
     this.setState({ loser: false });
     this.setState({ missiles: [] });
     this.setState({ hero: { top: 700, left: 350 } });
+    // this.setScore(roundNum)
   }
+
+//   determineBonus(round){
+//       console.log('called', round)
+//     if (round === 0){
+//         console.log('called when i want')
+//         this.setState({score: 160})
+//     } else if (round === 1){
+//         this.setState({score: 160})
+//     } else if (round === 2){
+//         this.setState({score: 160})
+//     } else if (round === 3){
+//         this.setState({score: 160})
+//     } else if (round === 4){
+//         this.setState({score: 160})
+//     } else {
+//         this.setState({score: 160})
+//     }
+//   }
 
   setEnemyState(num) {
     if (num === 0) {
@@ -246,8 +266,31 @@ class Game extends Component {
     }
   }
 
+  determineScore() {
+    let kills = 8 - this.state.enemies.length;
+    let bonus = this.determineBonus()
+    let total = (this.state.round +1) * kills * 20 + bonus;
+    this.setState({ score: total });
+  }
+
+  determineBonus(){
+  let round = this.state.round;
+  if (round === 0){
+    return 0;
+  } else if (round === 1){
+    return 160;
+  } else if (round === 2){
+    return 480;
+  } else if (round === 3){
+    return 960;
+  } else if (round === 4){
+    return 1600;
+  } else {
+    return 2400;
+  }
+}
+
   gameLoop() {
-    console.log(this.state.round);
     if (!this.winner || !this.loser) {
       this.moveMissiles();
       this.drawMissiles();
@@ -255,6 +298,7 @@ class Game extends Component {
       this.drawEnemies();
       this.collisionDetection();
       this.checkForWinner();
+      this.determineScore();
       this.toggleEnemies(this.state.toggle);
     }
   }
@@ -269,7 +313,7 @@ class Game extends Component {
         enemies: this.state.enemies,
         hero: this.state.hero
       });
-    }, 10);
+    }, 50);
   }
 
   componentWillUnmount() {
@@ -280,6 +324,7 @@ class Game extends Component {
     return (
       <section className="game">
         <h1>{this.state.enemies.length}</h1>
+        <h1>{this.state.score}</h1>
         <h1>Invaders</h1>
         <div id="hero"></div>
         <div id="missiles"></div>
