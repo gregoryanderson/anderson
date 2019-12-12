@@ -1,8 +1,6 @@
 import React from "react";
 import "./Main.css";
-import {
-  AiOutlineRocket
-} from "react-icons/ai";
+import { AiOutlineRocket } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Home from "./Home";
 import Experience from "./Experience";
@@ -13,29 +11,65 @@ import Game from "./Game";
 const Main = props => {
   const determineTheRoute = () => {
     if (props.route === "home" || props.route === "") {
-      return <Home />;
+      return (
+        <>
+          <section id="main--rocket">
+            <Link to="/game">
+              <AiOutlineRocket size={64} color="#EB6D4A" />
+            </Link>
+          </section>
+          <Home />
+        </>
+      );
     }
     if (props.route === "experience") {
-      return <Experience />;
+      return (
+        <>
+          <section id="main--rocket">
+            <Link to="/game">
+              <AiOutlineRocket size={64} color="#EB6D4A" />
+            </Link>
+          </section>
+          <Home />
+        </>
+      );
     }
     if (props.route === "contact") {
-      return <Contact />;
+      return (
+        <>
+          <section id="main--rocket">
+            <Link to="/game">
+              <AiOutlineRocket size={64} color="#EB6D4A" />
+            </Link>
+          </section>
+          <Home />
+        </>
+      );
     }
     if (props.route === "projects") {
-      return <Projects />;
+      return (
+        <>
+          <section id="main--rocket">
+            <Link to="/game">
+              <AiOutlineRocket size={64} color="#EB6D4A" />
+            </Link>
+          </section>
+          <Home />
+          </>
+      );
     }
     if (props.route === "game") {
-      return <Game route="game" callReset={props.callReset}/>;
+      return (
+        <section className="main--content">
+          <Game route="game" callReset={props.callReset} />;
+        </section>
+
+      )
     }
   };
 
   return (
     <section className="Main">
-      <section id="main--rocket">
-        <Link to="/game">
-          <AiOutlineRocket size={64} color="#EB6D4A" />
-        </Link>
-      </section>
       {determineTheRoute()}
     </section>
   );

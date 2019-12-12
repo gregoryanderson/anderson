@@ -1,12 +1,14 @@
 .game {
     /* transition: background-image 1.0s ease; */
     /* background-image: url('assets/background.png'); */
-    background-color: #383756;
+    /* background-color: #FFF; */
     position: absolute;
-    height: 100vh;
-    /* margin: 10vh ; */
+    height: 78vh;
+    margin: 1vh 1vh 1vh 0;
+    background-color: #454360;
+    /* align-content: center; */
     /* 10vh 10vh 10vh; */
-    width: 100%;
+    width: 58%;
     /* border: 1px solid red; */
 }
 
@@ -17,7 +19,7 @@ div#hero {
     background-image: url('assets/hero.png');
     position: absolute;
     left: 350px;
-    top: 700px; 
+    top: 500px; 
 }
 
 div#missiles {
@@ -48,4 +50,9 @@ div.enemy {
 
 div.enemy-toggle{
     display: none;
+}
+
+.text {
+    top: 0;
+    left: 0;
 }

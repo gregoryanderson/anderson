@@ -94,7 +94,8 @@ class App extends Component {
             path="/game"
             render={() => (
               <>
-                <Game route="game" callReset={this.callReset}/>
+                <Nav route="game"/>
+                <Main route="game" callReset={this.callReset}/>
               </>
             )}
           />

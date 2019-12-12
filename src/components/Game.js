@@ -7,18 +7,18 @@ class Game extends Component {
     this.state = {
       missiles: [],
       enemies: [
-        { left: 200, top: 100, row: 1 },
-        { left: 300, top: 100, row: 1 },
-        { left: 400, top: 100, row: 1 },
-        { left: 500, top: 100, row: 1 },
-        { left: 200, top: 175, row: 2 },
-        { left: 300, top: 175, row: 2 },
-        { left: 400, top: 175, row: 2 },
-        { left: 500, top: 175, row: 2 }
+        { left: 200, top: 0, row: 1 },
+        { left: 300, top: 0, row: 1 },
+        { left: 400, top: 0, row: 1 },
+        { left: 500, top: 0, row: 1 },
+        { left: 200, top: 75, row: 2 },
+        { left: 300, top: 75, row: 2 },
+        { left: 400, top: 75, row: 2 },
+        { left: 500, top: 75, row: 2 }
       ],
       hero: {
         left: 350,
-        top: 700
+        top: 500
       },
       winner: false,
       loser: false,
@@ -59,6 +59,7 @@ class Game extends Component {
 
   drawHero() {
     let hero = this.state.hero;
+    console.log('doc', document)
     document.getElementById("hero").style.left = hero.left + "px";
     document.getElementById("hero").style.top = hero.top + "px";
   }
@@ -143,53 +144,34 @@ class Game extends Component {
     this.setState({ winner: false });
     this.setState({ loser: false });
     this.setState({ missiles: [] });
-    this.setState({ hero: { top: 700, left: 350 } });
-    // this.setScore(roundNum)
+    this.setState({ hero: { top: 500, left: 350 } });
   }
-
-//   determineBonus(round){
-//       console.log('called', round)
-//     if (round === 0){
-//         console.log('called when i want')
-//         this.setState({score: 160})
-//     } else if (round === 1){
-//         this.setState({score: 160})
-//     } else if (round === 2){
-//         this.setState({score: 160})
-//     } else if (round === 3){
-//         this.setState({score: 160})
-//     } else if (round === 4){
-//         this.setState({score: 160})
-//     } else {
-//         this.setState({score: 160})
-//     }
-//   }
 
   setEnemyState(num) {
     if (num === 0) {
       this.setState({
         enemies: [
-          { left: 200, top: 100, row: 1 },
-          { left: 300, top: 100, row: 1 },
-          { left: 400, top: 100, row: 1 },
-          { left: 500, top: 100, row: 1 },
-          { left: 200, top: 175, row: 2 },
-          { left: 300, top: 175, row: 2 },
-          { left: 400, top: 175, row: 2 },
-          { left: 500, top: 175, row: 2 }
+          { left: 200, top: 0, row: 1 },
+          { left: 300, top: 0, row: 1 },
+          { left: 400, top: 0, row: 1 },
+          { left: 500, top: 0, row: 1 },
+          { left: 200, top: 75, row: 2 },
+          { left: 300, top: 75, row: 2 },
+          { left: 400, top: 75, row: 2 },
+          { left: 500, top: 75, row: 2 }
         ]
       });
     } else if (num === 1) {
       this.setState({
         enemies: [
-          { left: 200, top: 250, row: 1 },
-          { left: 300, top: 250, row: 1 },
-          { left: 400, top: 250, row: 1 },
-          { left: 500, top: 250, row: 1 },
-          { left: 200, top: 175, row: 2 },
-          { left: 300, top: 175, row: 2 },
-          { left: 400, top: 175, row: 2 },
-          { left: 500, top: 175, row: 2 }
+          { left: 200, top: 150, row: 1 },
+          { left: 300, top: 150, row: 1 },
+          { left: 400, top: 150, row: 1 },
+          { left: 500, top: 150, row: 1 },
+          { left: 200, top: 75, row: 2 },
+          { left: 300, top: 75, row: 2 },
+          { left: 400, top: 75, row: 2 },
+          { left: 500, top: 75, row: 2 }
         ]
       });
     } else if (num === 2) {
@@ -268,27 +250,27 @@ class Game extends Component {
 
   determineScore() {
     let kills = 8 - this.state.enemies.length;
-    let bonus = this.determineBonus()
-    let total = (this.state.round +1) * kills * 20 + bonus;
+    let bonus = this.determineBonus();
+    let total = (this.state.round + 1) * kills * 20 + bonus;
     this.setState({ score: total });
   }
 
-  determineBonus(){
-  let round = this.state.round;
-  if (round === 0){
-    return 0;
-  } else if (round === 1){
-    return 160;
-  } else if (round === 2){
-    return 480;
-  } else if (round === 3){
-    return 960;
-  } else if (round === 4){
-    return 1600;
-  } else {
-    return 2400;
+  determineBonus() {
+    let round = this.state.round;
+    if (round === 0) {
+      return 0;
+    } else if (round === 1) {
+      return 160;
+    } else if (round === 2) {
+      return 480;
+    } else if (round === 3) {
+      return 960;
+    } else if (round === 4) {
+      return 1600;
+    } else {
+      return 2400;
+    }
   }
-}
 
   gameLoop() {
     if (!this.winner || !this.loser) {
@@ -323,10 +305,11 @@ class Game extends Component {
   render() {
     return (
       <section className="game">
-        <h1>{this.state.enemies.length}</h1>
-        <h1>{this.state.score}</h1>
-        <h1>Invaders</h1>
-        <div id="hero"></div>
+        <div id="hero">
+          <h1 class="text">{this.state.enemies.length}</h1>
+          <h1 class="text">{this.state.score}</h1>
+          <h1 class="text">Invaders</h1>
+        </div>
         <div id="missiles"></div>
         <div id="enemies"></div>
         {this.state.winner && (
