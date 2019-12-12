@@ -13,7 +13,7 @@ const Main = props => {
     if (props.route === "home" || props.route === "") {
       return (
         <>
-          <section id="main--rocket">
+          <section className="main--rocket">
             <Link to="/game">
               <AiOutlineRocket size={64} color="#EB6D4A" />
             </Link>
@@ -25,7 +25,7 @@ const Main = props => {
     if (props.route === "experience") {
       return (
         <>
-          <section id="main--rocket">
+          <section className="main--rocket">
             <Link to="/game">
               <AiOutlineRocket size={64} color="#EB6D4A" />
             </Link>
@@ -37,7 +37,7 @@ const Main = props => {
     if (props.route === "contact") {
       return (
         <>
-          <section id="main--rocket">
+          <section className="main--rocket">
             <Link to="/game">
               <AiOutlineRocket size={64} color="#EB6D4A" />
             </Link>
@@ -49,30 +49,27 @@ const Main = props => {
     if (props.route === "projects") {
       return (
         <>
-          <section id="main--rocket">
+          <section className="main--rocket">
             <Link to="/game">
               <AiOutlineRocket size={64} color="#EB6D4A" />
             </Link>
           </section>
           <Home />
-          </>
+        </>
       );
     }
     if (props.route === "game") {
       return (
-        <section className="main--content">
-          <Game route="game" callReset={props.callReset} />;
-        </section>
-
-      )
+        <>
+          <section className="main--sontent">
+            <Game route="game" callReset={props.callReset} />
+          </section>
+        </>
+      );
     }
   };
 
-  return (
-    <section className="Main">
-      {determineTheRoute()}
-    </section>
-  );
+  return <section className="Main">{determineTheRoute()}</section>;
 };
 
 export default Main;

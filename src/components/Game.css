@@ -3,12 +3,12 @@
     /* background-image: url('assets/background.png'); */
     /* background-color: #FFF; */
     position: absolute;
-    height: 78vh;
+    /* height: 78vh; */
     margin: 1vh 1vh 1vh 0;
     background-color: #454360;
     /* align-content: center; */
     /* 10vh 10vh 10vh; */
-    width: 58%;
+    /* width: 58%; */
     /* border: 1px solid red; */
 }
 
@@ -55,4 +55,14 @@ div.enemy-toggle{
 .text {
     top: 0;
     left: 0;
+}
+
+#modal {
+    background-color:#383756;
+    position: absolute;
+    margin-left: 350px;
+}
+
+.actual-game {
+    border: 1px solid yellow;
 }

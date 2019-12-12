@@ -28,12 +28,29 @@
     height: 68vh;
 }
 
-#main--rocket {
+.main--sontent {
+    margin: 1vh 1vh 1vh 0;
+    /* padding: 20vh 0; */
+    /* padding: 20% 0; */
+    background-color: #454360;
+    height: 78vh;
+}
+
+.main--rocket {
     height: 10vh;
     display: flex;
     justify-content: flex-end;
     background-color: #454360;
     margin: 1vh 1vh 0 0;
+}
+
+.main--socket {
+    height: 10vh;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #454360;
+    margin: 1vh 1vh 0 0;
+    /* position: absolute; */
 }
 
 #main--button {

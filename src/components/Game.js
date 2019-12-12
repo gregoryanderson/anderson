@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Game.css";
+import "./Main.css";
 
 class Game extends Component {
   constructor(props) {
@@ -24,7 +25,8 @@ class Game extends Component {
       loser: false,
       toggle: true,
       round: 0,
-      score: null
+      score: null,
+      showModal: false
     };
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.drawHero = this.drawHero.bind(this);
@@ -58,19 +60,22 @@ class Game extends Component {
   }
 
   drawHero() {
-    let hero = this.state.hero;
-    console.log('doc', document)
-    document.getElementById("hero").style.left = hero.left + "px";
-    document.getElementById("hero").style.top = hero.top + "px";
+    // let hero = this.state.hero;
+    document.getElementById("hero").style.left = this.state.hero.left + "px";
+    document.getElementById("hero").style.top = this.state.hero.top + "px";
   }
 
   drawMissiles() {
     let missiles = this.state.missiles;
     document.getElementById("missiles").innerHTML = "";
     for (var i = 0; i < missiles.length; i++) {
-      document.getElementById(
-        "missiles"
-      ).innerHTML += `<div class='missile1' style='left:${missiles[i].left}px; top:${missiles[i].top}px'></div>`;
+      if (missiles[i].top < 0) {
+        missiles.splice(i, 1);
+      } else {
+        document.getElementById(
+          "missiles"
+        ).innerHTML += `<div class='missile1' style='left:${missiles[i].left}px; top:${missiles[i].top}px'></div>`;
+      }
     }
   }
 
@@ -93,19 +98,33 @@ class Game extends Component {
     }
   }
 
+  //   drawModal() {
+  //     document.getElementById("modal").innerHTML = "";
+  //     if (this.state.toggle) {
+  //       for (var i = 0; i < enemies.length; i++) {
+  //         document.getElementById(
+  //           "enemies"
+  //         ).innerHTML += `              <h1>You have won</h1>
+  //         <button onClick={() => this.nextRound(this.state.round)}>
+  //           Next round
+  //         </button>`;
+  //       }
+  //     }
+  //   }
+
   moveEnemies() {
     let enemies = this.state.enemies;
     for (var i = 0; i < enemies.length; i++) {
       enemies[i].top = enemies[i].top + 1;
-      if (enemies[i].top >= 600) {
+      if (enemies[i].top >= 450) {
         this.setState({ loser: true });
         this.setState({ showModal: true });
         if (enemies[i].row === 2) {
-          enemies[i].top = 600;
+          enemies[i].top = 450;
         }
       }
-      if (enemies[i].top >= 525 && enemies[i].row === 1) {
-        enemies[i].top = 525;
+      if (enemies[i].top >= 375 && enemies[i].row === 1) {
+        enemies[i].top = 375;
       }
     }
   }
@@ -295,7 +314,7 @@ class Game extends Component {
         enemies: this.state.enemies,
         hero: this.state.hero
       });
-    }, 50);
+    }, 10);
   }
 
   componentWillUnmount() {
@@ -304,30 +323,33 @@ class Game extends Component {
 
   render() {
     return (
-      <section className="game">
-        <div id="hero">
+      <>
+        <section className="game">
+          <section className="actual-game">
+            <div id="hero"></div>
+            <div id="missiles"></div>
+            <div id="enemies"></div>
+          </section>
+          {this.state.winner && (
+            <section id="modal" left="350">
+              <h1>You have won</h1>
+              <button onClick={() => this.nextRound(this.state.round)}>
+                Next round
+              </button>
+              {/* <button onClick={this.setState({ showModal: false })}></button> */}
+            </section>
+          )}
+          {this.state.loser && (
+            <section id="modal" left="350">
+              <p>You have loooost</p>
+              {/* <button onClick={this.setState({ showModal: false })}></button> */}
+            </section>
+          )}
           <h1 class="text">{this.state.enemies.length}</h1>
           <h1 class="text">{this.state.score}</h1>
           <h1 class="text">Invaders</h1>
-        </div>
-        <div id="missiles"></div>
-        <div id="enemies"></div>
-        {this.state.winner && (
-          <section className="modal">
-            <p>You have won</p>
-            <button onClick={() => this.nextRound(this.state.round)}>
-              Next round
-            </button>
-            {/* <button onClick={this.setState({ showModal: false })}></button> */}
-          </section>
-        )}
-        {this.state.loser && (
-          <section className="modal">
-            <p>You have loooost</p>
-            {/* <button onClick={this.setState({ showModal: false })}></button> */}
-          </section>
-        )}
-      </section>
+        </section>
+      </>
     );
   }
 }
