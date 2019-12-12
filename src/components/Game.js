@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import Modal from "react-modal";
 import "./Game.css";
 
 class Game extends Component {
@@ -8,31 +7,23 @@ class Game extends Component {
     this.state = {
       missiles: [],
       enemies: [
-        { left: 200, top: 100 },
-        { left: 300, top: 100 },
-        { left: 400, top: 100 },
-        { left: 500, top: 100 },
-        // { left: 600, top: 100 },
-        // { left: 700, top: 100 },
-        // { left: 800, top: 100 },
-        // { left: 900, top: 100 },
-        { left: 200, top: 175 },
-        { left: 300, top: 175 },
-        { left: 400, top: 175 },
-        { left: 500, top: 175 }
-        // { left: 600, top: 175 },
-        // { left: 700, top: 175 },
-        // { left: 800, top: 175 },
-        // { left: 900, top: 175 }
+        { left: 200, top: 100, row: 1 },
+        { left: 300, top: 100, row: 1 },
+        { left: 400, top: 100, row: 1 },
+        { left: 500, top: 100, row: 1 },
+        { left: 200, top: 175, row: 2 },
+        { left: 300, top: 175, row: 2 },
+        { left: 400, top: 175, row: 2 },
+        { left: 500, top: 175, row: 2 }
       ],
       hero: {
-        left: 575,
+        left: 350,
         top: 700
       },
       winner: false,
       loser: false,
-      number: null,
-      showModal: false,
+      toggle: true,
+      round: 0
     };
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.drawHero = this.drawHero.bind(this);
@@ -91,10 +82,12 @@ class Game extends Component {
   drawEnemies() {
     let enemies = this.state.enemies;
     document.getElementById("enemies").innerHTML = "";
-    for (var i = 0; i < enemies.length; i++) {
-      document.getElementById(
-        "enemies"
-      ).innerHTML += `<div class='enemy' style='left:${enemies[i].left}px; top:${enemies[i].top}px'></div>`;
+    if (this.state.toggle) {
+      for (var i = 0; i < enemies.length; i++) {
+        document.getElementById(
+          "enemies"
+        ).innerHTML += `<div class='enemy' style='left:${enemies[i].left}px; top:${enemies[i].top}px'></div>`;
+      }
     }
   }
 
@@ -103,12 +96,14 @@ class Game extends Component {
     for (var i = 0; i < enemies.length; i++) {
       enemies[i].top = enemies[i].top + 1;
       if (enemies[i].top >= 600) {
-        console.log("in");
-        console.log(this.state.enemies);
         this.setState({ loser: true });
         this.setState({ showModal: true });
-        // this.setState({ enemies: [] });
-        // fn called stop enemies
+        if (enemies[i].row === 2) {
+          enemies[i].top = 600;
+        }
+      }
+      if (enemies[i].top >= 525 && enemies[i].row === 1) {
+        enemies[i].top = 525;
       }
     }
   }
@@ -121,7 +116,6 @@ class Game extends Component {
         if (!missiles[missile] || !enemies[enemy]) {
           return;
         } else {
-          console.log(enemies[enemy]);
           if (
             missiles[missile].left >= enemies[enemy].left &&
             missiles[missile].left <= enemies[enemy].left + 50 &&
@@ -137,12 +131,123 @@ class Game extends Component {
   }
 
   checkForWinner() {
-      if(!this.state.enemies.length){
-          this.setState({winner:true})
-      }
+    if (!this.state.enemies.length) {
+      this.setState({ winner: true });
+    }
+  }
+
+  nextRound(roundNum) {
+    this.setState({ round: roundNum + 1 });
+    this.setEnemyState(roundNum);
+    this.setState({ winner: false });
+    this.setState({ loser: false });
+    this.setState({ missiles: [] });
+    this.setState({ hero: { top: 700, left: 350 } });
+  }
+
+  setEnemyState(num) {
+    if (num === 0) {
+      this.setState({
+        enemies: [
+          { left: 200, top: 100, row: 1 },
+          { left: 300, top: 100, row: 1 },
+          { left: 400, top: 100, row: 1 },
+          { left: 500, top: 100, row: 1 },
+          { left: 200, top: 175, row: 2 },
+          { left: 300, top: 175, row: 2 },
+          { left: 400, top: 175, row: 2 },
+          { left: 500, top: 175, row: 2 }
+        ]
+      });
+    } else if (num === 1) {
+      this.setState({
+        enemies: [
+          { left: 200, top: 250, row: 1 },
+          { left: 300, top: 250, row: 1 },
+          { left: 400, top: 250, row: 1 },
+          { left: 500, top: 250, row: 1 },
+          { left: 200, top: 175, row: 2 },
+          { left: 300, top: 175, row: 2 },
+          { left: 400, top: 175, row: 2 },
+          { left: 500, top: 175, row: 2 }
+        ]
+      });
+    } else if (num === 2) {
+      this.setState({
+        enemies: [
+          { left: 200, top: 250, row: 1 },
+          { left: 300, top: 250, row: 1 },
+          { left: 400, top: 250, row: 1 },
+          { left: 500, top: 250, row: 1 },
+          { left: 200, top: 325, row: 2 },
+          { left: 300, top: 325, row: 2 },
+          { left: 400, top: 325, row: 2 },
+          { left: 500, top: 325, row: 2 }
+        ]
+      });
+    } else if (num === 3) {
+      this.setState({
+        enemies: [
+          { left: 200, top: 400, row: 1 },
+          { left: 300, top: 400, row: 1 },
+          { left: 400, top: 400, row: 1 },
+          { left: 500, top: 400, row: 1 },
+          { left: 200, top: 325, row: 2 },
+          { left: 300, top: 325, row: 2 },
+          { left: 400, top: 325, row: 2 },
+          { left: 500, top: 325, row: 2 }
+        ]
+      });
+    } else if (num === 4) {
+      this.setState({
+        enemies: [
+          { left: 200, top: 400, row: 1 },
+          { left: 300, top: 400, row: 1 },
+          { left: 400, top: 400, row: 1 },
+          { left: 500, top: 400, row: 1 },
+          { left: 200, top: 475, row: 2 },
+          { left: 300, top: 475, row: 2 },
+          { left: 400, top: 475, row: 2 },
+          { left: 500, top: 475, row: 2 }
+        ]
+      });
+    } else if (num === 5) {
+      this.setState({
+        enemies: [
+          { left: 200, top: 550, row: 1 },
+          { left: 300, top: 550, row: 1 },
+          { left: 400, top: 550, row: 1 },
+          { left: 500, top: 550, row: 1 },
+          { left: 200, top: 475, row: 2 },
+          { left: 300, top: 475, row: 2 },
+          { left: 400, top: 475, row: 2 },
+          { left: 500, top: 475, row: 2 }
+        ]
+      });
+    } else if (num === 6) {
+      this.setState({
+        enemies: [
+          { left: 200, top: 550, row: 1 },
+          { left: 300, top: 550, row: 1 },
+          { left: 400, top: 550, row: 1 },
+          { left: 500, top: 550, row: 1 },
+          { left: 200, top: 625, row: 2 },
+          { left: 300, top: 625, row: 2 },
+          { left: 400, top: 625, row: 2 },
+          { left: 500, top: 625, row: 2 }
+        ]
+      });
+    }
+  }
+
+  toggleEnemies(toggleSet) {
+    if (this.state.loser) {
+      this.setState({ toggle: toggleSet });
+    }
   }
 
   gameLoop() {
+    console.log(this.state.round);
     if (!this.winner || !this.loser) {
       this.moveMissiles();
       this.drawMissiles();
@@ -150,35 +255,12 @@ class Game extends Component {
       this.drawEnemies();
       this.collisionDetection();
       this.checkForWinner();
-    } 
-    // else {
-    //   this.setState({ winner: true });
-    // }
+      this.toggleEnemies(this.state.toggle);
+    }
   }
-
-//   determineModal() {
-//     if (this.state.winner === true) {
-//       return (
-//         <Modal>
-//           <p>You have won</p>
-//           <button onClick={this.setState({ showModal: false })}></button>
-//         </Modal>
-//       );
-//     }
-
-//     if (this.state.loser === true) {
-//       return (
-//         <Modal>
-//           <p>You have lost</p>
-//           <button onClick={this.setState({ showModal: false })}></button>
-//         </Modal>
-//       );
-//     }
-//   }
 
   componentDidMount() {
     this.interval = setInterval(() => {
-      //   console.log(this.state.enemies);
       document.addEventListener("keydown", this.handleKeyPress);
       this.gameLoop();
       this.setState({ number: this.state.number + 1 });
@@ -187,7 +269,7 @@ class Game extends Component {
         enemies: this.state.enemies,
         hero: this.state.hero
       });
-    }, 60);
+    }, 10);
   }
 
   componentWillUnmount() {
@@ -202,11 +284,12 @@ class Game extends Component {
         <div id="hero"></div>
         <div id="missiles"></div>
         <div id="enemies"></div>
-        {this.state.winner && <p>you have won</p>}
-        {this.state.loser && <p>you have looooooost</p>}
         {this.state.winner && (
           <section className="modal">
             <p>You have won</p>
+            <button onClick={() => this.nextRound(this.state.round)}>
+              Next round
+            </button>
             {/* <button onClick={this.setState({ showModal: false })}></button> */}
           </section>
         )}
