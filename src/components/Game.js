@@ -163,7 +163,7 @@ class Game extends Component {
     this.setState({ winner: false });
     this.setState({ loser: false });
     this.setState({ missiles: [] });
-    this.setState({ hero: { top: 500, left: 350 } });
+    // this.setState({ hero: { top: 500, left: 350 } });
   }
 
   setEnemyState(num) {
@@ -314,7 +314,7 @@ class Game extends Component {
         enemies: this.state.enemies,
         hero: this.state.hero
       });
-    }, 10);
+    }, 50);
   }
 
   componentWillUnmount() {
