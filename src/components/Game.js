@@ -4,6 +4,7 @@ import "./Main.css";
 import Hero from './Hero'
 import Missiles from "./Missiles";
 import Enemies from "./Enemies";
+import setEnemyState from './setEnemyState'
 
 
 class Game extends Component {
@@ -113,188 +114,221 @@ class Game extends Component {
 
   nextRound(roundNum) {
     this.setState({ round: roundNum + 1 });
-    this.setEnemyState(roundNum);
+    this.callSetEnemyState(roundNum);
     this.setState({ winner: false });
     this.setState({ loser: false });
     this.setState({ missiles: [] });
   }
 
-  setEnemyState(num) {
-    if (num === 0) {
-      this.setState({
-        enemies: [
-          { left: 200, top: 0, row: 2 },
-          { left: 300, top: 0, row: 2 },
-          { left: 400, top: 0, row: 2 },
-          { left: 500, top: 0, row: 2 },
-          { left: 200, top: 75, row: 1 },
-          { left: 300, top: 75, row: 1 },
-          { left: 400, top: 75, row: 1 },
-          { left: 500, top: 75, row: 1 }
-        ]
-      });
-    } else if (num === 1) {
-      this.setState({
-        enemies: [
-          { left: 200, top: 150, row: 3 },
-          { left: 300, top: 150, row: 3 },
-          { left: 400, top: 150, row: 3 },
-          { left: 500, top: 150, row: 3 },
-          { left: 200, top: 75, row: 2 },
-          { left: 300, top: 75, row: 2 },
-          { left: 400, top: 75, row: 2 },
-          { left: 500, top: 75, row: 2 },
-          { left: 200, top: 0, row: 1 },
-          { left: 300, top: 0, row: 1 },
-          { left: 400, top: 0, row: 1 },
-          { left: 500, top: 0, row: 1 }
-        ]
-      });
-    } else if (num === 2) {
-      this.setState({
-        enemies: [
-          { left: 200, top: 225, row: 4 },
-          { left: 300, top: 225, row: 4 },
-          { left: 400, top: 225, row: 4 },
-          { left: 500, top: 225, row: 4 },
-          { left: 200, top: 150, row: 3 },
-          { left: 300, top: 150, row: 3 },
-          { left: 400, top: 150, row: 3 },
-          { left: 500, top: 150, row: 3 },
-          { left: 200, top: 75, row: 2 },
-          { left: 300, top: 75, row: 2 },
-          { left: 400, top: 75, row: 2 },
-          { left: 500, top: 75, row: 2 },
-          { left: 200, top: 0, row: 1 },
-          { left: 300, top: 0, row: 1 },
-          { left: 400, top: 0, row: 1 },
-          { left: 500, top: 0, row: 1 }
-        ]
-      });
-    } else if (num === 3) {
-      this.setState({
-        enemies: [
-          { left: 200, top: 225, row: 5 },
-          { left: 300, top: 225, row: 5 },
-          { left: 400, top: 225, row: 5 },
-          { left: 500, top: 225, row: 5 },
-          { left: 200, top: 225, row: 4 },
-          { left: 300, top: 225, row: 4 },
-          { left: 400, top: 225, row: 4 },
-          { left: 500, top: 225, row: 4 },
-          { left: 200, top: 150, row: 3 },
-          { left: 300, top: 150, row: 3 },
-          { left: 400, top: 150, row: 3 },
-          { left: 500, top: 150, row: 3 },
-          { left: 200, top: 75, row: 2 },
-          { left: 300, top: 75, row: 2 },
-          { left: 400, top: 75, row: 2 },
-          { left: 500, top: 75, row: 2 },
-          { left: 200, top: 0, row: 1 },
-          { left: 300, top: 0, row: 1 },
-          { left: 400, top: 0, row: 1 },
-          { left: 500, top: 0, row: 1 }
-        ]
-      });
-    } else if (num === 4) {
-      this.setState({
-        enemies: [
-          { left: 200, top: 300, row: 6 },
-          { left: 300, top: 300, row: 6 },
-          { left: 400, top: 300, row: 6 },
-          { left: 500, top: 300, row: 6 },
-          { left: 200, top: 225, row: 5 },
-          { left: 300, top: 225, row: 5 },
-          { left: 400, top: 225, row: 5 },
-          { left: 500, top: 225, row: 5 },
-          { left: 200, top: 225, row: 4 },
-          { left: 300, top: 225, row: 4 },
-          { left: 400, top: 225, row: 4 },
-          { left: 500, top: 225, row: 4 },
-          { left: 200, top: 150, row: 3 },
-          { left: 300, top: 150, row: 3 },
-          { left: 400, top: 150, row: 3 },
-          { left: 500, top: 150, row: 3 },
-          { left: 200, top: 75, row: 2 },
-          { left: 300, top: 75, row: 2 },
-          { left: 400, top: 75, row: 2 },
-          { left: 500, top: 75, row: 2 },
-          { left: 200, top: 0, row: 1 },
-          { left: 300, top: 0, row: 1 },
-          { left: 400, top: 0, row: 1 },
-          { left: 500, top: 0, row: 1 }
-        ]
-      });
-    } else if (num === 5) {
-      this.setState({
-        enemies: [
-          { left: 200, top: 375, row: 7 },
-          { left: 300, top: 375, row: 7 },
-          { left: 400, top: 375, row: 7 },
-          { left: 200, top: 375, row: 7 },
-          { left: 300, top: 300, row: 6 },
-          { left: 400, top: 300, row: 6 },
-          { left: 500, top: 300, row: 6 },
-          { left: 200, top: 225, row: 5 },
-          { left: 300, top: 225, row: 5 },
-          { left: 400, top: 225, row: 5 },
-          { left: 500, top: 225, row: 5 },
-          { left: 200, top: 225, row: 4 },
-          { left: 300, top: 225, row: 4 },
-          { left: 400, top: 225, row: 4 },
-          { left: 500, top: 225, row: 4 },
-          { left: 200, top: 150, row: 3 },
-          { left: 300, top: 150, row: 3 },
-          { left: 400, top: 150, row: 3 },
-          { left: 500, top: 150, row: 3 },
-          { left: 200, top: 75, row: 2 },
-          { left: 300, top: 75, row: 2 },
-          { left: 400, top: 75, row: 2 },
-          { left: 500, top: 75, row: 2 },
-          { left: 200, top: 0, row: 1 },
-          { left: 300, top: 0, row: 1 },
-          { left: 400, top: 0, row: 1 },
-          { left: 500, top: 0, row: 1 }
-        ]
-      });
-    } else if (num === 6) {
-      this.setState({
-        enemies: [
-          { left: 200, top: 450, row: 8 },
-          { left: 300, top: 450, row: 8 },
-          { left: 400, top: 450, row: 8 },
-          { left: 200, top: 450, row: 8 },
-          { left: 200, top: 375, row: 7 },
-          { left: 300, top: 375, row: 7 },
-          { left: 400, top: 375, row: 7 },
-          { left: 200, top: 375, row: 7 },
-          { left: 300, top: 300, row: 6 },
-          { left: 400, top: 300, row: 6 },
-          { left: 500, top: 300, row: 6 },
-          { left: 200, top: 225, row: 5 },
-          { left: 300, top: 225, row: 5 },
-          { left: 400, top: 225, row: 5 },
-          { left: 500, top: 225, row: 5 },
-          { left: 200, top: 225, row: 4 },
-          { left: 300, top: 225, row: 4 },
-          { left: 400, top: 225, row: 4 },
-          { left: 500, top: 225, row: 4 },
-          { left: 200, top: 150, row: 3 },
-          { left: 300, top: 150, row: 3 },
-          { left: 400, top: 150, row: 3 },
-          { left: 500, top: 150, row: 3 },
-          { left: 200, top: 75, row: 2 },
-          { left: 300, top: 75, row: 2 },
-          { left: 400, top: 75, row: 2 },
-          { left: 500, top: 75, row: 2 },
-          { left: 200, top: 0, row: 1 },
-          { left: 300, top: 0, row: 1 },
-          { left: 400, top: 0, row: 1 },
-          { left: 500, top: 0, row: 1 }
-        ]
-      });
-    }
+  callSetEnemyState(){
+    let enemies = setEnemyState(this.state.round)
+    this.setState({enemies: enemies})
   }
+
+  // setEnemyState(num) {
+  //   if (num === 0) {
+  //     this.setState({
+  //       enemies: [
+  //         { left: 200, top: 150, row: 3 },
+  //         { left: 300, top: 150, row: 3 },
+  //         { left: 400, top: 150, row: 3 },
+  //         { left: 500, top: 150, row: 3 },
+  //         { left: 200, top: 75, row: 2 },
+  //         { left: 300, top: 75, row: 2 },
+  //         { left: 400, top: 75, row: 2 },
+  //         { left: 500, top: 75, row: 2 },
+  //         { left: 200, top: 0, row: 1 },
+  //         { left: 300, top: 0, row: 1 },
+  //         { left: 400, top: 0, row: 1 },
+  //         { left: 500, top: 0, row: 1 }
+  //       ]
+  //     });
+  //   } else if (num === 1) {
+  //     this.setState({
+  //       enemies: [
+  //         { left: 200, top: 225, row: 4 },
+  //         { left: 300, top: 225, row: 4 },
+  //         { left: 400, top: 225, row: 4 },
+  //         { left: 500, top: 225, row: 4 },
+  //         { left: 200, top: 150, row: 3 },
+  //         { left: 300, top: 150, row: 3 },
+  //         { left: 400, top: 150, row: 3 },
+  //         { left: 500, top: 150, row: 3 },
+  //         { left: 200, top: 75, row: 2 },
+  //         { left: 300, top: 75, row: 2 },
+  //         { left: 400, top: 75, row: 2 },
+  //         { left: 500, top: 75, row: 2 },
+  //         { left: 200, top: 0, row: 1 },
+  //         { left: 300, top: 0, row: 1 },
+  //         { left: 400, top: 0, row: 1 },
+  //         { left: 500, top: 0, row: 1 }
+  //       ]
+  //     });
+  //   } else if (num === 2) {
+  //     this.setState({
+  //       enemies: [
+  //         { left: 200, top: 225, row: 5 },
+  //         { left: 300, top: 225, row: 5 },
+  //         { left: 400, top: 225, row: 5 },
+  //         { left: 500, top: 225, row: 5 },
+  //         { left: 200, top: 225, row: 4 },
+  //         { left: 300, top: 225, row: 4 },
+  //         { left: 400, top: 225, row: 4 },
+  //         { left: 500, top: 225, row: 4 },
+  //         { left: 200, top: 150, row: 3 },
+  //         { left: 300, top: 150, row: 3 },
+  //         { left: 400, top: 150, row: 3 },
+  //         { left: 500, top: 150, row: 3 },
+  //         { left: 200, top: 75, row: 2 },
+  //         { left: 300, top: 75, row: 2 },
+  //         { left: 400, top: 75, row: 2 },
+  //         { left: 500, top: 75, row: 2 },
+  //         { left: 200, top: 0, row: 1 },
+  //         { left: 300, top: 0, row: 1 },
+  //         { left: 400, top: 0, row: 1 },
+  //         { left: 500, top: 0, row: 1 }
+  //       ]
+  //     });
+  //   } else if (num === 3) {
+  //     this.setState({
+  //       enemies: [
+  //         { left: 200, top: 300, row: 6 },
+  //         { left: 300, top: 300, row: 6 },
+  //         { left: 400, top: 300, row: 6 },
+  //         { left: 500, top: 300, row: 6 },
+  //         { left: 200, top: 225, row: 5 },
+  //         { left: 300, top: 225, row: 5 },
+  //         { left: 400, top: 225, row: 5 },
+  //         { left: 500, top: 225, row: 5 },
+  //         { left: 200, top: 225, row: 4 },
+  //         { left: 300, top: 225, row: 4 },
+  //         { left: 400, top: 225, row: 4 },
+  //         { left: 500, top: 225, row: 4 },
+  //         { left: 200, top: 150, row: 3 },
+  //         { left: 300, top: 150, row: 3 },
+  //         { left: 400, top: 150, row: 3 },
+  //         { left: 500, top: 150, row: 3 },
+  //         { left: 200, top: 75, row: 2 },
+  //         { left: 300, top: 75, row: 2 },
+  //         { left: 400, top: 75, row: 2 },
+  //         { left: 500, top: 75, row: 2 },
+  //         { left: 200, top: 0, row: 1 },
+  //         { left: 300, top: 0, row: 1 },
+  //         { left: 400, top: 0, row: 1 },
+  //         { left: 500, top: 0, row: 1 }
+  //       ]
+  //     });
+  //   } else if (num === 4) {
+  //     this.setState({
+  //       enemies: [
+  //         { left: 200, top: 375, row: 7 },
+  //         { left: 300, top: 375, row: 7 },
+  //         { left: 400, top: 375, row: 7 },
+  //         { left: 200, top: 375, row: 7 },
+  //         { left: 200, top: 300, row: 6 },
+  //         { left: 300, top: 300, row: 6 },
+  //         { left: 400, top: 300, row: 6 },
+  //         { left: 500, top: 300, row: 6 },
+  //         { left: 200, top: 225, row: 5 },
+  //         { left: 300, top: 225, row: 5 },
+  //         { left: 400, top: 225, row: 5 },
+  //         { left: 500, top: 225, row: 5 },
+  //         { left: 200, top: 225, row: 4 },
+  //         { left: 300, top: 225, row: 4 },
+  //         { left: 400, top: 225, row: 4 },
+  //         { left: 500, top: 225, row: 4 },
+  //         { left: 200, top: 150, row: 3 },
+  //         { left: 300, top: 150, row: 3 },
+  //         { left: 400, top: 150, row: 3 },
+  //         { left: 500, top: 150, row: 3 },
+  //         { left: 200, top: 75, row: 2 },
+  //         { left: 300, top: 75, row: 2 },
+  //         { left: 400, top: 75, row: 2 },
+  //         { left: 500, top: 75, row: 2 },
+  //         { left: 200, top: 0, row: 1 },
+  //         { left: 300, top: 0, row: 1 },
+  //         { left: 400, top: 0, row: 1 },
+  //         { left: 500, top: 0, row: 1 }
+  //       ]
+  //     });
+  //   } else if (num === 5) {
+  //     this.setState({
+  //       enemies: [
+  //         { left: 200, top: 450, row: 8 },
+  //         { left: 300, top: 450, row: 8 },
+  //         { left: 400, top: 450, row: 8 },
+  //         { left: 200, top: 450, row: 8 },
+  //         { left: 200, top: 375, row: 7 },
+  //         { left: 300, top: 375, row: 7 },
+  //         { left: 400, top: 375, row: 7 },
+  //         { left: 200, top: 375, row: 7 },
+  //         { left: 300, top: 300, row: 6 },
+  //         { left: 400, top: 300, row: 6 },
+  //         { left: 500, top: 300, row: 6 },
+  //         { left: 200, top: 225, row: 5 },
+  //         { left: 300, top: 225, row: 5 },
+  //         { left: 400, top: 225, row: 5 },
+  //         { left: 500, top: 225, row: 5 },
+  //         { left: 200, top: 225, row: 4 },
+  //         { left: 300, top: 225, row: 4 },
+  //         { left: 400, top: 225, row: 4 },
+  //         { left: 500, top: 225, row: 4 },
+  //         { left: 200, top: 150, row: 3 },
+  //         { left: 300, top: 150, row: 3 },
+  //         { left: 400, top: 150, row: 3 },
+  //         { left: 500, top: 150, row: 3 },
+  //         { left: 200, top: 75, row: 2 },
+  //         { left: 300, top: 75, row: 2 },
+  //         { left: 400, top: 75, row: 2 },
+  //         { left: 500, top: 75, row: 2 },
+  //         { left: 200, top: 0, row: 1 },
+  //         { left: 300, top: 0, row: 1 },
+  //         { left: 400, top: 0, row: 1 },
+  //         { left: 500, top: 0, row: 1 }
+  //       ]
+  //     });
+  //   } else if (num === 6) {
+  //     this.setState({
+  //       enemies: [
+  //         { left: 200, top: 525, row: 9 },
+  //         { left: 300, top: 525, row: 9 },
+  //         { left: 400, top: 525, row: 9 },
+  //         { left: 200, top: 525, row: 9 },
+  //         { left: 200, top: 450, row: 8 },
+  //         { left: 300, top: 450, row: 8 },
+  //         { left: 400, top: 450, row: 8 },
+  //         { left: 200, top: 450, row: 8 },
+  //         { left: 200, top: 375, row: 7 },
+  //         { left: 300, top: 375, row: 7 },
+  //         { left: 400, top: 375, row: 7 },
+  //         { left: 200, top: 375, row: 7 },
+  //         { left: 300, top: 300, row: 6 },
+  //         { left: 400, top: 300, row: 6 },
+  //         { left: 500, top: 300, row: 6 },
+  //         { left: 200, top: 225, row: 5 },
+  //         { left: 300, top: 225, row: 5 },
+  //         { left: 400, top: 225, row: 5 },
+  //         { left: 500, top: 225, row: 5 },
+  //         { left: 200, top: 225, row: 4 },
+  //         { left: 300, top: 225, row: 4 },
+  //         { left: 400, top: 225, row: 4 },
+  //         { left: 500, top: 225, row: 4 },
+  //         { left: 200, top: 150, row: 3 },
+  //         { left: 300, top: 150, row: 3 },
+  //         { left: 400, top: 150, row: 3 },
+  //         { left: 500, top: 150, row: 3 },
+  //         { left: 200, top: 75, row: 2 },
+  //         { left: 300, top: 75, row: 2 },
+  //         { left: 400, top: 75, row: 2 },
+  //         { left: 500, top: 75, row: 2 },
+  //         { left: 200, top: 0, row: 1 },
+  //         { left: 300, top: 0, row: 1 },
+  //         { left: 400, top: 0, row: 1 },
+  //         { left: 500, top: 0, row: 1 }
+  //       ]
+  //     });
+  //   }
+  // }
 
   toggleEnemies(toggleSet) {
     if (this.state.loser) {
