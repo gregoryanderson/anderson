@@ -69,7 +69,12 @@ class Game extends Component {
   moveEnemies() {
     let enemies = this.state.enemies;
     if (this.state.loser) {
-      return;
+      enemies.map(enemy => {
+        let left = this.getHero(enemy);
+        let top = this.getHeroTop(enemy);
+        enemy.left = left
+        enemy.top = top
+      });
     } else {
       enemies.map(enemy => {
         enemy.top = enemy.top + 1;
@@ -78,6 +83,28 @@ class Game extends Component {
           this.setState({ showModal: true });
         }
       });
+    }
+  }
+
+  getHero(enemy) {
+    let heroPosition = this.state.hero.left;
+    if (heroPosition > enemy.left) {
+      return enemy.left + 1;
+    } else if (heroPosition < enemy.left) {
+      return enemy.left - 1;
+    } else if (heroPosition === enemy.left){
+      return enemy.left
+    }
+  }
+
+  getHeroTop(enemy) {
+    let heroPosition = this.state.hero.top;
+    if (heroPosition > enemy.top) {
+      return enemy.top + 1;
+    } else if (heroPosition < enemy.top) {
+      return enemy.top - 1;
+    } else if (heroPosition === enemy.top){
+      return enemy.top
     }
   }
 
@@ -124,7 +151,7 @@ class Game extends Component {
 
   toggleEnemies(toggleSet) {
     if (this.state.loser) {
-      console.log("in toggle");
+      // console.log("in toggle");
       this.setState({ toggle: toggleSet });
     }
   }
@@ -174,7 +201,7 @@ class Game extends Component {
         enemies: this.state.enemies,
         hero: this.state.hero
       });
-    }, 50);
+    }, 10);
   }
 
   componentWillUnmount() {
