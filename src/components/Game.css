@@ -25,7 +25,7 @@ div#hero {
 div#missiles {
     /* width: 1200px; */
     /* height: 800px; */
-    position: absolute;
+    /* position: absolute; */
 }
 
 div.missile1 {
@@ -38,7 +38,7 @@ div.missile1 {
 div#enemies {
     /* width: 1200px; */
     /* height: 800px; */
-    position: absolute;
+    /* position: absolute; */
 }
 
 div.enemy {

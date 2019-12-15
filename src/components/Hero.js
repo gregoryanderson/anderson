@@ -1,13 +1,23 @@
-import React from 'react';
+import React, {Component} from 'react';
+import './Game.css'
 
 
 
-const Hero = () => {
+class Hero extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
 
+        }
 
-    return (
-        <p>This is the hero</p>
-    )
+    }
+
+    render () {
+        return (
+            <div id="hero" style={{top: this.props.hero.top, left: this.props.hero.left}}>
+            </div>
+        )  
+    }
 }
 
 export default Hero;

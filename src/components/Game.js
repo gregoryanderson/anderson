@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import "./Game.css";
 import "./Main.css";
+import Hero from './Hero'
+import Missiles from "./Missiles";
+import Enemies from "./Enemies";
+
 
 class Game extends Component {
   constructor(props) {
@@ -29,10 +33,8 @@ class Game extends Component {
       showModal: false
     };
     this.handleKeyPress = this.handleKeyPress.bind(this);
-    this.drawHero = this.drawHero.bind(this);
-    this.drawMissiles = this.drawMissiles.bind(this);
     this.moveMissiles = this.moveMissiles.bind(this);
-    this.drawEnemies = this.drawEnemies.bind(this);
+    // this.drawEnemies = this.drawEnemies.bind(this);
     this.moveEnemies = this.moveEnemies.bind(this);
     this.collisionDetection = this.collisionDetection.bind(this);
   }
@@ -54,28 +56,6 @@ class Game extends Component {
         left: hero.left + 20,
         top: hero.top - 20
       });
-      this.drawMissiles();
-    }
-    this.drawHero();
-  }
-
-  drawHero() {
-    // let hero = this.state.hero;
-    document.getElementById("hero").style.left = this.state.hero.left + "px";
-    document.getElementById("hero").style.top = this.state.hero.top + "px";
-  }
-
-  drawMissiles() {
-    let missiles = this.state.missiles;
-    document.getElementById("missiles").innerHTML = "";
-    for (var i = 0; i < missiles.length; i++) {
-      if (missiles[i].top < 0) {
-        missiles.splice(i, 1);
-      } else {
-        document.getElementById(
-          "missiles"
-        ).innerHTML += `<div class='missile1' style='left:${missiles[i].left}px; top:${missiles[i].top}px'></div>`;
-      }
     }
   }
 
@@ -86,31 +66,17 @@ class Game extends Component {
     }
   }
 
-  drawEnemies() {
-    let enemies = this.state.enemies;
-    document.getElementById("enemies").innerHTML = "";
-    if (this.state.toggle) {
-      for (var i = 0; i < enemies.length; i++) {
-        document.getElementById(
-          "enemies"
-        ).innerHTML += `<div class='enemy' style='left:${enemies[i].left}px; top:${enemies[i].top}px'></div>`;
-      }
-    }
-  }
-
-  //   drawModal() {
-  //     document.getElementById("modal").innerHTML = "";
-  //     if (this.state.toggle) {
-  //       for (var i = 0; i < enemies.length; i++) {
-  //         document.getElementById(
-  //           "enemies"
-  //         ).innerHTML += `              <h1>You have won</h1>
-  //         <button onClick={() => this.nextRound(this.state.round)}>
-  //           Next round
-  //         </button>`;
-  //       }
+  // drawEnemies() {
+  //   let enemies = this.state.enemies;
+  //   document.getElementById("enemies").innerHTML = "";
+  //   if (this.state.toggle) {
+  //     for (var i = 0; i < enemies.length; i++) {
+  //       document.getElementById(
+  //         "enemies"
+  //       ).innerHTML += `<div class='enemy' style='left:${enemies[i].left}px; top:${enemies[i].top}px'></div>`;
   //     }
   //   }
+  // }
 
   moveEnemies() {
     let enemies = this.state.enemies;
@@ -163,99 +129,180 @@ class Game extends Component {
     this.setState({ winner: false });
     this.setState({ loser: false });
     this.setState({ missiles: [] });
-    // this.setState({ hero: { top: 500, left: 350 } });
   }
 
   setEnemyState(num) {
     if (num === 0) {
       this.setState({
         enemies: [
-          { left: 200, top: 0, row: 1 },
-          { left: 300, top: 0, row: 1 },
-          { left: 400, top: 0, row: 1 },
-          { left: 500, top: 0, row: 1 },
-          { left: 200, top: 75, row: 2 },
-          { left: 300, top: 75, row: 2 },
-          { left: 400, top: 75, row: 2 },
-          { left: 500, top: 75, row: 2 }
+          { left: 200, top: 0, row: 2 },
+          { left: 300, top: 0, row: 2 },
+          { left: 400, top: 0, row: 2 },
+          { left: 500, top: 0, row: 2 },
+          { left: 200, top: 75, row: 1 },
+          { left: 300, top: 75, row: 1 },
+          { left: 400, top: 75, row: 1 },
+          { left: 500, top: 75, row: 1 }
         ]
       });
     } else if (num === 1) {
       this.setState({
         enemies: [
-          { left: 200, top: 150, row: 1 },
-          { left: 300, top: 150, row: 1 },
-          { left: 400, top: 150, row: 1 },
-          { left: 500, top: 150, row: 1 },
+          { left: 200, top: 150, row: 3 },
+          { left: 300, top: 150, row: 3 },
+          { left: 400, top: 150, row: 3 },
+          { left: 500, top: 150, row: 3 },
           { left: 200, top: 75, row: 2 },
           { left: 300, top: 75, row: 2 },
           { left: 400, top: 75, row: 2 },
-          { left: 500, top: 75, row: 2 }
+          { left: 500, top: 75, row: 2 },
+          { left: 200, top: 0, row: 1 },
+          { left: 300, top: 0, row: 1 },
+          { left: 400, top: 0, row: 1 },
+          { left: 500, top: 0, row: 1 }
         ]
       });
     } else if (num === 2) {
       this.setState({
         enemies: [
-          { left: 200, top: 250, row: 1 },
-          { left: 300, top: 250, row: 1 },
-          { left: 400, top: 250, row: 1 },
-          { left: 500, top: 250, row: 1 },
-          { left: 200, top: 325, row: 2 },
-          { left: 300, top: 325, row: 2 },
-          { left: 400, top: 325, row: 2 },
-          { left: 500, top: 325, row: 2 }
+          { left: 200, top: 225, row: 4 },
+          { left: 300, top: 225, row: 4 },
+          { left: 400, top: 225, row: 4 },
+          { left: 500, top: 225, row: 4 },
+          { left: 200, top: 150, row: 3 },
+          { left: 300, top: 150, row: 3 },
+          { left: 400, top: 150, row: 3 },
+          { left: 500, top: 150, row: 3 },
+          { left: 200, top: 75, row: 2 },
+          { left: 300, top: 75, row: 2 },
+          { left: 400, top: 75, row: 2 },
+          { left: 500, top: 75, row: 2 },
+          { left: 200, top: 0, row: 1 },
+          { left: 300, top: 0, row: 1 },
+          { left: 400, top: 0, row: 1 },
+          { left: 500, top: 0, row: 1 }
         ]
       });
     } else if (num === 3) {
       this.setState({
         enemies: [
-          { left: 200, top: 400, row: 1 },
-          { left: 300, top: 400, row: 1 },
-          { left: 400, top: 400, row: 1 },
-          { left: 500, top: 400, row: 1 },
-          { left: 200, top: 325, row: 2 },
-          { left: 300, top: 325, row: 2 },
-          { left: 400, top: 325, row: 2 },
-          { left: 500, top: 325, row: 2 }
+          { left: 200, top: 225, row: 5 },
+          { left: 300, top: 225, row: 5 },
+          { left: 400, top: 225, row: 5 },
+          { left: 500, top: 225, row: 5 },
+          { left: 200, top: 225, row: 4 },
+          { left: 300, top: 225, row: 4 },
+          { left: 400, top: 225, row: 4 },
+          { left: 500, top: 225, row: 4 },
+          { left: 200, top: 150, row: 3 },
+          { left: 300, top: 150, row: 3 },
+          { left: 400, top: 150, row: 3 },
+          { left: 500, top: 150, row: 3 },
+          { left: 200, top: 75, row: 2 },
+          { left: 300, top: 75, row: 2 },
+          { left: 400, top: 75, row: 2 },
+          { left: 500, top: 75, row: 2 },
+          { left: 200, top: 0, row: 1 },
+          { left: 300, top: 0, row: 1 },
+          { left: 400, top: 0, row: 1 },
+          { left: 500, top: 0, row: 1 }
         ]
       });
     } else if (num === 4) {
       this.setState({
         enemies: [
-          { left: 200, top: 400, row: 1 },
-          { left: 300, top: 400, row: 1 },
-          { left: 400, top: 400, row: 1 },
-          { left: 500, top: 400, row: 1 },
-          { left: 200, top: 475, row: 2 },
-          { left: 300, top: 475, row: 2 },
-          { left: 400, top: 475, row: 2 },
-          { left: 500, top: 475, row: 2 }
+          { left: 200, top: 300, row: 6 },
+          { left: 300, top: 300, row: 6 },
+          { left: 400, top: 300, row: 6 },
+          { left: 500, top: 300, row: 6 },
+          { left: 200, top: 225, row: 5 },
+          { left: 300, top: 225, row: 5 },
+          { left: 400, top: 225, row: 5 },
+          { left: 500, top: 225, row: 5 },
+          { left: 200, top: 225, row: 4 },
+          { left: 300, top: 225, row: 4 },
+          { left: 400, top: 225, row: 4 },
+          { left: 500, top: 225, row: 4 },
+          { left: 200, top: 150, row: 3 },
+          { left: 300, top: 150, row: 3 },
+          { left: 400, top: 150, row: 3 },
+          { left: 500, top: 150, row: 3 },
+          { left: 200, top: 75, row: 2 },
+          { left: 300, top: 75, row: 2 },
+          { left: 400, top: 75, row: 2 },
+          { left: 500, top: 75, row: 2 },
+          { left: 200, top: 0, row: 1 },
+          { left: 300, top: 0, row: 1 },
+          { left: 400, top: 0, row: 1 },
+          { left: 500, top: 0, row: 1 }
         ]
       });
     } else if (num === 5) {
       this.setState({
         enemies: [
-          { left: 200, top: 550, row: 1 },
-          { left: 300, top: 550, row: 1 },
-          { left: 400, top: 550, row: 1 },
-          { left: 500, top: 550, row: 1 },
-          { left: 200, top: 475, row: 2 },
-          { left: 300, top: 475, row: 2 },
-          { left: 400, top: 475, row: 2 },
-          { left: 500, top: 475, row: 2 }
+          { left: 200, top: 375, row: 7 },
+          { left: 300, top: 375, row: 7 },
+          { left: 400, top: 375, row: 7 },
+          { left: 200, top: 375, row: 7 },
+          { left: 300, top: 300, row: 6 },
+          { left: 400, top: 300, row: 6 },
+          { left: 500, top: 300, row: 6 },
+          { left: 200, top: 225, row: 5 },
+          { left: 300, top: 225, row: 5 },
+          { left: 400, top: 225, row: 5 },
+          { left: 500, top: 225, row: 5 },
+          { left: 200, top: 225, row: 4 },
+          { left: 300, top: 225, row: 4 },
+          { left: 400, top: 225, row: 4 },
+          { left: 500, top: 225, row: 4 },
+          { left: 200, top: 150, row: 3 },
+          { left: 300, top: 150, row: 3 },
+          { left: 400, top: 150, row: 3 },
+          { left: 500, top: 150, row: 3 },
+          { left: 200, top: 75, row: 2 },
+          { left: 300, top: 75, row: 2 },
+          { left: 400, top: 75, row: 2 },
+          { left: 500, top: 75, row: 2 },
+          { left: 200, top: 0, row: 1 },
+          { left: 300, top: 0, row: 1 },
+          { left: 400, top: 0, row: 1 },
+          { left: 500, top: 0, row: 1 }
         ]
       });
     } else if (num === 6) {
       this.setState({
         enemies: [
-          { left: 200, top: 550, row: 1 },
-          { left: 300, top: 550, row: 1 },
-          { left: 400, top: 550, row: 1 },
-          { left: 500, top: 550, row: 1 },
-          { left: 200, top: 625, row: 2 },
-          { left: 300, top: 625, row: 2 },
-          { left: 400, top: 625, row: 2 },
-          { left: 500, top: 625, row: 2 }
+          { left: 200, top: 450, row: 8 },
+          { left: 300, top: 450, row: 8 },
+          { left: 400, top: 450, row: 8 },
+          { left: 200, top: 450, row: 8 },
+          { left: 200, top: 375, row: 7 },
+          { left: 300, top: 375, row: 7 },
+          { left: 400, top: 375, row: 7 },
+          { left: 200, top: 375, row: 7 },
+          { left: 300, top: 300, row: 6 },
+          { left: 400, top: 300, row: 6 },
+          { left: 500, top: 300, row: 6 },
+          { left: 200, top: 225, row: 5 },
+          { left: 300, top: 225, row: 5 },
+          { left: 400, top: 225, row: 5 },
+          { left: 500, top: 225, row: 5 },
+          { left: 200, top: 225, row: 4 },
+          { left: 300, top: 225, row: 4 },
+          { left: 400, top: 225, row: 4 },
+          { left: 500, top: 225, row: 4 },
+          { left: 200, top: 150, row: 3 },
+          { left: 300, top: 150, row: 3 },
+          { left: 400, top: 150, row: 3 },
+          { left: 500, top: 150, row: 3 },
+          { left: 200, top: 75, row: 2 },
+          { left: 300, top: 75, row: 2 },
+          { left: 400, top: 75, row: 2 },
+          { left: 500, top: 75, row: 2 },
+          { left: 200, top: 0, row: 1 },
+          { left: 300, top: 0, row: 1 },
+          { left: 400, top: 0, row: 1 },
+          { left: 500, top: 0, row: 1 }
         ]
       });
     }
@@ -294,9 +341,8 @@ class Game extends Component {
   gameLoop() {
     if (!this.winner || !this.loser) {
       this.moveMissiles();
-      this.drawMissiles();
       this.moveEnemies();
-      this.drawEnemies();
+      // this.drawEnemies();
       this.collisionDetection();
       this.checkForWinner();
       this.determineScore();
@@ -326,9 +372,11 @@ class Game extends Component {
       <>
         <section className="game">
           <section className="actual-game">
-            <div id="hero"></div>
-            <div id="missiles"></div>
-            <div id="enemies"></div>
+            <Hero hero={this.state.hero}/>
+            {/* <div id="missiles"></div> */}
+            <Missiles missiles={this.state.missiles}/>
+            {/* <div id="enemies"></div> */}
+            <Enemies enemies={this.state.enemies}/>
           </section>
           {this.state.winner && (
             <section id="modal" left="350">
@@ -345,9 +393,9 @@ class Game extends Component {
               {/* <button onClick={this.setState({ showModal: false })}></button> */}
             </section>
           )}
-          <h1 class="text">{this.state.enemies.length}</h1>
-          <h1 class="text">{this.state.score}</h1>
-          <h1 class="text">Invaders</h1>
+          <h1 className="text">{this.state.enemies.length}</h1>
+          <h1 className="text">{this.state.score}</h1>
+          <h1 className="text">Invaders</h1>
         </section>
       </>
     );
