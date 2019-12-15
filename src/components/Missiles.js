@@ -3,20 +3,15 @@ import Missile from "./Missile";
 import "./Game.css";
 
 const Missiles = props => {
-  //   constructor(props) {
-  //     super(props);
-  //     this.state = {};
-  //   }
 
   const drawMissiles = () => {
     let missiles = props.missiles;
 
     return missiles.map(missile => {
-        
-        if (missile.top < 0) {
-            missiles.splice(missile, 1);
-        } else {
-            console.log("miss", missile);
+      if (missile.top < 0) {
+        missiles.splice(missile, 1);
+      } else {
+        console.log("miss", missile);
         return <Missile top={missile.top} left={missile.left} />;
       }
     });

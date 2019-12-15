@@ -3,7 +3,6 @@ import Enemy from "./Enemy";
 import "./Game.css";
 
 const Enemies = props => {
-    console.log('enemies', props.enemies)
   const drawEnemies = () => {
     let enemies = props.enemies;
 

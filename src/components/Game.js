@@ -66,18 +66,6 @@ class Game extends Component {
     }
   }
 
-  // drawEnemies() {
-  //   let enemies = this.state.enemies;
-  //   document.getElementById("enemies").innerHTML = "";
-  //   if (this.state.toggle) {
-  //     for (var i = 0; i < enemies.length; i++) {
-  //       document.getElementById(
-  //         "enemies"
-  //       ).innerHTML += `<div class='enemy' style='left:${enemies[i].left}px; top:${enemies[i].top}px'></div>`;
-  //     }
-  //   }
-  // }
-
   moveEnemies() {
     let enemies = this.state.enemies;
     for (var i = 0; i < enemies.length; i++) {
@@ -310,6 +298,7 @@ class Game extends Component {
 
   toggleEnemies(toggleSet) {
     if (this.state.loser) {
+      console.log('in toggle')
       this.setState({ toggle: toggleSet });
     }
   }
@@ -342,7 +331,6 @@ class Game extends Component {
     if (!this.winner || !this.loser) {
       this.moveMissiles();
       this.moveEnemies();
-      // this.drawEnemies();
       this.collisionDetection();
       this.checkForWinner();
       this.determineScore();
