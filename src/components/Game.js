@@ -12,22 +12,6 @@ class Game extends Component {
     this.state = {
       missiles: [],
       enemies: [
-        { left: 200, top: 300, row: 6 },
-        { left: 300, top: 300, row: 6 },
-        { left: 400, top: 300, row: 6 },
-        { left: 500, top: 300, row: 6 },
-        { left: 200, top: 225, row: 5 },
-        { left: 300, top: 225, row: 5 },
-        { left: 400, top: 225, row: 5 },
-        { left: 500, top: 225, row: 5 },
-        { left: 200, top: 225, row: 4 },
-        { left: 300, top: 225, row: 4 },
-        { left: 400, top: 225, row: 4 },
-        { left: 500, top: 225, row: 4 },
-        { left: 200, top: 150, row: 3 },
-        { left: 300, top: 150, row: 3 },
-        { left: 400, top: 150, row: 3 },
-        { left: 500, top: 150, row: 3 },
         { left: 200, top: 75, row: 2 },
         { left: 300, top: 75, row: 2 },
         { left: 400, top: 75, row: 2 },
@@ -101,52 +85,41 @@ class Game extends Component {
     }
   }
 
-  getEnemiesToBottomLimit = (enemy, newEnemy, topLimit, bottomLimit, leftLimit, rightLimit) => {
+  getEnemiesToBottomLimit = (
+    enemy,
+    newEnemy,
+    topLimit,
+    bottomLimit,
+    leftLimit,
+    rightLimit
+  ) => {
     // return newEnemy.top = enemy.top - 1
-    return newEnemy = {top: enemy.top + 1, left: enemy.left}
-  }
-    
-  getEnemiesToLeftLimit = (enemy, newEnemy, topLimit, bottomLimit, leftLimit, rightLimit) => {
+    return (newEnemy = { top: enemy.top + 1, left: enemy.left });
+  };
+
+  getEnemiesToLeftLimit = (
+    enemy,
+    newEnemy,
+    topLimit,
+    bottomLimit,
+    leftLimit,
+    rightLimit
+  ) => {
     // return newEnemy.top = enemy.top - 1
-    return newEnemy = {top: enemy.top, left: enemy.left + 1}
-  }
+    return (newEnemy = { top: enemy.top, left: enemy.left + 1 });
+  };
 
-  getEnemiesToRightLimit = (enemy, newEnemy, topLimit, bottomLimit, leftLimit, rightLimit) => {
+  getEnemiesToRightLimit = (
+    enemy,
+    newEnemy,
+    topLimit,
+    bottomLimit,
+    leftLimit,
+    rightLimit
+  ) => {
     // return newEnemy.top = enemy.top - 1
-    return newEnemy = {top: enemy.top, left: enemy.left - 1}
-  }
-    
-    
-    // if (enemy.left <= leftLimit) {
-    //   //enemy left of left limit
-    //   newEnemy.left = enemy.left + 1;
-    //   return newEnemy
-    // }
-
-    // if (enemy.left >= rightLimit) {
-    //   //enemy right of right limit
-
-    //   newEnemy.left = enemy.left - 1;
-    //   // newEnemy.top = enemy.top - 1;
-    //   return newEnemy
-    // }
-
-    // if (enemy.top <= bottomLimit) {
-    //   // enemy above hero
-
-    //   // newEnemy.left = enemy.left - 1;
-    //   newEnemy.top = enemy.top + 1;
-    //   return newEnemy
-    // }
-
-    // if (enemy.top >= topLimit) {
-    //   // enemy below hero
-
-    //   // newEnemy.left = enemy.left + 1;
-    //   newEnemy.top = enemy.top - 1;
-    //   return newEnemy
-    // }
-  // };
+    return (newEnemy = { top: enemy.top, left: enemy.left - 1 });
+  };
 
   encircleHero(enemy) {
     let leftLimit = this.state.hero.left - 50;
@@ -165,13 +138,41 @@ class Game extends Component {
     let newEnemy = { left: enemy.left, top: enemy.top };
 
     if (enemy.left < leftLimit) {
-      return this.getEnemiesToLeftLimit(enemy, newEnemy, topLimit, bottomLimit, leftLimit, rightLimit)
-    } else if (enemy.left > rightLimit){
-      return this.getEnemiesToRightLimit(enemy, newEnemy, topLimit, bottomLimit, leftLimit, rightLimit)
-    } else if (enemy.top < bottomLimit){
-      return this.getEnemiesToBottomLimit(enemy, newEnemy, topLimit, bottomLimit, leftLimit, rightLimit)
+      return this.getEnemiesToLeftLimit(
+        enemy,
+        newEnemy,
+        topLimit,
+        bottomLimit,
+        leftLimit,
+        rightLimit
+      );
+    } else if (enemy.left > rightLimit) {
+      return this.getEnemiesToRightLimit(
+        enemy,
+        newEnemy,
+        topLimit,
+        bottomLimit,
+        leftLimit,
+        rightLimit
+      );
+    } else if (enemy.top < bottomLimit) {
+      return this.getEnemiesToBottomLimit(
+        enemy,
+        newEnemy,
+        topLimit,
+        bottomLimit,
+        leftLimit,
+        rightLimit
+      );
     } else {
-      return enemy
+      return this.enemyMerryGoRound(
+        enemy,
+        newEnemy,
+        topLimit,
+        bottomLimit,
+        leftLimit,
+        rightLimit
+      );
     }
 
     // if (
@@ -184,33 +185,45 @@ class Game extends Component {
     //   let returnValue = this.getEnemiesThere(enemy, newEnemy, topLimit, bottomLimit, leftLimit, rightLimit);
     //   newEnemy = returnValue
     // }
+  }
 
-    // if (enemy.top <= heroTop && enemy.left <= heroLeft) {
-    //   // console.log("enemy", enemy);
+  enemyMerryGoRound(
+    enemy,
+    newEnemy,
+    topLimit,
+    bottomLimit,
+    leftLimit,
+    rightLimit
+  ) {
+    let heroLeft = this.state.hero.left;
+    //350
+    let heroTop = this.state.hero.top;
+    //500
 
-    //   //lower than top
+    if (enemy.top <= heroTop && enemy.left <= heroLeft) {
+      // console.log("enemy", enemy);
+      //lower than top
 
-    //   newEnemy.top = enemy.top + 1;
-    //   newEnemy.left = enemy.left - 1;
-    // }
+      newEnemy.top = enemy.top + 1;
+      newEnemy.left = enemy.left - 1;
+    }
 
-    // if (enemy.top >= heroTop && enemy.left <= heroLeft) {
-    //   //enemy left of right limit, higher than top
-      
-    //   newEnemy.left = enemy.left + 1;
-    //   newEnemy.top = enemy.top + 1;
-    // }
-    
-    // if (enemy.top >= heroTop && enemy.left >= heroLeft) {
-    //   console.log("enemy", enemy);
-    //   newEnemy.left = enemy.left + 1;
-    //   newEnemy.top = enemy.top - 1;
-    // }
+    if (enemy.top >= heroTop && enemy.left <= heroLeft) {
+      //enemy left of right limit, higher than top
 
-    // if (enemy.top <= heroTop && enemy.left >= heroLeft) {
-    //   newEnemy.left = enemy.left - 1;
-    //   newEnemy.top = enemy.top - 1;
-    // }
+      newEnemy.left = enemy.left + 1;
+      newEnemy.top = enemy.top + 1;
+    }
+
+    if (enemy.top >= heroTop && enemy.left >= heroLeft) {
+      newEnemy.left = enemy.left + 1;
+      newEnemy.top = enemy.top - 1;
+    }
+
+    if (enemy.top <= heroTop && enemy.left >= heroLeft) {
+      newEnemy.left = enemy.left - 1;
+      newEnemy.top = enemy.top - 1;
+    }
 
     return newEnemy;
   }
@@ -308,7 +321,7 @@ class Game extends Component {
         enemies: this.state.enemies,
         hero: this.state.hero
       });
-    }, 10);
+    }, 40);
   }
 
   componentWillUnmount() {
