@@ -12,14 +12,30 @@ class Game extends Component {
     this.state = {
       missiles: [],
       enemies: [
-        { left: 200, top: 0, row: 2 },
-        { left: 300, top: 0, row: 2 },
-        { left: 400, top: 0, row: 2 },
-        { left: 500, top: 0, row: 2 },
-        { left: 200, top: 75, row: 1 },
-        { left: 300, top: 75, row: 1 },
-        { left: 400, top: 75, row: 1 },
-        { left: 500, top: 75, row: 1 }
+        { left: 200, top: 300, row: 6 },
+        { left: 300, top: 300, row: 6 },
+        { left: 400, top: 300, row: 6 },
+        { left: 500, top: 300, row: 6 },
+        { left: 200, top: 225, row: 5 },
+        { left: 300, top: 225, row: 5 },
+        { left: 400, top: 225, row: 5 },
+        { left: 500, top: 225, row: 5 },
+        { left: 200, top: 225, row: 4 },
+        { left: 300, top: 225, row: 4 },
+        { left: 400, top: 225, row: 4 },
+        { left: 500, top: 225, row: 4 },
+        { left: 200, top: 150, row: 3 },
+        { left: 300, top: 150, row: 3 },
+        { left: 400, top: 150, row: 3 },
+        { left: 500, top: 150, row: 3 },
+        { left: 200, top: 75, row: 2 },
+        { left: 300, top: 75, row: 2 },
+        { left: 400, top: 75, row: 2 },
+        { left: 500, top: 75, row: 2 },
+        { left: 200, top: 0, row: 1 },
+        { left: 300, top: 0, row: 1 },
+        { left: 400, top: 0, row: 1 },
+        { left: 500, top: 0, row: 1 }
       ],
       hero: {
         left: 350,
@@ -70,10 +86,9 @@ class Game extends Component {
     let enemies = this.state.enemies;
     if (this.state.loser) {
       enemies.map(enemy => {
-        let left = this.getHero(enemy);
-        let top = this.getHeroTop(enemy);
-        enemy.left = left
-        enemy.top = top
+        let newEnemy = this.encircleHero(enemy);
+        enemy.left = newEnemy.left;
+        enemy.top = newEnemy.top;
       });
     } else {
       enemies.map(enemy => {
@@ -86,26 +101,97 @@ class Game extends Component {
     }
   }
 
-  getHero(enemy) {
-    let heroPosition = this.state.hero.left;
-    if (heroPosition > enemy.left) {
-      return enemy.left + 1;
-    } else if (heroPosition < enemy.left) {
-      return enemy.left - 1;
-    } else if (heroPosition === enemy.left){
-      return enemy.left
+  getEnemiesThere = (enemy, newEnemy, topLimit, bottomLimit, leftLimit, rightLimit) => {
+    if (enemy.left <= leftLimit) {
+      //enemy left of left limit
+      newEnemy.left = enemy.left + 1;
+      return newEnemy
     }
-  }
 
-  getHeroTop(enemy) {
-    let heroPosition = this.state.hero.top;
-    if (heroPosition > enemy.top) {
-      return enemy.top + 1;
-    } else if (heroPosition < enemy.top) {
-      return enemy.top - 1;
-    } else if (heroPosition === enemy.top){
-      return enemy.top
+    if (enemy.left >= rightLimit) {
+      //enemy right of right limit
+
+      newEnemy.left = enemy.left - 1;
+      // newEnemy.top = enemy.top - 1;
+      return newEnemy
     }
+
+    if (enemy.top <= bottomLimit) {
+      // enemy above hero
+
+      // newEnemy.left = enemy.left - 1;
+      newEnemy.top = enemy.top + 1;
+      return newEnemy
+    }
+
+    if (enemy.top >= topLimit) {
+      // enemy below hero
+
+      // newEnemy.left = enemy.left + 1;
+      newEnemy.top = enemy.top - 1;
+      return newEnemy
+    }
+  };
+
+  encircleHero(enemy) {
+    let leftLimit = this.state.hero.left - 50;
+    //300
+    let rightLimit = this.state.hero.left + 50;
+    //400
+    let topLimit = this.state.hero.top + 50;
+    //550
+    let bottomLimit = this.state.hero.top - 50;
+    //450
+    let heroLeft = this.state.hero.left;
+    //350
+    let heroTop = this.state.hero.top;
+    //500
+
+    let newEnemy = { left: enemy.left, top: enemy.top };
+
+    if (enemy.top < bottomLimit){
+      return this
+    }
+
+    // if (
+    //   enemy.left <= leftLimit ||
+    //   enemy.left >= rightLimit ||
+    //   enemy.top <= bottomLimit ||
+    //   enemy.top >= topLimit
+    // ) {
+    //   // console.log(enemy)
+    //   let returnValue = this.getEnemiesThere(enemy, newEnemy, topLimit, bottomLimit, leftLimit, rightLimit);
+    //   newEnemy = returnValue
+    // }
+
+    // if (enemy.top <= heroTop && enemy.left <= heroLeft) {
+    //   // console.log("enemy", enemy);
+
+    //   //lower than top
+
+    //   newEnemy.top = enemy.top + 1;
+    //   newEnemy.left = enemy.left - 1;
+    // }
+
+    // if (enemy.top >= heroTop && enemy.left <= heroLeft) {
+    //   //enemy left of right limit, higher than top
+      
+    //   newEnemy.left = enemy.left + 1;
+    //   newEnemy.top = enemy.top + 1;
+    // }
+    
+    // if (enemy.top >= heroTop && enemy.left >= heroLeft) {
+    //   console.log("enemy", enemy);
+    //   newEnemy.left = enemy.left + 1;
+    //   newEnemy.top = enemy.top - 1;
+    // }
+
+    // if (enemy.top <= heroTop && enemy.left >= heroLeft) {
+    //   newEnemy.left = enemy.left - 1;
+    //   newEnemy.top = enemy.top - 1;
+    // }
+
+    return newEnemy;
   }
 
   collisionDetection() {
