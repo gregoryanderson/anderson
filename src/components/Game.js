@@ -101,37 +101,52 @@ class Game extends Component {
     }
   }
 
-  getEnemiesThere = (enemy, newEnemy, topLimit, bottomLimit, leftLimit, rightLimit) => {
-    if (enemy.left <= leftLimit) {
-      //enemy left of left limit
-      newEnemy.left = enemy.left + 1;
-      return newEnemy
-    }
+  getEnemiesToBottomLimit = (enemy, newEnemy, topLimit, bottomLimit, leftLimit, rightLimit) => {
+    // return newEnemy.top = enemy.top - 1
+    return newEnemy = {top: enemy.top + 1, left: enemy.left}
+  }
+    
+  getEnemiesToLeftLimit = (enemy, newEnemy, topLimit, bottomLimit, leftLimit, rightLimit) => {
+    // return newEnemy.top = enemy.top - 1
+    return newEnemy = {top: enemy.top, left: enemy.left + 1}
+  }
 
-    if (enemy.left >= rightLimit) {
-      //enemy right of right limit
+  getEnemiesToRightLimit = (enemy, newEnemy, topLimit, bottomLimit, leftLimit, rightLimit) => {
+    // return newEnemy.top = enemy.top - 1
+    return newEnemy = {top: enemy.top, left: enemy.left - 1}
+  }
+    
+    
+    // if (enemy.left <= leftLimit) {
+    //   //enemy left of left limit
+    //   newEnemy.left = enemy.left + 1;
+    //   return newEnemy
+    // }
 
-      newEnemy.left = enemy.left - 1;
-      // newEnemy.top = enemy.top - 1;
-      return newEnemy
-    }
+    // if (enemy.left >= rightLimit) {
+    //   //enemy right of right limit
 
-    if (enemy.top <= bottomLimit) {
-      // enemy above hero
+    //   newEnemy.left = enemy.left - 1;
+    //   // newEnemy.top = enemy.top - 1;
+    //   return newEnemy
+    // }
 
-      // newEnemy.left = enemy.left - 1;
-      newEnemy.top = enemy.top + 1;
-      return newEnemy
-    }
+    // if (enemy.top <= bottomLimit) {
+    //   // enemy above hero
 
-    if (enemy.top >= topLimit) {
-      // enemy below hero
+    //   // newEnemy.left = enemy.left - 1;
+    //   newEnemy.top = enemy.top + 1;
+    //   return newEnemy
+    // }
 
-      // newEnemy.left = enemy.left + 1;
-      newEnemy.top = enemy.top - 1;
-      return newEnemy
-    }
-  };
+    // if (enemy.top >= topLimit) {
+    //   // enemy below hero
+
+    //   // newEnemy.left = enemy.left + 1;
+    //   newEnemy.top = enemy.top - 1;
+    //   return newEnemy
+    // }
+  // };
 
   encircleHero(enemy) {
     let leftLimit = this.state.hero.left - 50;
@@ -149,8 +164,14 @@ class Game extends Component {
 
     let newEnemy = { left: enemy.left, top: enemy.top };
 
-    if (enemy.top < bottomLimit){
-      return this
+    if (enemy.left < leftLimit) {
+      return this.getEnemiesToLeftLimit(enemy, newEnemy, topLimit, bottomLimit, leftLimit, rightLimit)
+    } else if (enemy.left > rightLimit){
+      return this.getEnemiesToRightLimit(enemy, newEnemy, topLimit, bottomLimit, leftLimit, rightLimit)
+    } else if (enemy.top < bottomLimit){
+      return this.getEnemiesToBottomLimit(enemy, newEnemy, topLimit, bottomLimit, leftLimit, rightLimit)
+    } else {
+      return enemy
     }
 
     // if (
