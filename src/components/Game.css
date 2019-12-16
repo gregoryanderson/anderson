@@ -4,7 +4,7 @@
     /* background-color: #FFF; */
     position: absolute;
     /* height: 78vh; */
-    margin: 1vh 1vh 1vh 0;
+    /* margin: 1vh 1vh 1vh 0; */
     background-color: #454360;
     /* align-content: center; */
     /* 10vh 10vh 10vh; */
@@ -60,9 +60,32 @@ div.enemy-toggle{
 #modal {
     background-color:#383756;
     position: absolute;
-    margin-left: 350px;
+    margin-left: 20vh;
+    width: 47vh;
+    margin-top: 20vh;
+    height: 20vh;
+    padding: 2vh;
 }
 
-.actual-game {
-    border: 1px solid yellow;
+
+.scoreboard {
+    height: 30vh;
+    background-color: #EB6D4A;
+    width: 100%;
+    /* display: flex; */
+    /* justify-content: center; */
+    text-align: center;
+}
+
+.round, .score {
+    font-size: 1.5em
+}
+
+.points {
+    font-size: 2em
+}
+
+.sontact--buttons {
+    /* height: 10vh; */
+    display:flex;
 }

@@ -1,10 +1,13 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./Game.css";
 import "./Main.css";
 import Hero from "./Hero";
 import Missiles from "./Missiles";
 import Enemies from "./Enemies";
 import setEnemyState from "./setEnemyState";
+import "./Projects.css";
+import "./Contact.css";
 
 class Game extends Component {
   constructor(props) {
@@ -29,7 +32,7 @@ class Game extends Component {
       loser: false,
       toggle: true,
       round: 0,
-      score: null,
+      score: 0,
       showModal: false,
       readyToPlay: false
     };
@@ -206,7 +209,7 @@ class Game extends Component {
     let kills = totalEnemiesForRound - this.state.enemies.length;
     let roundBonus = this.determineBonus();
     let actualRound = this.state.round + 1;
-    let killBonus = actualRound * 20;
+    let killBonus = actualRound * 250;
     let killScore = killBonus * kills;
     let total = killScore + roundBonus;
     this.setState({ score: total });
@@ -230,8 +233,8 @@ class Game extends Component {
   }
 
   getReady = () => {
-    this.setState({readyToPlay: true})
-  }
+    this.setState({ readyToPlay: true });
+  };
 
   gameLoop() {
     if (this.state.readyToPlay) {
@@ -254,7 +257,7 @@ class Game extends Component {
         enemies: this.state.enemies,
         hero: this.state.hero
       });
-    }, 10);
+    }, 50);
   }
 
   componentWillUnmount() {
@@ -265,11 +268,30 @@ class Game extends Component {
     return (
       <>
         <section className="game">
-          <section className="actual-game">
-            <Hero hero={this.state.hero} />
-            <Missiles missiles={this.state.missiles} />
-            <Enemies enemies={this.state.enemies} />
-          </section>
+          {!this.state.readyToPlay && (
+            <section id="modal" left="350">
+              <p>Arrows to Move</p>
+              <p>Spacebar to Shoot</p>
+              <p></p>
+              <p>Are You Ready?</p>
+              <section className="sontact--buttons">
+                <section className="projects__buttons">
+                  <button
+                    onClick={() => this.getReady()}
+                    className="projects__button"
+                  >
+                    Let's Play!
+                  </button>
+                </section>
+                <Link
+                  to="/home"
+                  style={{ textDecoration: "none", color: "#FFF" }}
+                >
+                  <button className="projects__button">No, Take Me Back</button>
+                </Link>
+              </section>
+            </section>
+          )}
           {this.state.winner && (
             <section id="modal" left="350">
               <h1>You have won</h1>
@@ -283,16 +305,18 @@ class Game extends Component {
               <p>You have loooost</p>
             </section>
           )}
-          {!this.state.readyToPlay && (
-            <section id="modal" left="350">
-              <p>Arrows to Move</p>
-              <p>Spacebar to Shoot</p>
-              <button onClick={() => this.getReady()}>Are You Ready?</button>
-            </section>
-          )}
-          <h1 className="text">Round: {this.state.round + 1}</h1>
-          <h1 className="text">Score: {this.state.score}</h1>
-          <h1 className="text">Invaders</h1>
+          {/* <section className="scoreboard">
+            <h1 className="round">Round: </h1>
+            <h1 className="points">{this.state.round + 1} </h1>
+            <h1 className="score">Score: </h1>
+            <h1 className="points">{this.state.score} </h1>
+            <h1 className="text">Invaders</h1>
+          </section> */}
+          <section className="actual-game">
+            <Hero hero={this.state.hero} />
+            <Missiles missiles={this.state.missiles} />
+            <Enemies enemies={this.state.enemies} />
+          </section>
         </section>
       </>
     );
