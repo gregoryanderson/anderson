@@ -30,7 +30,8 @@ class Game extends Component {
       toggle: true,
       round: 0,
       score: null,
-      showModal: false
+      showModal: false,
+      readyToPlay: false
     };
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.moveMissiles = this.moveMissiles.bind(this);
@@ -228,8 +229,12 @@ class Game extends Component {
     }
   }
 
+  getReady = () => {
+    this.setState({readyToPlay: true})
+  }
+
   gameLoop() {
-    if (!this.winner || !this.loser) {
+    if (this.state.readyToPlay) {
       this.moveMissiles();
       this.moveEnemies();
       this.collisionDetection();
@@ -249,7 +254,7 @@ class Game extends Component {
         enemies: this.state.enemies,
         hero: this.state.hero
       });
-    }, 40);
+    }, 10);
   }
 
   componentWillUnmount() {
@@ -276,6 +281,13 @@ class Game extends Component {
           {this.state.loser && (
             <section id="modal" left="350">
               <p>You have loooost</p>
+            </section>
+          )}
+          {!this.state.readyToPlay && (
+            <section id="modal" left="350">
+              <p>Arrows to Move</p>
+              <p>Spacebar to Shoot</p>
+              <button onClick={() => this.getReady()}>Are You Ready?</button>
             </section>
           )}
           <h1 className="text">Round: {this.state.round + 1}</h1>
