@@ -63,8 +63,7 @@ const Game = props => {
     document.getElementById("hero").style.top = hero.top + "px";
   }
 
-  function drawMissiles(hm) {
-    console.log(hm);
+  function drawMissiles() {
     document.getElementById("missiles").innerHTML = "";
     for (var i = 0; i < missiles.length; i++) {
       document.getElementById(

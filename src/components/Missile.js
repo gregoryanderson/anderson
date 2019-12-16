@@ -2,7 +2,6 @@ import React from "react";
 import "./Game.css";
 
 const Missile = props => {
-    console.log('in missile', props)
   return (
     <div
       className="missile1"

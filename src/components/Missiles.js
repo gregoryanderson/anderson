@@ -11,7 +11,6 @@ const Missiles = props => {
       if (missile.top < 0) {
         missiles.splice(missile, 1);
       } else {
-        console.log("miss", missile);
         return <Missile top={missile.top} left={missile.left} />;
       }
     });

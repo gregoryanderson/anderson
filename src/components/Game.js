@@ -174,57 +174,28 @@ class Game extends Component {
         rightLimit
       );
     }
-
-    // if (
-    //   enemy.left <= leftLimit ||
-    //   enemy.left >= rightLimit ||
-    //   enemy.top <= bottomLimit ||
-    //   enemy.top >= topLimit
-    // ) {
-    //   // console.log(enemy)
-    //   let returnValue = this.getEnemiesThere(enemy, newEnemy, topLimit, bottomLimit, leftLimit, rightLimit);
-    //   newEnemy = returnValue
-    // }
   }
 
-  enemyMerryGoRound(
-    enemy,
-    newEnemy,
-    topLimit,
-    bottomLimit,
-    leftLimit,
-    rightLimit
-  ) {
+  enemyMerryGoRound(enemy, newEnemy) {
     let heroLeft = this.state.hero.left;
-    //350
     let heroTop = this.state.hero.top;
-    //500
 
     if (enemy.top <= heroTop && enemy.left <= heroLeft) {
-      // console.log("enemy", enemy);
-      //lower than top
-
       newEnemy.top = enemy.top + 1;
       newEnemy.left = enemy.left - 1;
     }
-
     if (enemy.top >= heroTop && enemy.left <= heroLeft) {
-      //enemy left of right limit, higher than top
-
       newEnemy.left = enemy.left + 1;
       newEnemy.top = enemy.top + 1;
     }
-
     if (enemy.top >= heroTop && enemy.left >= heroLeft) {
       newEnemy.left = enemy.left + 1;
       newEnemy.top = enemy.top - 1;
     }
-
     if (enemy.top <= heroTop && enemy.left >= heroLeft) {
       newEnemy.left = enemy.left - 1;
       newEnemy.top = enemy.top - 1;
     }
-
     return newEnemy;
   }
 
@@ -271,15 +242,33 @@ class Game extends Component {
 
   toggleEnemies(toggleSet) {
     if (this.state.loser) {
-      // console.log("in toggle");
       this.setState({ toggle: toggleSet });
     }
   }
 
+  determineTotalEnemiesForRound = () => {
+    let round = this.state.round;
+    if (round === 0) {
+      return 8;
+    } else if (round === 1) {
+      return 12;
+    } else if (round === 2) {
+      return 16;
+    } else if (round === 3) {
+      return 20;
+    } else if (round === 4) {
+      return 24;
+    }
+  };
+
   determineScore() {
-    let kills = 8 - this.state.enemies.length;
-    let bonus = this.determineBonus();
-    let total = (this.state.round + 1) * kills * 20 + bonus;
+    let totalEnemiesForRound = this.determineTotalEnemiesForRound();
+    let kills = totalEnemiesForRound - this.state.enemies.length;
+    let roundBonus = this.determineBonus();
+    let actualRound = this.state.round + 1;
+    let killBonus = actualRound * 20;
+    let killScore = killBonus * kills;
+    let total = killScore + roundBonus;
     this.setState({ score: total });
   }
 
@@ -290,13 +279,13 @@ class Game extends Component {
     } else if (round === 1) {
       return 160;
     } else if (round === 2) {
-      return 480;
+      return 640;
     } else if (round === 3) {
-      return 960;
-    } else if (round === 4) {
       return 1600;
+    } else if (round === 4) {
+      return 3200;
     } else {
-      return 2400;
+      return 5600;
     }
   }
 
@@ -334,9 +323,7 @@ class Game extends Component {
         <section className="game">
           <section className="actual-game">
             <Hero hero={this.state.hero} />
-            {/* <div id="missiles"></div> */}
             <Missiles missiles={this.state.missiles} />
-            {/* <div id="enemies"></div> */}
             <Enemies enemies={this.state.enemies} />
           </section>
           {this.state.winner && (
@@ -345,7 +332,6 @@ class Game extends Component {
               <button onClick={() => this.nextRound(this.state.round)}>
                 Next round
               </button>
-              {/* <button onClick={this.setState({ showModal: false })}></button> */}
             </section>
           )}
           {this.state.loser && (
@@ -354,8 +340,8 @@ class Game extends Component {
               {/* <button onClick={this.setState({ showModal: false })}></button> */}
             </section>
           )}
-          <h1 className="text">{this.state.enemies.length}</h1>
-          <h1 className="text">{this.state.score}</h1>
+          <h1 className="text">Round: {this.state.round + 1}</h1>
+          <h1 className="text">Score: {this.state.score}</h1>
           <h1 className="text">Invaders</h1>
         </section>
       </>

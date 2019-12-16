@@ -15,7 +15,6 @@ class App extends Component {
   }
 
   callReset(hm) {
-    console.log(this)
     this.setState({reset: hm})
   }
 
