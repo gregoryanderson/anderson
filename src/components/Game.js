@@ -34,7 +34,6 @@ class Game extends Component {
     };
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.moveMissiles = this.moveMissiles.bind(this);
-    // this.drawEnemies = this.drawEnemies.bind(this);
     this.moveEnemies = this.moveEnemies.bind(this);
     this.collisionDetection = this.collisionDetection.bind(this);
   }
@@ -50,7 +49,7 @@ class Game extends Component {
       // Right
       hero.left = hero.left + 10;
     }
-    if (e.keyCode === 32) {
+    if (e.keyCode === 32 && !this.state.loser) {
       // Spacebar (fire)
       missiles.push({
         left: hero.left + 20,
@@ -85,94 +84,34 @@ class Game extends Component {
     }
   }
 
-  getEnemiesToBottomLimit = (
-    enemy,
-    newEnemy,
-    topLimit,
-    bottomLimit,
-    leftLimit,
-    rightLimit
-  ) => {
-    // return newEnemy.top = enemy.top - 1
+  getEnemiesToBottomLimit = (enemy, newEnemy) => {
     return (newEnemy = { top: enemy.top + 1, left: enemy.left });
   };
 
-  getEnemiesToLeftLimit = (
-    enemy,
-    newEnemy,
-    topLimit,
-    bottomLimit,
-    leftLimit,
-    rightLimit
-  ) => {
-    // return newEnemy.top = enemy.top - 1
+  getEnemiesToLeftLimit = (enemy, newEnemy) => {
     return (newEnemy = { top: enemy.top, left: enemy.left + 1 });
   };
 
-  getEnemiesToRightLimit = (
-    enemy,
-    newEnemy,
-    topLimit,
-    bottomLimit,
-    leftLimit,
-    rightLimit
-  ) => {
-    // return newEnemy.top = enemy.top - 1
+  getEnemiesToRightLimit = (enemy, newEnemy) => {
     return (newEnemy = { top: enemy.top, left: enemy.left - 1 });
   };
 
   encircleHero(enemy) {
     let leftLimit = this.state.hero.left - 50;
-    //300
     let rightLimit = this.state.hero.left + 50;
-    //400
     let topLimit = this.state.hero.top + 50;
-    //550
     let bottomLimit = this.state.hero.top - 50;
-    //450
-    let heroLeft = this.state.hero.left;
-    //350
-    let heroTop = this.state.hero.top;
-    //500
 
     let newEnemy = { left: enemy.left, top: enemy.top };
 
     if (enemy.left < leftLimit) {
-      return this.getEnemiesToLeftLimit(
-        enemy,
-        newEnemy,
-        topLimit,
-        bottomLimit,
-        leftLimit,
-        rightLimit
-      );
+      return this.getEnemiesToLeftLimit(enemy, newEnemy);
     } else if (enemy.left > rightLimit) {
-      return this.getEnemiesToRightLimit(
-        enemy,
-        newEnemy,
-        topLimit,
-        bottomLimit,
-        leftLimit,
-        rightLimit
-      );
+      return this.getEnemiesToRightLimit(enemy, newEnemy);
     } else if (enemy.top < bottomLimit) {
-      return this.getEnemiesToBottomLimit(
-        enemy,
-        newEnemy,
-        topLimit,
-        bottomLimit,
-        leftLimit,
-        rightLimit
-      );
+      return this.getEnemiesToBottomLimit(enemy, newEnemy);
     } else {
-      return this.enemyMerryGoRound(
-        enemy,
-        newEnemy,
-        topLimit,
-        bottomLimit,
-        leftLimit,
-        rightLimit
-      );
+      return this.enemyMerryGoRound(enemy, newEnemy);
     }
   }
 
@@ -337,7 +276,6 @@ class Game extends Component {
           {this.state.loser && (
             <section id="modal" left="350">
               <p>You have loooost</p>
-              {/* <button onClick={this.setState({ showModal: false })}></button> */}
             </section>
           )}
           <h1 className="text">Round: {this.state.round + 1}</h1>
