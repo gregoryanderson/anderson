@@ -8,8 +8,10 @@
     background-color: #454360;
     /* align-content: center; */
     /* 10vh 10vh 10vh; */
-    /* width: 58%; */
-    /* border: 1px solid red; */
+    width: 90vh;
+    height: 76vh;
+    border: 1vh solid #EB6D4A;
+    margin-left: 10vh;
 }
 
 
@@ -60,8 +62,8 @@ div.enemy-toggle{
 #modal {
     background-color:#383756;
     position: absolute;
-    margin-left: 20vh;
-    width: 47vh;
+    margin-left: 23vh;
+    width: 45vh;
     margin-top: 20vh;
     height: 20vh;
     padding: 2vh;
