@@ -45,11 +45,11 @@ class Game extends Component {
   handleKeyPress(e) {
     let hero = this.state.hero;
     let missiles = this.state.missiles;
-    if (e.keyCode === 37) {
+    if (e.keyCode === 37 && hero.left > 50) {
       // Left
       hero.left = hero.left - 10;
     }
-    if (e.keyCode === 39) {
+    if (e.keyCode === 39 && hero.left < 600) {
       // Right
       hero.left = hero.left + 10;
     }
@@ -170,6 +170,31 @@ class Game extends Component {
     }
   }
 
+  startOver() {
+    this.setState({ round: 0 });
+    this.setState({
+      enemies: [
+        { left: 200, top: 75, row: 2 },
+        { left: 300, top: 75, row: 2 },
+        { left: 400, top: 75, row: 2 },
+        { left: 500, top: 75, row: 2 },
+        { left: 200, top: 0, row: 1 },
+        { left: 300, top: 0, row: 1 },
+        { left: 400, top: 0, row: 1 },
+        { left: 500, top: 0, row: 1 }
+      ]
+    });
+    this.setState({
+      hero: {
+        left: 350,
+        top: 500
+      }
+    });
+    this.setState({ winner: false });
+    this.setState({ loser: false });
+    this.setState({ missiles: [] });
+  }
+
   nextRound(roundNum) {
     this.setState({ round: roundNum + 1 });
     this.callSetEnemyState(roundNum);
@@ -237,10 +262,9 @@ class Game extends Component {
   };
 
   updateScoreBoard = () => {
-    console.log('yo', this.props)
     this.props.displayScore(this.state.score);
     this.props.displayRound(this.state.round);
-  }
+  };
 
   gameLoop() {
     if (this.state.readyToPlay) {
@@ -264,7 +288,7 @@ class Game extends Component {
         enemies: this.state.enemies,
         hero: this.state.hero
       });
-    }, 50);
+    }, 10);
   }
 
   componentWillUnmount() {
@@ -310,6 +334,7 @@ class Game extends Component {
           {this.state.loser && (
             <section id="modal" left="350">
               <p>You have loooost</p>
+              <button onClick={() => this.startOver()}>Try Again!</button>
             </section>
           )}
           {/* <section className="scoreboard">

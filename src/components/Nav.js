@@ -68,6 +68,7 @@ const Nav = props => {
     } else if (props.route === "game") {
       return (
         <section className="scoreboard">
+          <h1 className="round">SPACE INVADERS</h1>
           <h1 className="round">Round: </h1>
           <h1 className="points">{props.round}</h1>
           <h1 className="score">Score: </h1>

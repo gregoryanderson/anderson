@@ -10,5 +10,4 @@ const Missile = props => {
   );
 };
 
-// 'left:${missiles[i].left}px; top:${missiles[i].top}px'
 export default Missile;
