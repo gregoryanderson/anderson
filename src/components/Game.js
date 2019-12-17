@@ -236,6 +236,12 @@ class Game extends Component {
     this.setState({ readyToPlay: true });
   };
 
+  updateScoreBoard = () => {
+    console.log('yo', this.props)
+    this.props.displayScore(this.state.score);
+    this.props.displayRound(this.state.round);
+  }
+
   gameLoop() {
     if (this.state.readyToPlay) {
       this.moveMissiles();
@@ -243,6 +249,7 @@ class Game extends Component {
       this.collisionDetection();
       this.checkForWinner();
       this.determineScore();
+      this.updateScoreBoard();
       this.toggleEnemies(this.state.toggle);
     }
   }
@@ -287,7 +294,7 @@ class Game extends Component {
                   to="/home"
                   style={{ textDecoration: "none", color: "#FFF" }}
                 >
-                  <button className="projects__button">No, Take Me Back</button>
+                  <button className="projects__button">Exit</button>
                 </Link>
               </section>
             </section>

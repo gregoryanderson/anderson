@@ -9,13 +9,18 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      reset: false
+      reset: false,
+      round: 0,
+      score: 0
     };
-    this.callReset = this.callReset.bind(this)
   }
 
-  callReset(hm) {
-    this.setState({reset: hm})
+  displayScore = (playerScore) => {
+    this.setState({score: playerScore})
+  }
+
+  displayRound = (gameRound) => {
+    this.setState({round: gameRound})
   }
 
   render() {
@@ -93,8 +98,8 @@ class App extends Component {
             path="/game"
             render={() => (
               <>
-                <Nav route="game"/>
-                <Main route="game" callReset={this.callReset}/>
+                <Nav route="game" score={this.state.score} round={this.state.round}/>
+                <Main route="game" displayScore={this.displayScore} displayRound={this.displayRound}/>
               </>
             )}
           />

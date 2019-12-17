@@ -15,6 +15,17 @@ const Nav = props => {
   const [experience, setExperience] = useState(false);
   const [contact, setContact] = useState(false);
   const [home, setHome] = useState(false);
+  // const [score, setScore] = useState(0)
+  // const [score, setRound] = useState(0)
+
+
+  // const displayScore = (playerScore) => {
+  //   setScore(playerScore)
+  // }
+
+  // const displayRound = (gameRound) => {
+  //   setRound(gameRound)
+  // }
 
   useEffect(() => {
     if (props.route === "home") {
@@ -54,18 +65,18 @@ const Nav = props => {
       return <AiOutlineLineChart size={300} color="#454360" />;
     } else if (props.route === "journal") {
       return <AiOutlineMessage size={300} color="#454360" />;
-    } else if (props.route === "home") {
-      return <AiOutlineHome size={300} color="#454360" />;
-    } else {
+    } else if (props.route === "game") {
       return (
         <section className="scoreboard">
           <h1 className="round">Round: </h1>
-          <h1 className="points">5 </h1>
+          <h1 className="points">{props.round}</h1>
           <h1 className="score">Score: </h1>
-          <h1 className="points">234567 </h1>
+          <h1 className="points">{props.score}</h1>
           {/* <h1 className="text">Invaders</h1> */}
         </section>
-      );
+      )
+    } else {
+      return <AiOutlineHome size={300} color="#454360" />;
     }
   };
 
@@ -100,14 +111,6 @@ const Nav = props => {
             Projects
           </p>
         </Link>
-        {/* <Link
-          to="/journal"
-          style={{ textDecoration: "none", color: "#FFF" }}
-          className="nav__section--links"
-        >
-          <AiOutlineForm size={32} color="#EB6D4A" />
-          <p className="nav__p--links">Journal</p>
-        </Link> */}
         <Link
           to="/contact"
           style={{ textDecoration: "none", color: "#FFF" }}

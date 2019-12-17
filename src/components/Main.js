@@ -62,7 +62,7 @@ const Main = props => {
       return (
         <>
           <section className="main--sontent">
-            <Game route="game" callReset={props.callReset} />
+            <Game route="game" displayScore={props.displayScore} displayRound={props.displayRound} />
           </section>
         </>
       );
