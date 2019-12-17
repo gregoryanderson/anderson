@@ -15,18 +15,18 @@ class Game extends Component {
     this.state = {
       missiles: [],
       enemies: [
-        { left: 200, top: 75, row: 2 },
-        { left: 300, top: 75, row: 2 },
-        { left: 400, top: 75, row: 2 },
-        { left: 500, top: 75, row: 2 },
-        { left: 200, top: 0, row: 1 },
-        { left: 300, top: 0, row: 1 },
-        { left: 400, top: 0, row: 1 },
-        { left: 500, top: 0, row: 1 }
+        { left: 10, top: 10, row: 2 },
+        { left: 20, top: 10, row: 2 },
+        { left: 30, top: 10, row: 2 },
+        { left: 40, top: 10, row: 2 },
+        { left: 10, top: 0, row: 1 },
+        { left: 20, top: 0, row: 1 },
+        { left: 30, top: 0, row: 1 },
+        { left: 40, top: 0, row: 1 }
       ],
       hero: {
-        left: 350,
-        top: 500
+        left: 25,
+        top: 65
       },
       winner: false,
       loser: false,
@@ -45,19 +45,19 @@ class Game extends Component {
   handleKeyPress(e) {
     let hero = this.state.hero;
     let missiles = this.state.missiles;
-    if (e.keyCode === 37 && hero.left > 50) {
+    if (e.keyCode === 37 && hero.left > 5) {
       // Left
-      hero.left = hero.left - 10;
+      hero.left = hero.left - 1;
     }
-    if (e.keyCode === 39 && hero.left < 600) {
+    if (e.keyCode === 39 && hero.left < 65) {
       // Right
-      hero.left = hero.left + 10;
+      hero.left = hero.left + 1;
     }
     if (e.keyCode === 32 && !this.state.loser) {
       // Spacebar (fire)
       missiles.push({
-        left: hero.left + 20,
-        top: hero.top - 20
+        left: hero.left + 2,
+        top: hero.top - 2
       });
     }
   }
@@ -65,7 +65,7 @@ class Game extends Component {
   moveMissiles() {
     let missiles = this.state.missiles;
     for (var i = 0; i < missiles.length; i++) {
-      missiles[i].top = missiles[i].top - 8;
+      missiles[i].top = missiles[i].top - 1;
     }
   }
 
@@ -79,8 +79,8 @@ class Game extends Component {
       });
     } else {
       enemies.map(enemy => {
-        enemy.top = enemy.top + 1;
-        if (enemy.top >= 450) {
+        enemy.top = enemy.top + .2;
+        if (enemy.top >= 60) {
           this.setState({ loser: true });
           this.setState({ showModal: true });
         }
@@ -101,10 +101,10 @@ class Game extends Component {
   };
 
   encircleHero(enemy) {
-    let leftLimit = this.state.hero.left - 50;
-    let rightLimit = this.state.hero.left + 50;
-    let topLimit = this.state.hero.top + 50;
-    let bottomLimit = this.state.hero.top - 50;
+    let leftLimit = this.state.hero.left - 5;
+    let rightLimit = this.state.hero.left + 5;
+    let topLimit = this.state.hero.top + 5;
+    let bottomLimit = this.state.hero.top - 5;
 
     let newEnemy = { left: enemy.left, top: enemy.top };
 
@@ -152,8 +152,8 @@ class Game extends Component {
         } else {
           if (
             missiles[missile].left >= enemies[enemy].left &&
-            missiles[missile].left <= enemies[enemy].left + 50 &&
-            missiles[missile].top <= enemies[enemy].top + 50 &&
+            missiles[missile].left <= enemies[enemy].left + 5 &&
+            missiles[missile].top <= enemies[enemy].top + 5 &&
             missiles[missile].top >= enemies[enemy].top
           ) {
             enemies.splice(enemy, 1);
@@ -174,20 +174,20 @@ class Game extends Component {
     this.setState({ round: 0 });
     this.setState({
       enemies: [
-        { left: 200, top: 75, row: 2 },
-        { left: 300, top: 75, row: 2 },
-        { left: 400, top: 75, row: 2 },
-        { left: 500, top: 75, row: 2 },
-        { left: 200, top: 0, row: 1 },
-        { left: 300, top: 0, row: 1 },
-        { left: 400, top: 0, row: 1 },
-        { left: 500, top: 0, row: 1 }
+        { left: 10, top: 10, row: 2 },
+        { left: 20, top: 10, row: 2 },
+        { left: 30, top: 10, row: 2 },
+        { left: 40, top: 10, row: 2 },
+        { left: 10, top: 0, row: 1 },
+        { left: 20, top: 0, row: 1 },
+        { left: 30, top: 0, row: 1 },
+        { left: 40, top: 0, row: 1 }
       ]
     });
     this.setState({
       hero: {
-        left: 350,
-        top: 500
+        left: 25,
+        top: 65
       }
     });
     this.setState({ winner: false });
@@ -234,7 +234,7 @@ class Game extends Component {
     let kills = totalEnemiesForRound - this.state.enemies.length;
     let roundBonus = this.determineBonus();
     let actualRound = this.state.round + 1;
-    let killBonus = actualRound * 250;
+    let killBonus = actualRound * 295;
     let killScore = killBonus * kills;
     let total = killScore + roundBonus;
     this.setState({ score: total });
@@ -245,15 +245,15 @@ class Game extends Component {
     if (round === 0) {
       return 0;
     } else if (round === 1) {
-      return 160;
+      return 2360;
     } else if (round === 2) {
-      return 640;
+      return 9440;
     } else if (round === 3) {
-      return 1600;
+      return 23600;
     } else if (round === 4) {
-      return 3200;
+      return 47200;
     } else {
-      return 5600;
+      return 82600;
     }
   }
 
@@ -288,7 +288,7 @@ class Game extends Component {
         enemies: this.state.enemies,
         hero: this.state.hero
       });
-    }, 10);
+    }, 100);
   }
 
   componentWillUnmount() {
@@ -300,16 +300,16 @@ class Game extends Component {
       <>
         <section className="game">
           {!this.state.readyToPlay && (
-            <section id="modal" left="350">
+            <section id="modal">
               <p>Arrows to Move</p>
               <p>Spacebar to Shoot</p>
               <p></p>
-              <p>Are You Ready?</p>
+              <p className="ready">Are You Ready?</p>
               <section className="sontact--buttons">
                 <section className="projects__buttons">
                   <button
                     onClick={() => this.getReady()}
-                    className="projects__button"
+                    className="srojects__button"
                   >
                     Let's Play!
                   </button>
@@ -318,7 +318,7 @@ class Game extends Component {
                   to="/home"
                   style={{ textDecoration: "none", color: "#FFF" }}
                 >
-                  <button className="projects__button">Exit</button>
+                  <button className="srojects__button">Exit</button>
                 </Link>
               </section>
             </section>
@@ -326,7 +326,7 @@ class Game extends Component {
           {this.state.winner && (
             <section id="modal" left="350">
               <h1>You have won</h1>
-              <button onClick={() => this.nextRound(this.state.round)}>
+              <button className="srojects__button" onClick={() => this.nextRound(this.state.round)}>
                 Next round
               </button>
             </section>
@@ -334,22 +334,23 @@ class Game extends Component {
           {this.state.loser && (
             <section id="modal" left="350">
               <p>You have loooost</p>
-              <button onClick={() => this.startOver()}>Try Again!</button>
+              <button className="srojects__button" onClick={() => this.startOver()}>Try Again!</button>
             </section>
           )}
-          {/* <section className="scoreboard">
-            <h1 className="round">Round: </h1>
-            <h1 className="points">{this.state.round + 1} </h1>
-            <h1 className="score">Score: </h1>
-            <h1 className="points">{this.state.score} </h1>
-            <h1 className="text">Invaders</h1>
-          </section> */}
           <section className="actual-game">
             <Hero hero={this.state.hero} />
             <Missiles missiles={this.state.missiles} />
             <Enemies enemies={this.state.enemies} />
           </section>
         </section>
+        <section className="scoreboard">
+            <h1 className="round">Round: </h1>
+            <h1 className="points">{this.state.round + 1} </h1>
+            <h1 className="score">Score: </h1>
+            <h1 className="points">{this.state.score} </h1>
+            <h1 className="text">Invaders</h1>
+            <img src={require("./GREG-01.png")} alt="Gregory Anderson" className="game--image" />
+          </section>
       </>
     );
   }

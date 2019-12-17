@@ -67,14 +67,15 @@ const Nav = props => {
       return <AiOutlineMessage size={300} color="#454360" />;
     } else if (props.route === "game") {
       return (
-        <section className="scoreboard">
-          <h1 className="round">SPACE INVADERS</h1>
-          <h1 className="round">Round: </h1>
-          <h1 className="points">{props.round}</h1>
-          <h1 className="score">Score: </h1>
-          <h1 className="points">{props.score}</h1>
-          {/* <h1 className="text">Invaders</h1> */}
-        </section>
+        // <section className="scoreboard">
+        //   <h1 className="round">SPACE INVADERS</h1>
+        //   <h1 className="round">Round: </h1>
+        //   <h1 className="points">{props.round + 1}</h1>
+        //   <h1 className="score">Score: </h1>
+        //   <h1 className="points">{props.score}</h1>
+        //   {/* <h1 className="text">Invaders</h1> */}
+        // </section>
+        <p>scoreboard</p>
       )
     } else {
       return <AiOutlineHome size={300} color="#454360" />;

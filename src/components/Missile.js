@@ -5,7 +5,7 @@ const Missile = props => {
   return (
     <div
       className="missile1"
-      style={{ top: props.top, left: props.left }}
+      style={{ top: props.top + "vh", left: props.left + "vh"}}
     ></div>
   );
 };

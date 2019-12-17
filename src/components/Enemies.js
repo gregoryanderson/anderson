@@ -7,7 +7,7 @@ const Enemies = props => {
     let enemies = props.enemies;
 
     return enemies.map(enemy => {
-      return <Enemy top={enemy.top} left={enemy.left} />;
+      return <Enemy top={enemy.top + "vh"} left={enemy.left + "vh"} />;
     });
   };
 

@@ -14,7 +14,7 @@ class Hero extends Component {
 
     render () {
         return (
-            <div id="hero" style={{top: this.props.hero.top, left: this.props.hero.left}}>
+            <div id="hero" style={{top: this.props.hero.top + "vh", left: this.props.hero.left + "vh"}}>
             </div>
         )  
     }

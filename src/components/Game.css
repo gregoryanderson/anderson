@@ -8,9 +8,9 @@
     background-color: #454360;
     /* align-content: center; */
     /* 10vh 10vh 10vh; */
-    width: 700px;
+    width: 60vh;
     height: 76vh;
-    border: 1vh solid #EB6D4A;
+    /* border: 1vh solid #EB6D4A; */
     /* margin-left: 15vh; */
 }
 
@@ -62,22 +62,26 @@ div.enemy-toggle{
 #modal {
     background-color:#383756;
     position: absolute;
-    margin-left: 23vh;
-    width: 45vh;
+    /* margin-left: 23vh; */
+    width: 56vh;
     margin-top: 20vh;
-    height: 20vh;
+    height: 25vh;
     padding: 2vh;
-    border: 1px solid #FFF;
+    /* border: 1px solid #FFF; */
 }
 
 
 .scoreboard {
-    height: 30vh;
+    height: 76vh;
     background-color: #EB6D4A;
-    width: 100%;
+    border: 1vh solid #FFF;
+    /* width: 35vh; */
+
+    width: -webkit-fill-available;
     /* display: flex; */
     /* justify-content: center; */
     text-align: center;
+    margin-left: 60vh;
 }
 
 .round, .score {
@@ -91,4 +95,38 @@ div.enemy-toggle{
 .sontact--buttons {
     /* height: 10vh; */
     display:flex;
+    justify-content: center;
+}
+
+.srojects__button {
+    color: #FFF;
+    background-color: #EB6D4A;
+    transition: border 0.2s ease-out;
+    transition: padding 0.2s ease-out;
+    padding: .5em;
+    border-radius: 5px;
+    border: none;
+    font-size: .7em;
+    width: 20vh;
+    margin: 0 3vh 0 3vh;
+    border: .5vh solid #383756;
+    cursor: pointer
+}
+
+.srojects__button:hover {
+    font-size: .7em;
+    padding: .8em;
+    border: .5vh solid #FFF;
+    cursor: pointer
+
+}
+
+.game--image {
+    margin: 20vh 0 0 0;
+    width: 20vh;
+    /* height: 30vh; */
+}
+
+.ready {
+    margin: 2vh 0 2vh 0;
 }
