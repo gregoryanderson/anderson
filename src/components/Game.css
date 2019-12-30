@@ -60,21 +60,25 @@ div.enemy-toggle{
 }
 
 #modal {
-    background-color:#383756;
-    position: absolute;
+    /* background-color:#383756;
+    position: absolute; */
     /* margin-left: 23vh; */
-    width: 56vh;
+    width: 54vh;
     margin-top: 20vh;
     height: 25vh;
     padding: 2vh;
+    /* height: 76vh; */
+    background-color: #EB6D4A;
+    border: 1vh solid #FFF;
     /* border: 1px solid #FFF; */
 }
 
 
 .scoreboard {
-    height: 76vh;
-    background-color: #EB6D4A;
-    border: 1vh solid #FFF;
+    height: 78vh;
+    /* background-color: #EB6D4A; */
+    background-color: #383756;;
+    /* border: 1vh solid #FFF; */
     /* width: 35vh; */
 
     width: -webkit-fill-available;
@@ -109,7 +113,7 @@ div.enemy-toggle{
     font-size: .7em;
     width: 20vh;
     margin: 0 3vh 0 3vh;
-    border: .5vh solid #383756;
+    border: .5vh solid #FFF;
     cursor: pointer
 }
 

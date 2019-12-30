@@ -17,7 +17,7 @@ const Home = props => {
             <FaLinkedinIn size={24} />
           </section>
         </section>
-        <button id="main--button">Hire Me</button>
+        <button class="srojects__button">Hire Me</button>
       </section>
     </section>
   );

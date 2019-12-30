@@ -10,6 +10,7 @@ import Game from "./Game";
 
 const Main = props => {
   const determineTheRoute = () => {
+    console.log(props)
     if (props.route === "home" || props.route === "") {
       return (
         <>
@@ -30,7 +31,7 @@ const Main = props => {
               <AiOutlineRocket size={64} color="#EB6D4A" />
             </Link>
           </section>
-          <Home />
+          <Experience />
         </>
       );
     }
@@ -42,7 +43,7 @@ const Main = props => {
               <AiOutlineRocket size={64} color="#EB6D4A" />
             </Link>
           </section>
-          <Home />
+          <Contact />
         </>
       );
     }
@@ -54,7 +55,7 @@ const Main = props => {
               <AiOutlineRocket size={64} color="#EB6D4A" />
             </Link>
           </section>
-          <Home />
+          <Projects />
         </>
       );
     }
