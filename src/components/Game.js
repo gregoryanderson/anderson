@@ -10,7 +10,7 @@ import HallOfFame from "./HallOfFame";
 import setEnemyState from "./setEnemyState";
 import "./Projects.css";
 import "./Contact.css";
-import { postPlayer, getPlayers, getScores } from "./apiCalls";
+import { postPlayer, getPlayers, getScores, postScore } from "./apiCalls";
 
 class Game extends Component {
   constructor(props) {
@@ -40,7 +40,8 @@ class Game extends Component {
       showModal: false,
       readyToPlay: false,
       players: null,
-      scores: null
+      scores: null,
+      hall: this.props.hof
     };
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.moveMissiles = this.moveMissiles.bind(this);
@@ -288,6 +289,25 @@ class Game extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  handleClick = async () => {
+    let playerId = await postPlayer(this.state.name)
+    let scoreId = await postScore(this.state.score, playerId.id)
+    let allPlayers = await getPlayers();
+    let allScores = await getScores();
+    let hof = [];
+    allScores.map(score => {
+      let player = allPlayers.find(player => player.id === score.player_id);
+      hof.push({ scr: score.score, plyr: player.name });
+    });
+    hof.sort((a,b) => {
+      return b.scr - a.scr
+    })
+    if (hof.length > 15){
+      let shortHof = hof.slice(0, 14)
+      this.setState({ hall: shortHof });
+    }
+  }
+
   componentDidMount() {
     this.interval = setInterval(() => {
       document.addEventListener("keydown", this.handleKeyPress);
@@ -298,7 +318,7 @@ class Game extends Component {
         enemies: this.state.enemies,
         hero: this.state.hero
       });
-    }, 10);
+    }, 100);
   }
 
   componentWillUnmount() {
@@ -362,7 +382,7 @@ class Game extends Component {
               ></input>
               <button
                 className="srojects__button"
-                onClick={() => postPlayer(this.state.name)}
+                onClick={() => this.handleClick()}
               >
                 Enter
               </button>
@@ -376,7 +396,7 @@ class Game extends Component {
         </section>
         <section className="sideboard">
           <h1 className="round">Hall of Fame:</h1>
-            <HallOfFame hof={this.props.hof}/>
+            <HallOfFame hof={this.state.hall}/>
           <img
             src={require("./GREG-01.png")}
             alt="Gregory Anderson"

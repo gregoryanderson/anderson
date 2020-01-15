@@ -27,7 +27,6 @@ class App extends Component {
   };
 
   setHof = async () => {
-
     const allPlayers = await getPlayers();
     this.setState({ players: allPlayers });
     const allScores = await getScores();
@@ -37,7 +36,14 @@ class App extends Component {
       let player = allPlayers.find(player => player.id === score.player_id);
       hof.push({ scr: score.score, plyr: player.name });
     });
-    this.setState({ hallOfFame: hof });
+    hof.sort((a,b) => {
+      console.log(a.scr)
+      return b.scr - a.scr
+    })
+    if (hof.length > 15){
+      let shortHof = hof.slice(0, 14)
+      this.setState({ hallOfFame: shortHof });
+    }
   };
 
   componentWillMount() {

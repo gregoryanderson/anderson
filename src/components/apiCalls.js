@@ -57,11 +57,15 @@ export const postPlayer = async playerName => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body)
     };
-  
+
+    console.log(playerScore)
+    console.log(playerId)
+
     try {
       const res = await fetch(url, options);
+      console.log(res)
       if (!res.ok) {
-        throw new Error("There was an error posting this palette!");
+        throw new Error("There was an error posting this score!");
       }
       const newPalette = await res.json();
       return newPalette;
@@ -69,3 +73,40 @@ export const postPlayer = async playerName => {
       throw new Error(error);
     }
   };
+
+  export const deleteScore = async id => {
+    const url = `http://localhost:3003/api/v1/scores/${id}`;
+    const options = {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" }
+    };
+    try {
+      const res = await fetch(url, options);
+      if (!res.ok) {
+        throw new Error("Cannot delete Score!");
+      }
+      const deletedScore = await res.json();
+      return deletedScore;
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
+
+  export const deletePlayer = async id => {
+    const url = `http://localhost:3003/api/v1/scores/${id}`;
+    const options = {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" }
+    };
+    try {
+      const res = await fetch(url, options);
+      if (!res.ok) {
+        throw new Error("Cannot delete player!");
+      }
+      const deletedPlayer = await res.json();
+      return deletedPlayer;
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
+  
