@@ -1,9 +1,10 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./App.css";
 import Main from "./components/Main";
 import Nav from "./components/Nav";
-import Game from './components/Game'
+import Game from "./components/Game";
 import { Route } from "react-router-dom";
+import { postPlayer, getPlayers, getScores } from "./components/apiCalls";
 
 class App extends Component {
   constructor() {
@@ -11,18 +12,38 @@ class App extends Component {
     this.state = {
       reset: false,
       round: 0,
-      score: 0
+      score: 0,
+      players: null,
+      scores: null
     };
   }
 
-  displayScore = (playerScore) => {
-    this.setState({score: playerScore})
-  }
+  displayScore = playerScore => {
+    this.setState({ score: playerScore });
+  };
 
-  displayRound = (gameRound) => {
-    this.setState({round: gameRound})
-  }
+  displayRound = gameRound => {
+    this.setState({ round: gameRound });
+  };
 
+  setHof = async () => {
+
+    const allPlayers = await getPlayers();
+    this.setState({ players: allPlayers });
+    const allScores = await getScores();
+    this.setState({ scores: allScores });
+    let hof = [];
+    allScores.map(score => {
+      let player = allPlayers.find(player => player.id === score.player_id);
+      hof.push({ scr: score.score, plyr: player.name });
+    });
+    this.setState({ hallOfFame: hof });
+  };
+
+  componentWillMount() {
+    this.setHof();
+  }
+  
   render() {
     return (
       <div className="App">
@@ -98,8 +119,17 @@ class App extends Component {
             path="/game"
             render={() => (
               <>
-                <Nav route="game" score={this.state.score} round={this.state.round}/>
-                <Main route="game" displayScore={this.displayScore} displayRound={this.displayRound}/>
+                <Nav
+                  route="game"
+                  score={this.state.score}
+                  round={this.state.round}
+                />
+                <Main
+                  route="game"
+                  displayScore={this.displayScore}
+                  displayRound={this.displayRound}
+                  hof={this.state.hallOfFame}
+                />
               </>
             )}
           />

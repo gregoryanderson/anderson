@@ -73,8 +73,18 @@ div.enemy-toggle{
     /* border: 1px solid #FFF; */
 }
 
+#hall-players {
+    display: flex;
+    justify-content: space-between;
+}
 
-.scoreboard {
+.hall--player {
+    color: #FFF;
+    font-size: 1em;
+    text-align: left;
+}
+
+.nav__scoreboard {
     height: 78vh;
     /* background-color: #EB6D4A; */
     background-color: #383756;;
@@ -85,6 +95,27 @@ div.enemy-toggle{
     /* display: flex; */
     /* justify-content: center; */
     text-align: center;
+    margin-left: 60vh; 
+}
+
+.scoreboard {
+    height: 30vh;
+    background-color: #454360;
+    /* background-color: #383756;; */
+    border: 1vh solid #383756;
+    width: 35vh;
+
+    width: -webkit-fill-available;
+    text-align: center;
+    margin-top: 16vh;
+}
+
+.sideboard {
+    height: 78vh;
+    background-color: #454360;
+    /* background-color: #383756;; */
+    border-left: 1vh solid #383756;
+    width: 35vh;
     margin-left: 60vh;
 }
 
@@ -133,4 +164,9 @@ div.enemy-toggle{
 
 .ready {
     margin: 2vh 0 2vh 0;
+}
+
+#hall {
+    width: 35vh;
+    height: 10vh;
 }

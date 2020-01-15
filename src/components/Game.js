@@ -5,9 +5,12 @@ import "./Main.css";
 import Hero from "./Hero";
 import Missiles from "./Missiles";
 import Enemies from "./Enemies";
+import HallOfFame from "./HallOfFame";
+
 import setEnemyState from "./setEnemyState";
 import "./Projects.css";
 import "./Contact.css";
+import { postPlayer, getPlayers, getScores } from "./apiCalls";
 
 class Game extends Component {
   constructor(props) {
@@ -33,8 +36,11 @@ class Game extends Component {
       toggle: true,
       round: 0,
       score: 0,
+      name: "",
       showModal: false,
-      readyToPlay: false
+      readyToPlay: false,
+      players: null,
+      scores: null
     };
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.moveMissiles = this.moveMissiles.bind(this);
@@ -79,7 +85,7 @@ class Game extends Component {
       });
     } else {
       enemies.map(enemy => {
-        enemy.top = enemy.top + .2;
+        enemy.top = enemy.top + 0.2;
         if (enemy.top >= 60) {
           this.setState({ loser: true });
           this.setState({ showModal: true });
@@ -278,6 +284,10 @@ class Game extends Component {
     }
   }
 
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
   componentDidMount() {
     this.interval = setInterval(() => {
       document.addEventListener("keydown", this.handleKeyPress);
@@ -288,7 +298,7 @@ class Game extends Component {
         enemies: this.state.enemies,
         hero: this.state.hero
       });
-    }, 100);
+    }, 10);
   }
 
   componentWillUnmount() {
@@ -326,7 +336,10 @@ class Game extends Component {
           {this.state.winner && (
             <section id="modal" left="350">
               <h1>You have won</h1>
-              <button className="srojects__button" onClick={() => this.nextRound(this.state.round)}>
+              <button
+                className="srojects__button"
+                onClick={() => this.nextRound(this.state.round)}
+              >
                 Next round
               </button>
             </section>
@@ -334,7 +347,25 @@ class Game extends Component {
           {this.state.loser && (
             <section id="modal" left="350">
               <p>You have loooost</p>
-              <button className="srojects__button" onClick={() => this.startOver()}>Try Again!</button>
+              <button
+                className="srojects__button"
+                onClick={() => this.startOver()}
+              >
+                Try Again!
+              </button>
+              <p>Or Enter Name for High Score!</p>
+              <input
+                type="text"
+                name="name"
+                value={this.state.name}
+                onChange={e => this.handleChange(e)}
+              ></input>
+              <button
+                className="srojects__button"
+                onClick={() => postPlayer(this.state.name)}
+              >
+                Enter
+              </button>
             </section>
           )}
           <section className="actual-game">
@@ -343,14 +374,15 @@ class Game extends Component {
             <Enemies enemies={this.state.enemies} />
           </section>
         </section>
-        <section className="scoreboard">
-            <h1 className="round">Round: </h1>
-            <h1 className="points">{this.state.round + 1} </h1>
-            <h1 className="score">Score: </h1>
-            <h1 className="points">{this.state.score} </h1>
-            <h1 className="text">Invaders</h1>
-            <img src={require("./GREG-01.png")} alt="Gregory Anderson" className="game--image" />
-          </section>
+        <section className="sideboard">
+          <h1 className="round">Hall of Fame:</h1>
+            <HallOfFame hof={this.props.hof}/>
+          <img
+            src={require("./GREG-01.png")}
+            alt="Gregory Anderson"
+            className="game--image"
+          />
+        </section>
       </>
     );
   }

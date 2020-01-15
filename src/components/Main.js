@@ -10,7 +10,6 @@ import Game from "./Game";
 
 const Main = props => {
   const determineTheRoute = () => {
-    console.log(props)
     if (props.route === "home" || props.route === "") {
       return (
         <>
@@ -63,7 +62,7 @@ const Main = props => {
       return (
         <>
           <section className="main--sontent">
-            <Game route="game" displayScore={props.displayScore} displayRound={props.displayRound} />
+            <Game route="game" displayScore={props.displayScore} displayRound={props.displayRound} hof={props.hof}/>
           </section>
         </>
       );
