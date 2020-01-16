@@ -245,6 +245,7 @@ class Game extends Component {
     let killScore = killBonus * kills;
     let total = killScore + roundBonus;
     this.setState({ score: total });
+    this.props.displayScore(total);
   }
 
   determineBonus() {
@@ -290,8 +291,8 @@ class Game extends Component {
   };
 
   handleClick = async () => {
-    let playerId = await postPlayer(this.state.name)
-    let scoreId = await postScore(this.state.score, playerId.id)
+    let playerId = await postPlayer(this.state.name);
+    let scoreId = await postScore(this.state.score, playerId.id);
     let allPlayers = await getPlayers();
     let allScores = await getScores();
     let hof = [];
@@ -299,16 +300,17 @@ class Game extends Component {
       let player = allPlayers.find(player => player.id === score.player_id);
       hof.push({ scr: score.score, plyr: player.name });
     });
-    hof.sort((a,b) => {
-      return b.scr - a.scr
-    })
-    if (hof.length > 15){
-      let shortHof = hof.slice(0, 14)
+    hof.sort((a, b) => {
+      return b.scr - a.scr;
+    });
+    if (hof.length > 12) {
+      let shortHof = hof.slice(0, 11);
       this.setState({ hall: shortHof });
     }
-  }
+  };
 
   componentDidMount() {
+    console.log(this.props);
     this.interval = setInterval(() => {
       document.addEventListener("keydown", this.handleKeyPress);
       this.gameLoop();
@@ -395,13 +397,17 @@ class Game extends Component {
           </section>
         </section>
         <section className="sideboard">
-          <h1 className="round">Hall of Fame:</h1>
-            <HallOfFame hof={this.state.hall}/>
-          <img
-            src={require("./GREG-01.png")}
-            alt="Gregory Anderson"
-            className="game--image"
-          />
+          <section id="hall--section">
+            <h1 id="hall--title">Hall of Fame:</h1>
+            <HallOfFame hof={this.state.hall} />
+          </section>
+          <section id="sideboard--img">
+            <img
+              src={require("./GREG-01.png")}
+              alt="Gregory Anderson"
+              className="game--image"
+            />
+          </section>
         </section>
       </>
     );

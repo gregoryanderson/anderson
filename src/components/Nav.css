@@ -44,3 +44,13 @@
     justify-content: center;
 }
 
+#scoreboard--content {
+    color:#EB6D4A;
+    /* font-size: 2em; */
+}
+
+#scoreboard--title {
+    color:#383756;
+    font-size: 2em;
+    padding: 1vh 0vh 3vh 0vh;
+}

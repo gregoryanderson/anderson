@@ -10,7 +10,7 @@ const HallOfFame = props => {
             <p className="hall--player">{item.plyr}</p>
           </div>
           <div>
-            <p className="hall--player">{item.scr}</p>
+            <p className="hall--score">{item.scr}</p>
           </div>
         </div>
       );

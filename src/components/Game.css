@@ -5,12 +5,13 @@
     position: absolute;
     /* height: 78vh; */
     /* margin: 1vh 1vh 1vh 0; */
-    background-color: #454360;
+    /* background-color: #454360; */
+    background-color: black;
     /* align-content: center; */
     /* 10vh 10vh 10vh; */
-    width: 60vh;
+    width: 58vh;
     height: 76vh;
-    /* border: 1vh solid #EB6D4A; */
+    border: 1vh solid #FFF;
     /* margin-left: 15vh; */
 }
 
@@ -80,9 +81,13 @@ div.enemy-toggle{
 }
 
 .hall--player {
-    color: #FFF;
+    color: #383756;
     font-size: 1em;
-    text-align: left;
+}
+
+.hall--score {
+    color: #EB6D4A;
+    font-size: 1em;
 }
 
 .nav__scoreboard {
@@ -100,7 +105,7 @@ div.enemy-toggle{
 }
 
 .scoreboard {
-    height: 30vh;
+    height: 36vh;
     background-color: #454360;
     /* background-color: #383756;; */
     border: 1vh solid #383756;
@@ -108,7 +113,7 @@ div.enemy-toggle{
 
     width: -webkit-fill-available;
     text-align: center;
-    margin-top: 16vh;
+    margin-top: 10vh;
 }
 
 .sideboard {
@@ -121,11 +126,13 @@ div.enemy-toggle{
 }
 
 .round, .score {
-    font-size: 1.5em
+    font-size: 1.5em;
+    text-align: left;
+    color:#383756 
 }
 
 .points {
-    font-size: 2em
+    font-size: 3.5em
 }
 
 .sontact--buttons {
@@ -159,6 +166,7 @@ div.enemy-toggle{
 
 .game--image {
     width: 20vh;
+    margin-top: 3vh;
 }
 
 .ready {
@@ -167,6 +175,21 @@ div.enemy-toggle{
 
 #hall {
     width: 33vh;
-    height: 30vh;
     display: inline-block;
+}
+
+#hall--section {
+    background-color: #454360;
+    height: 50vh;
+}
+
+#hall--title {
+    color:#383756;
+    font-size: 1.5em;
+    padding: 1vh 0vh 1vh 0vh;
+}
+
+#sideboard--img {
+    height: 28vh;
+    background-color: #383756;
 }

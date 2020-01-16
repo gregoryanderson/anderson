@@ -15,18 +15,16 @@ const Nav = props => {
   const [experience, setExperience] = useState(false);
   const [contact, setContact] = useState(false);
   const [home, setHome] = useState(false);
-  const [score, setScore] = useState(0)
-  const [round, setRound] = useState(0)
+  const [score, setScore] = useState(0);
+  const [round, setRound] = useState(0);
 
+  const displayScore = playerScore => {
+    setScore(playerScore);
+  };
 
-
-  const displayScore = (playerScore) => {
-    setScore(playerScore)
-  }
-
-  const displayRound = (gameRound) => {
-    setRound(gameRound)
-  }
+  const displayRound = gameRound => {
+    setRound(gameRound);
+  };
 
   useEffect(() => {
     if (props.route === "home") {
@@ -69,14 +67,18 @@ const Nav = props => {
     } else if (props.route === "game") {
       return (
         <section className="scoreboard">
-          <h1 className="round">SPACE INVADERS</h1>
-          <h1 className="round">Round: </h1>
-          <h1 className="points">{() => displayRound()}</h1>
-          <h1 className="score">Score: </h1>
-          <h1 className="points">{() => displayScore()}</h1>
+          <section id="scoreboard--title">
+            <h1>SPACE INVADERS</h1>
+          </section>
+          <section id="scoreboard--content">
+            <h1 className="round">Round </h1>
+            <h1 className="points">{props.round + 1}</h1>
+            <h1 className="score">Score </h1>
+            <h1 className="points">{props.score}</h1>
+          </section>
           {/* <h1 className="text">Invaders</h1> */}
         </section>
-      )
+      );
     } else {
       return <AiOutlineHome size={300} color="#454360" />;
     }
