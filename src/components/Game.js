@@ -41,7 +41,8 @@ class Game extends Component {
       readyToPlay: false,
       players: null,
       scores: null,
-      hall: this.props.hof
+      hall: this.props.hof,
+      highScore: false
     };
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.moveMissiles = this.moveMissiles.bind(this);
@@ -90,10 +91,23 @@ class Game extends Component {
         if (enemy.top >= 60) {
           this.setState({ loser: true });
           this.setState({ showModal: true });
+          this.checkScore();
         }
       });
     }
   }
+
+  checkScore = () => {
+    let scoresLength = this.props.hof.length - 1;
+    console.log(scoresLength);
+    let lowestQualifier = this.props.hof[scoresLength].scr;
+    console.log(lowestQualifier);
+    console.log(this.state.score);
+    if (this.state.score > lowestQualifier) {
+      console.log("lalala");
+      this.setState({ highScore: true });
+    }
+  };
 
   getEnemiesToBottomLimit = (enemy, newEnemy) => {
     return (newEnemy = { top: enemy.top + 1, left: enemy.left });
@@ -178,6 +192,7 @@ class Game extends Component {
   }
 
   startOver() {
+    this.setState({ highScore: false });
     this.setState({ round: 0 });
     this.setState({
       enemies: [
@@ -303,10 +318,11 @@ class Game extends Component {
     hof.sort((a, b) => {
       return b.scr - a.scr;
     });
-    if (hof.length > 12) {
-      let shortHof = hof.slice(0, 11);
+    if (hof.length > 10) {
+      let shortHof = hof.slice(0, 9);
       this.setState({ hall: shortHof });
     }
+    this.startOver();
   };
 
   componentDidMount() {
@@ -320,7 +336,7 @@ class Game extends Component {
         enemies: this.state.enemies,
         hero: this.state.hero
       });
-    }, 100);
+    }, 75);
   }
 
   componentWillUnmount() {
@@ -356,27 +372,32 @@ class Game extends Component {
             </section>
           )}
           {this.state.winner && (
-            <section id="modal" left="350">
-              <h1>You have won</h1>
+            <section id="modal-2" left="350">
+              <h1 className="ready">You have won this round!</h1>
               <button
                 className="srojects__button"
                 onClick={() => this.nextRound(this.state.round)}
               >
-                Next round
+                Next Round
               </button>
             </section>
           )}
           {this.state.loser && (
-            <section id="modal" left="350">
-              <p>You have loooost</p>
+            <section id="modal-3" left="350">
+              <p className="ready">Oh no!</p>
               <button
                 className="srojects__button"
                 onClick={() => this.startOver()}
               >
                 Try Again!
               </button>
-              <p>Or Enter Name for High Score!</p>
+            </section>
+          )}
+          {this.state.highScore && (
+            <section id="modal-4" left="350">
+              <p className="ready">Enter Name for High Score!</p>
               <input
+                id="input"
                 type="text"
                 name="name"
                 value={this.state.name}

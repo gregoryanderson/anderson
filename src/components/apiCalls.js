@@ -58,12 +58,8 @@ export const postPlayer = async playerName => {
       body: JSON.stringify(body)
     };
 
-    console.log(playerScore)
-    console.log(playerId)
-
     try {
       const res = await fetch(url, options);
-      console.log(res)
       if (!res.ok) {
         throw new Error("There was an error posting this score!");
       }

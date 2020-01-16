@@ -75,13 +75,47 @@ div.enemy-toggle{
     /* border: 1px solid #FFF; */
 }
 
+#modal-2 {
+    /* background-color:#383756;
+    position: absolute; */
+    /* margin-left: 23vh; */
+    width: 40vh;
+    margin-top: 20vh;
+    height: 15vh;
+    padding: 2vh;
+    display: inline-block;
+    /* height: 76vh; */
+    background-color: #EB6D4A;
+    border: 1vh solid #FFF;
+    /* border: 1px solid #FFF; */
+}
+
+#modal-3 {
+    margin-top: 3vh;
+    width: 40vh;
+    height: 14vh;
+    padding: 1vh;
+    display: inline-block;
+    background-color: #EB6D4A;
+    border: 1vh solid #FFF;
+}
+
+#modal-4 {
+    margin-top: 3vh;
+    width: 40vh;
+    height: 20vh;
+    padding: 1vh;
+    display: inline-block;
+    background-color: #EB6D4A;
+    border: 1vh solid #FFF;
+}
+
 #hall-players {
     display: flex;
     justify-content: space-between;
 }
 
 .hall--player {
-    color: #383756;
     font-size: 1em;
 }
 
@@ -92,14 +126,8 @@ div.enemy-toggle{
 
 .nav__scoreboard {
     height: 78vh;
-    /* background-color: #EB6D4A; */
     background-color: #383756;;
-    /* border: 1vh solid #FFF; */
-    /* width: 35vh; */
-
     width: -webkit-fill-available;
-    /* display: flex; */
-    /* justify-content: center; */
     text-align: center;
     margin-left: 60vh; 
 }
@@ -107,10 +135,8 @@ div.enemy-toggle{
 .scoreboard {
     height: 36vh;
     background-color: #454360;
-    /* background-color: #383756;; */
     border: 1vh solid #383756;
     width: 35vh;
-
     width: -webkit-fill-available;
     text-align: center;
     margin-top: 10vh;
@@ -119,9 +145,8 @@ div.enemy-toggle{
 .sideboard {
     height: 78vh;
     background-color: #454360;
-    /* background-color: #383756;; */
     border-left: 1vh solid #383756;
-    width: 35vh;
+    /* width: 35vh; */
     margin-left: 60vh;
 }
 
@@ -136,7 +161,6 @@ div.enemy-toggle{
 }
 
 .sontact--buttons {
-    /* height: 10vh; */
     display:flex;
     justify-content: center;
 }
@@ -166,11 +190,11 @@ div.enemy-toggle{
 
 .game--image {
     width: 20vh;
-    margin-top: 3vh;
+    margin-top: 8vh;
 }
 
 .ready {
-    margin: 2vh 0 2vh 0;
+    margin: 1vh 0 1vh 0;
 }
 
 #hall {
@@ -179,17 +203,25 @@ div.enemy-toggle{
 }
 
 #hall--section {
-    background-color: #454360;
-    height: 50vh;
+    background-color: #383756;
+    height: 42vh;
 }
 
 #hall--title {
-    color:#383756;
     font-size: 1.5em;
     padding: 1vh 0vh 1vh 0vh;
 }
 
 #sideboard--img {
-    height: 28vh;
-    background-color: #383756;
+    height: 36vh;
+    background-color: #454360;
+    align-items: center;
+}
+
+#input{
+    box-shadow: none;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-bottom: 1vh;
+    padding: 1vh;
 }

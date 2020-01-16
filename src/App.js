@@ -19,7 +19,6 @@ class App extends Component {
   }
 
   displayScore = playerScore => {
-    console.log(playerScore)
     this.setState({ score: playerScore });
   };
 
@@ -38,11 +37,10 @@ class App extends Component {
       hof.push({ scr: score.score, plyr: player.name });
     });
     hof.sort((a,b) => {
-      console.log(a.scr)
       return b.scr - a.scr
     })
-    if (hof.length > 12){
-      let shortHof = hof.slice(0, 11)
+    if (hof.length > 10){
+      let shortHof = hof.slice(0, 9)
       this.setState({ hallOfFame: shortHof });
     }
   };

@@ -8,7 +8,6 @@ const Missiles = props => {
     let missiles = props.missiles;
 
     return missiles.map(missile => {
-      console.log(missile)
       if (missile.top < 0) {
         missiles.splice(missile, 1);
         
