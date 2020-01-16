@@ -61,33 +61,23 @@ div.enemy-toggle{
 }
 
 #modal {
-    /* background-color:#383756;
-    position: absolute; */
-    /* margin-left: 23vh; */
-    width: 50vh;
+    width: 46vh;
     margin-top: 20vh;
     height: 25vh;
     padding: 2vh;
     display: inline-block;
-    /* height: 76vh; */
     background-color: #EB6D4A;
     border: 1vh solid #FFF;
-    /* border: 1px solid #FFF; */
 }
 
 #modal-2 {
-    /* background-color:#383756;
-    position: absolute; */
-    /* margin-left: 23vh; */
     width: 40vh;
     margin-top: 20vh;
     height: 15vh;
     padding: 2vh;
     display: inline-block;
-    /* height: 76vh; */
     background-color: #EB6D4A;
     border: 1vh solid #FFF;
-    /* border: 1px solid #FFF; */
 }
 
 #modal-3 {
@@ -153,6 +143,7 @@ div.enemy-toggle{
 .round, .score {
     font-size: 1.5em;
     text-align: left;
+    margin-left: 1vh;
     color:#383756 
 }
 
