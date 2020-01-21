@@ -14,7 +14,8 @@ class App extends Component {
       round: 0,
       score: 0,
       players: null,
-      scores: null
+      scores: null,
+      hallOfFame: null
     };
   }
 
@@ -42,10 +43,12 @@ class App extends Component {
     if (hof.length > 10){
       let shortHof = hof.slice(0, 9)
       this.setState({ hallOfFame: shortHof });
+    } else {
+      this.setState({ hallOfFame: hof });
     }
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.setHof();
   }
   

@@ -104,7 +104,7 @@ class Game extends Component {
     console.log(lowestQualifier);
     console.log(this.state.score);
     if (this.state.score > lowestQualifier) {
-      console.log("lalala");
+      // console.log("lalala");
       this.setState({ highScore: true });
     }
   };

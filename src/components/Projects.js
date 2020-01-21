@@ -31,10 +31,20 @@ const Projects = props => {
       return (
         <>
           <section className="projects--story">
-            <p>agency</p>
+            <h1 className="job-title">Agency</h1>
+            <p className="job-p">
+              A React front-end matched Python/Flask back-end to create an app
+              that matches people with a slight disability with those willing to
+              offer small bits of help. A group project. Won the 1904 Turing
+              Demo Competition.
+            </p>
           </section>
           <section className="projects--img">
-            <img src={require("./GREG-01.png")} alt="Gregory Anderson" className="projects--image" />
+            <img
+              src={require("./GREG-01.png")}
+              alt="Gregory Anderson"
+              className="projects--image"
+            />
           </section>
         </>
       );
@@ -42,10 +52,15 @@ const Projects = props => {
       return (
         <>
           <section className="projects--story">
-            <p>heart</p>
+          <h1 className="job-title">Heart</h1>
+            <p className="job-p">A React app that utilizes the Rijksmuseum API to allow a user to search for paintings in a variety of ways. It implements Redux for state management. All methods tested in Jest/Enzyme. A solo project.</p>
           </section>
           <section className="projects--img">
-            <img src={require("./GREG-01.png")}  alt="Gregory Anderson" className="projects--image" />
+            <img
+              src={require("./GREG-01.png")}
+              alt="Gregory Anderson"
+              className="projects--image"
+            />
           </section>
         </>
       );
@@ -53,17 +68,28 @@ const Projects = props => {
       return (
         <>
           <section className="projects--story">
-            <p>palette</p>
+          <h1 className="job-title">Palette Picker</h1>
+            <p className="job-p">A React app that utilizes the tools of PostgreSQL, Node.js, and Express.js to create my the back-end build. This project selects random colors and add them to a projects folder in a one-to-many relationship. A paired project</p>
           </section>
           <section className="projects--img">
-            <img src={require("./GREG-01.png")}  alt="Gregory Anderson" className="projects--image" />
+            <img
+              src={require("./GREG-01.png")}
+              alt="Gregory Anderson"
+              className="projects--image"
+            />
           </section>
         </>
       );
     } else {
-      return <section>
-        <img src={require("./GREG-01.png")}  alt="Gregory Anderson" className="projects--img" />
-      </section>;
+      return (
+        <section>
+          <img
+            src={require("./GREG-01.png")}
+            alt="Gregory Anderson"
+            className="projects--img"
+          />
+        </section>
+      );
     }
   };
 

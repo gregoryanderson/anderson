@@ -1,5 +1,5 @@
 export const getPlayers = async () => {
-    const url = 'http://localhost:3003/api/v1/players/';
+    const url = 'https://anderson-be.herokuapp.com/api/v1/players/';
     let res = await fetch(url);
     if (!res.ok) {
       throw new Error("There was an error retrieving your players!");
@@ -10,7 +10,7 @@ export const getPlayers = async () => {
   };
   
   export const getScores = async () => {
-    const url = 'http://localhost:3003/api/v1/scores/';
+    const url = 'https://anderson-be.herokuapp.com/api/v1/scores/';
     let res = await fetch(url);
     if (!res.ok) {
       throw new Error("There was an error retrieving your Scores!");
@@ -21,7 +21,7 @@ export const getPlayers = async () => {
   };
 
 export const postPlayer = async playerName => {
-    const url = 'http://localhost:3003/api/v1/players/';
+    const url = 'https://anderson-be.herokuapp.com/api/v1/players/';
     const body = {
       name: playerName
     };
@@ -47,7 +47,7 @@ export const postPlayer = async playerName => {
     playerScore,
     playerId
   ) => {
-    const url = 'http://localhost:3003/api/v1/scores/';
+    const url = 'https://anderson-be.herokuapp.com/api/v1/scores/';
     const body = {
       player_id: playerId,
       score: playerScore
@@ -71,7 +71,7 @@ export const postPlayer = async playerName => {
   };
 
   export const deleteScore = async id => {
-    const url = `http://localhost:3003/api/v1/scores/${id}`;
+    const url = `https://anderson-be.herokuapp.com/api/v1/scores/${id}`;
     const options = {
       method: "DELETE",
       headers: { "Content-Type": "application/json" }
@@ -89,7 +89,7 @@ export const postPlayer = async playerName => {
   };
 
   export const deletePlayer = async id => {
-    const url = `http://localhost:3003/api/v1/scores/${id}`;
+    const url = `https://anderson-be.herokuapp.com/api/v1/scores/${id}`;
     const options = {
       method: "DELETE",
       headers: { "Content-Type": "application/json" }
