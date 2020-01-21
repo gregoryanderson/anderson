@@ -1,7 +1,6 @@
 import React from "react";
 import "./Main.css";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
-import { postPlayer, postScore, deleteScore, deletePlayer } from './apiCalls'
 
 const Home = props => {
   return (
@@ -16,13 +15,17 @@ const Home = props => {
         <h1>Software Engineer</h1>
         <section className="main--links">
           <section className="main--link">
-            <FaGithub size={24} />
+            <a href="https://github.com/gregoryanderson">
+              <FaGithub size={24} style={{ color: "white" }} />
+            </a>
           </section>
           <section className="main--link">
-            <FaLinkedinIn size={24} />
+            <a href="https://www.linkedin.com/in/gregandersondev/">
+              <FaLinkedinIn size={24} style={{ color: "white" }}/>
+            </a>
           </section>
         </section>
-        <button class="srojects__button">Hire Me</button>
+        {/* <button class="srojects__button">Hire Me</button> */}
       </section>
     </section>
   );

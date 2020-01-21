@@ -321,6 +321,8 @@ class Game extends Component {
     if (hof.length > 10) {
       let shortHof = hof.slice(0, 9);
       this.setState({ hall: shortHof });
+    } else {
+      this.setState({ hall: hof });
     }
     this.startOver();
   };

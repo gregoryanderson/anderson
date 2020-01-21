@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Contact.css";
 
-
 const Contact = props => {
   const [email, setEmail] = useState(false);
   const [phone, setPhone] = useState(false);
@@ -19,27 +18,31 @@ const Contact = props => {
 
   const determineText = () => {
     if (phone) {
-      return         <>
-      <section className="projects--story">
-        <p>phone</p>
-      </section>
-      <section className="projects--img">
-        <img src={require("./GREG-01.png")} alt="Gregory Anderson" className="projects--image" />
-      </section>
-    </>;
+      return (
+        <>
+          <section className="projects--story">
+            <p>508-902-8048</p>
+          </section>
+        </>
+      );
     } else if (email) {
-      return         <>
-      <section className="projects--story">
-        <p>email</p>
-      </section>
-      <section className="projects--img">
-        <img src={require("./GREG-01.png")} alt="Gregory Anderson" className="projects--image" />
-      </section>
-    </>;
+      return (
+        <>
+          <section className="projects--story">
+            <p>anderson.gregory.mail@gmail.com</p>
+          </section>
+        </>
+      );
     } else {
-      return <section>
-      <img src={require("./GREG-01.png")} alt="Gregory Anderson" className="projects--img" />
-    </section>;
+      return (
+        <section>
+          <img
+            src={require("./GREG-01.png")}
+            alt="Gregory Anderson"
+            className="projects--img"
+          />
+        </section>
+      );
     }
   };
 

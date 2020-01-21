@@ -39,13 +39,6 @@ const Projects = props => {
               Demo Competition.
             </p>
           </section>
-          <section className="projects--img">
-            <img
-              src={require("./GREG-01.png")}
-              alt="Gregory Anderson"
-              className="projects--image"
-            />
-          </section>
         </>
       );
     } else if (heart) {
@@ -55,13 +48,6 @@ const Projects = props => {
           <h1 className="job-title">Heart</h1>
             <p className="job-p">A React app that utilizes the Rijksmuseum API to allow a user to search for paintings in a variety of ways. It implements Redux for state management. All methods tested in Jest/Enzyme. A solo project.</p>
           </section>
-          <section className="projects--img">
-            <img
-              src={require("./GREG-01.png")}
-              alt="Gregory Anderson"
-              className="projects--image"
-            />
-          </section>
         </>
       );
     } else if (palette) {
@@ -70,13 +56,6 @@ const Projects = props => {
           <section className="projects--story">
           <h1 className="job-title">Palette Picker</h1>
             <p className="job-p">A React app that utilizes the tools of PostgreSQL, Node.js, and Express.js to create my the back-end build. This project selects random colors and add them to a projects folder in a one-to-many relationship. A paired project</p>
-          </section>
-          <section className="projects--img">
-            <img
-              src={require("./GREG-01.png")}
-              alt="Gregory Anderson"
-              className="projects--image"
-            />
           </section>
         </>
       );

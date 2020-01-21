@@ -7,6 +7,10 @@
     font-size: 1.5em;
 }
 
+a {
+    text-decoration: none;
+}
+
 #main__img {
     margin: 7vh 0 3vh 0;
     width: 20%;
