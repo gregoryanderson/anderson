@@ -64,3 +64,15 @@
 .job-p {
     padding: .5vh;
 }
+
+.project-links {
+    /* text-decoration: none; */
+    color: #EB6D4A;
+}
+
+.project-links-section {
+    display: flex; 
+    justify-content: space-around;
+    padding: 5vh;
+    font-size: 2em;
+}

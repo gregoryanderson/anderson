@@ -38,6 +38,10 @@ const Projects = props => {
               offer small bits of help. A group project. Won the 1904 Turing
               Demo Competition.
             </p>
+            <section className="project-links-section">
+              <a href="https://github.com/gregoryanderson/Agency-fe" className="project-links">Github</a>
+              <a href="http://agency-fe.s3-website-us-east-1.amazonaws.com/" className="project-links">Live Site</a>
+            </section>
           </section>
         </>
       );
@@ -45,8 +49,17 @@ const Projects = props => {
       return (
         <>
           <section className="projects--story">
-          <h1 className="job-title">Heart</h1>
-            <p className="job-p">A React app that utilizes the Rijksmuseum API to allow a user to search for paintings in a variety of ways. It implements Redux for state management. All methods tested in Jest/Enzyme. A solo project.</p>
+            <h1 className="job-title">Heart</h1>
+            <p className="job-p">
+              A React app that utilizes the Rijksmuseum API to allow a user to
+              search for paintings in a variety of ways. It implements Redux for
+              state management. All methods tested in Jest/Enzyme. A solo
+              project.
+            </p>
+            <section className="project-links-section">
+              <a href="https://github.com/gregoryanderson/heart" className="project-links">Github</a>
+              <a href="https://heart-art.herokuapp.com/" className="project-links">Live Site</a>
+            </section>
           </section>
         </>
       );
@@ -54,8 +67,17 @@ const Projects = props => {
       return (
         <>
           <section className="projects--story">
-          <h1 className="job-title">Palette Picker</h1>
-            <p className="job-p">A React app that utilizes the tools of PostgreSQL, Node.js, and Express.js to create my the back-end build. This project selects random colors and add them to a projects folder in a one-to-many relationship. A paired project</p>
+            <h1 className="job-title">Palette Picker</h1>
+            <p className="job-p">
+              A React app that utilizes the tools of PostgreSQL, Node.js, and
+              Express.js to create my the back-end build. This project selects
+              random colors and add them to a projects folder in a one-to-many
+              relationship. A paired project
+            </p>
+            <section className="project-links-section">
+              <a href="https://github.com/gregoryanderson/frontend-palette-picker" className="project-links">Github</a>
+              <a href="https://fe-palette.herokuapp.com/" className="project-links">Live Site</a>
+            </section>
           </section>
         </>
       );

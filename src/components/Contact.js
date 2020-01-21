@@ -48,7 +48,7 @@ const Contact = props => {
 
   return (
     <section className="main--content">
-      <section className="contact--buttons">
+      {/* <section className="contact--buttons">
         <section className="projects--btns">
           <button
             className={email ? "projects__button--true" : "projects__button"}
@@ -65,8 +65,13 @@ const Contact = props => {
             Phone
           </button>
         </section>
+      </section> */}
+      <section className="contact--text">
+        <section className="projects--story">
+          Greg can be reached via email at: anderson.gregory.mail@gmail.com and
+          by phone at 508-902-8048
+        </section>
       </section>
-      <section className="contact--text">{determineText()}</section>
     </section>
   );
 };
