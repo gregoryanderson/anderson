@@ -21,7 +21,10 @@ const Contact = props => {
       return (
         <>
           <section className="projects--story">
-            <p>To contact Greg by phone: 508-902-8048</p>
+            <p>To contact Greg by phone:</p>
+            <section className="contact-info">
+              <p>508-902-8048</p>
+            </section>
           </section>
         </>
       );
@@ -29,7 +32,10 @@ const Contact = props => {
       return (
         <>
           <section className="projects--story">
-            <p>To contact Greg by email: anderson.gregory.mail@gmail.com</p>
+            <p>To contact Greg by email:</p>
+            <section className="contact-info">
+              <p>anderson.gregory.mail@gmail.com</p>
+            </section>
           </section>
         </>
       );

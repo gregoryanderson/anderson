@@ -8,3 +8,11 @@
     display: flex;
     justify-content: center;
 }
+
+.contact-info {
+    display: flex; 
+    justify-content: space-around;
+    padding: 5vh;
+    font-size: 2em;
+    color: #EB6D4A;
+}
