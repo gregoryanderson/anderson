@@ -4,7 +4,8 @@ import {
   AiOutlineHome,
   AiOutlineLaptop,
   AiOutlineMessage,
-  AiOutlineSound
+  AiOutlineSound,
+  AiOutlineVideoCamera
 } from "react-icons/ai";
 import "./Nav.css";
 import "./Game.css";
@@ -15,6 +16,7 @@ const Nav = props => {
   const [experience, setExperience] = useState(false);
   const [contact, setContact] = useState(false);
   const [home, setHome] = useState(false);
+  const [content, setContent] = useState(false);
   const [score, setScore] = useState(0);
   const [round, setRound] = useState(0);
 
@@ -32,26 +34,37 @@ const Nav = props => {
       setExperience(false);
       setHome(true);
       setContact(false);
+      setContent(false);
     } else if (props.route === "contact") {
       setProjects(false);
       setExperience(false);
       setHome(false);
       setContact(true);
+      setContent(false);   
     } else if (props.route === "experience") {
       setProjects(false);
       setExperience(true);
       setHome(false);
       setContact(false);
+      setContent(false);
     } else if (props.route === "projects") {
       setProjects(true);
       setExperience(false);
       setHome(false);
       setContact(false);
+      setContent(false);
+    } else if (props.route === "content") {
+      setProjects(false);
+      setExperience(false);
+      setHome(false);
+      setContact(false);
+      setContent(true);
     } else {
       setProjects(false);
       setExperience(false);
       setHome(false);
       setContact(false);
+      setContent(false);
     }
   });
 
@@ -59,6 +72,8 @@ const Nav = props => {
     if (props.route === "projects") {
       return <AiOutlineLaptop size={300} color="#454360" />;
     } else if (props.route === "contact") {
+      return <AiOutlineSound size={300} color="#454360" />;
+    } else if (props.route === "content") {
       return <AiOutlineSound size={300} color="#454360" />;
     } else if (props.route === "experience") {
       return <AiOutlineLineChart size={300} color="#454360" />;
@@ -103,6 +118,16 @@ const Nav = props => {
           <AiOutlineLineChart size={32} color="#EB6D4A" />
           <p className={experience ? "nav__p--links--true" : "nav__p--links"}>
             Experience
+          </p>
+        </Link>
+        <Link
+          to="/content"
+          style={{ textDecoration: "none", color: "#FFF" }}
+          className="nav__section--links"
+        >
+          <AiOutlineVideoCamera size={32} color="#EB6D4A" />
+          <p className={content ? "nav__p--links--true" : "nav__p--links"}>
+            Content
           </p>
         </Link>
         <Link

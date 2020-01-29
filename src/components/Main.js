@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Home from "./Home";
 import Experience from "./Experience";
 import Contact from "./Contact";
+import Content from "./Content";
 import Projects from "./Projects";
 import Game from "./Game";
 
@@ -43,6 +44,18 @@ const Main = props => {
             </Link>
           </section>
           <Contact />
+        </>
+      );
+    }
+    if (props.route === "content") {
+      return (
+        <>
+          <section className="main--rocket">
+            <Link to="/game">
+              <AiOutlineRocket size={64} color="#EB6D4A" />
+            </Link>
+          </section>
+          <Content />
         </>
       );
     }

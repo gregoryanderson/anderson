@@ -1,6 +1,6 @@
 import React from "react";
 import "./Main.css";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { FaLinkedinIn, FaGithub, FaMedium } from "react-icons/fa";
 
 const Home = props => {
   return (
@@ -21,7 +21,12 @@ const Home = props => {
           </section>
           <section className="main--link">
             <a href="https://www.linkedin.com/in/gregandersondev/">
-              <FaLinkedinIn size={24} style={{ color: "white" }}/>
+              <FaLinkedinIn size={24} style={{ color: "white" }} />
+            </a>
+          </section>
+          <section className="main--link">
+            <a href="https://medium.com/@yahtzeemoomtaz/">
+              <FaMedium size={24} style={{ color: "white" }} />
             </a>
           </section>
         </section>

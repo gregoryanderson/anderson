@@ -113,6 +113,17 @@ class App extends Component {
         }
         {
           <Route
+            path="/content"
+            render={() => (
+              <>
+                <Nav route="content" />
+                <Main route="content" />
+              </>
+            )}
+          />
+        }
+        {
+          <Route
             path="/projects"
             render={() => (
               <>

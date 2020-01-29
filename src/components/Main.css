@@ -78,3 +78,20 @@ a {
 h1,p {
     margin: 0;
 }
+
+.video {
+    border: 2vh solid #383756;
+    width: fit-content;
+    display: flex; 
+    margin: auto;
+}
+
+.video--text {
+    margin-top: 2vh;
+}
+
+
+.video--location {
+    color: #cc4e2f;
+    font-size: .8em;
+}

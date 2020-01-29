@@ -44,14 +44,15 @@ const Experience = props => {
             <h1 className="job-title">Preschool Teacher</h1>
             <p className="job-p">
               As a preschool teacher, I learned about how important compassion
-              is within a business model. Our clients- parents, cared very
-              deeply about the outcome of our product- the developmental growth
-              of their children. Often this involved exploring sensitive topics
-              such as behavioral issues or administering an individual education
-              plan. My outlook was to always start with finding common ground to
-              collaborate with parents on. When both sides agreed on small,
-              achievable goals and shared open communication about expectations,
-              success was often found.
+              is within a business model. Our clients were parents and they
+              cared very deeply about the outcome of our product, which was the
+              developmental growth of their children. Often this involved
+              traversing sensitive topics such as behavioral issues and
+              administering an individual education plans. My outlook was to
+              always start with finding common ground to collaborate with
+              parents on. When both sides agreed on small, achievable goals and
+              shared open communication about expectations, success was often
+              found.
             </p>
           </section>
           {/* <section className="projects--img">
@@ -66,18 +67,17 @@ const Experience = props => {
     } else if (soldier) {
       return (
         <>
-          <section className="projects--story">                     
+          <section className="projects--story">
             <h1 className="job-title">Soldier</h1>
             <p className="job-p">
-              As a soldier, I grasped the concept of how a team must work
-              together in order to accomplish the mission. More often than not,
-              someone must sacrifice in order for the team to achieve the goal.
-              These sacrifices are usually go unacknowledged and a
-              disproportionate amount of credit goes in the direction of someone
-              else. A new objective will come along and with that comes more
-              responsibility, sacrifice, and credit. Each member must take the
-              appropriate load in order for the team to travel the furthest
-              distance, and for the longest time.{" "}
+              As a soldier, I recognized how a team must work together in order
+              to accomplish a objective. More often than not, someone sacrifices
+              in order for a team to achieve their goal. These endurances
+              usually go unacknowledged and a disproportionate amount of credit
+              flows in the direction of someone else. A new project will come
+              along and with that comes more responsibility and credit. Each
+              member must divide the shares appropriately in order for the team
+              to travel the furthest distance, and for the longest time.{" "}
             </p>
           </section>
           {/* <section className="projects--img">
@@ -107,7 +107,7 @@ const Experience = props => {
     } else if (chief) {
       return (
         <>
-          <section className="projects--story">         
+          <section className="projects--story">
             <h1 className="job-title">Branch Chief</h1>
             <p className="job-p">
               As a Branch Chief, I determined the life cycle of our products. I
@@ -121,12 +121,13 @@ const Experience = props => {
             <p className="job-p">
               I also recognized the importance of mentorship as a management
               style. Our team was 25 people working on a 24/7/365 top-secret
-              mission. It was grueling with high turnover rate in order to maintain fresh minds. I implemented a development program that trained people to a
-              higher standard in a shorter amount of time. The focus was on
-              incremental, achievable goals and holding people accountable for
-              meeting them. The success of the program led to my third promotion
-              to the training manager for the 100 person division while also
-              performing my role as branch chief.
+              mission. It was grueling with high turnover rate in order to
+              maintain fresh minds. I implemented a development program that
+              trained people to a higher standard in a shorter amount of time.
+              The focus was on incremental, achievable goals and holding people
+              accountable for meeting them. The success of the program led to my
+              third promotion to the training manager for the 100 person
+              division while also performing my role as branch chief.
             </p>
           </section>
           {/* <section className="projects--img">
