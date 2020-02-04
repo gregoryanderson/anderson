@@ -195,12 +195,16 @@ div.enemy-toggle{
 
 #hall--section {
     background-color: #383756;
-    height: 42vh;
+    height: 32vh;
+    overflow: scroll;
+    padding: 1vh;
 }
 
 #hall--title {
     font-size: 1.5em;
     padding: 1vh 0vh 1vh 0vh;
+    color: #EB6D4A;
+    background-color: #383756;
 }
 
 #sideboard--img {

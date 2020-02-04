@@ -420,8 +420,8 @@ class Game extends Component {
           </section>
         </section>
         <section className="sideboard">
-          <section id="hall--section">
             <h1 id="hall--title">Hall of Fame:</h1>
+          <section id="hall--section">
             <HallOfFame hof={this.state.hall} />
           </section>
           <section id="sideboard--img">

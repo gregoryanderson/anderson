@@ -80,6 +80,17 @@ class App extends Component {
         }
         {
           <Route
+            path="/resume"
+            render={() => (
+              <>
+                <Nav route="resume" />
+                <Main route="resume" />
+              </>
+            )}
+          />
+        }
+        {
+          <Route
             path="/experience"
             render={() => (
               <>

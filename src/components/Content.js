@@ -17,8 +17,11 @@ const Content = () => {
       <section className="video--text">
         <p className="video--location">1909 Turing Top Talks</p>
         <p>Bites, Bytes, and A Whole Lot of Cable</p>
-        <a href="https://medium.com/@yahtzeemoomtaz/" className="video--location">
-            Link To Slides
+        <a
+          href="https://medium.com/@yahtzeemoomtaz/"
+          className="video--location"
+        >
+          Link To Slides
         </a>
       </section>
     </section>

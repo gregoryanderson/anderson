@@ -5,7 +5,8 @@ import {
   AiOutlineLaptop,
   AiOutlineMessage,
   AiOutlineSound,
-  AiOutlineVideoCamera
+  AiOutlineVideoCamera,
+  AiOutlinePaperClip
 } from "react-icons/ai";
 import "./Nav.css";
 import "./Game.css";
@@ -17,6 +18,7 @@ const Nav = props => {
   const [contact, setContact] = useState(false);
   const [home, setHome] = useState(false);
   const [content, setContent] = useState(false);
+  const [resume, setResume] = useState(false);
   const [score, setScore] = useState(0);
   const [round, setRound] = useState(0);
 
@@ -35,40 +37,54 @@ const Nav = props => {
       setHome(true);
       setContact(false);
       setContent(false);
+      setResume(false);
     } else if (props.route === "contact") {
       setProjects(false);
       setExperience(false);
       setHome(false);
       setContact(true);
-      setContent(false);   
+      setContent(false);
+      setResume(false);
+    } else if (props.route === "resume") {
+      setProjects(false);
+      setExperience(false);
+      setHome(false);
+      setContact(false);
+      setContent(false);
+      setResume(true);
     } else if (props.route === "experience") {
       setProjects(false);
       setExperience(true);
       setHome(false);
       setContact(false);
       setContent(false);
+      setResume(false);
     } else if (props.route === "projects") {
       setProjects(true);
       setExperience(false);
       setHome(false);
       setContact(false);
       setContent(false);
+      setResume(false);
     } else if (props.route === "content") {
       setProjects(false);
       setExperience(false);
       setHome(false);
       setContact(false);
       setContent(true);
+      setResume(false);
     } else {
       setProjects(false);
       setExperience(false);
       setHome(false);
       setContact(false);
       setContent(false);
+      setResume(false);
     }
   });
 
   const determineBottomLogo = props => {
+    console.log(props)
     if (props.route === "projects") {
       return <AiOutlineLaptop size={300} color="#454360" />;
     } else if (props.route === "contact") {
@@ -77,6 +93,8 @@ const Nav = props => {
       return <AiOutlineSound size={300} color="#454360" />;
     } else if (props.route === "experience") {
       return <AiOutlineLineChart size={300} color="#454360" />;
+    } else if (props.route === "resume") {
+      return <AiOutlinePaperClip size={300} color="#454360" />;
     } else if (props.route === "journal") {
       return <AiOutlineMessage size={300} color="#454360" />;
     } else if (props.route === "game") {
@@ -138,6 +156,16 @@ const Nav = props => {
           <AiOutlineLaptop size={32} color="#EB6D4A" />
           <p className={projects ? "nav__p--links--true" : "nav__p--links"}>
             Projects
+          </p>
+        </Link>
+        <Link
+          to="/resume"
+          style={{ textDecoration: "none", color: "#FFF" }}
+          className="nav__section--links"
+        >
+          <AiOutlinePaperClip size={32} color="#EB6D4A" />
+          <p className={resume ? "nav__p--links--true" : "nav__p--links"}>
+            Resume
           </p>
         </Link>
         <Link

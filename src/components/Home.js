@@ -13,6 +13,7 @@ const Home = props => {
         />
         <h1>Gregory Anderson</h1>
         <h1>Software Engineer</h1>
+        <p>He/Him</p>
         <section className="main--links">
           <section className="main--link">
             <a href="https://github.com/gregoryanderson">

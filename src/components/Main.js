@@ -8,6 +8,8 @@ import Contact from "./Contact";
 import Content from "./Content";
 import Projects from "./Projects";
 import Game from "./Game";
+import Resume from "./Resume";
+
 
 const Main = props => {
   const determineTheRoute = () => {
@@ -56,6 +58,18 @@ const Main = props => {
             </Link>
           </section>
           <Content />
+        </>
+      );
+    }
+    if (props.route === "resume") {
+      return (
+        <>
+          <section className="main--rocket">
+            <Link to="/game">
+              <AiOutlineRocket size={64} color="#EB6D4A" />
+            </Link>
+          </section>
+          <Resume />
         </>
       );
     }
