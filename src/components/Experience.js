@@ -43,32 +43,21 @@ const Experience = props => {
           <section className="projects--story">
             <h1 className="job-title">Preschool Teacher</h1>
             <p className="job-p">
-              Working in a preschool was a fascinating experience. For starters,
-              there is an incredible amount of good humor in the typical day at
-              the preschool. Even when the bad times roll in they do not stay
-              for long and they offer an important moment for a child to
-              practice conflict resolution. It also gave me the chance to be in
-              an environment where the numbers heavily favor the opposite sex. I
-              often felt unheard because of the bias towards a maternal opinion
-              in development. I have held onto that feeling and have made a
-              point to listen to everyone during my time in leadership. Finally,
-              it was my first true period of practicing selflessness. It felt
-              good to help others find their voices and agency. I was rewarded
-              with laughter every single day.{" "}
+              Working in a preschool was a fascinating experience with an
+              incredible amount of good humor. It gave me the chance to be in an
+              environment where the numbers heavily favor the opposite sex. This
+              has made inclusion an important exercise of mine. Finally, it was
+              my first time practicing selflessness. Helping others find their
+              voices and agency is rewarded with laughter every single day.{" "}
             </p>
             <p>
-              The practices that I have taken from that time relate to how
-              important compassion is within a business model. The developmental
-              growth of children was our product. Our clients were parents who
-              cared very deeply about the product's outcome. Often this involved
-              traversing sensitive topics such as behavioral issues and
-              administering an individual education plans. Times like these
-              called for collaboration between us and the parents and began with
-              defining our vocabulary and our expectations. The goal was to
-              always start with finding common ground to collaborate with on a
-              path forward. When both sides agreed on small, achievable goals
-              and shared open communication about expectations, success was
-              often found.
+              Conventions that I have taken from that time relate to how
+              important compassion is within a business model. Our product was
+              the developmental growth of children. Our clients were parents who
+              cared very deeply about those children. Working with them to
+              ensure that goals were met included having difficult
+              conversations. If those conversations displayed patience and
+              understanding, success was ultimately found.
             </p>
           </section>
           {/* <section className="projects--img">

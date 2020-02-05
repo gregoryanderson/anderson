@@ -18,7 +18,7 @@ const Content = () => {
         <p className="video--location">1909 Turing Top Talks</p>
         <p>Bites, Bytes, and A Whole Lot of Cable</p>
         <a
-          href="https://medium.com/@yahtzeemoomtaz/"
+          href="https://docs.google.com/presentation/d/1FPD8QEf-DjkdM8q5Dub0oFA5djKihYR0g22-a8FROHs/edit?usp=sharing"
           className="video--location"
         >
           Link To Slides
