@@ -45,7 +45,7 @@ const Experience = props => {
             <p className="job-p">
               Working in a preschool was a fascinating experience with an
               incredible amount of good humor. It gave me the chance to be in an
-              environment where the numbers heavily favor the opposite sex. This
+              workplace where the numbers heavily favor the opposite sex. This
               has made inclusion an important exercise of mine. Finally, it was
               my first time practicing selflessness. Helping others find their
               voices and agency is rewarded with laughter every single day.{" "}
@@ -56,7 +56,7 @@ const Experience = props => {
               the developmental growth of children. Our clients were parents who
               cared very deeply about those children. Working with them to
               ensure that goals were met included having difficult
-              conversations. If those conversations displayed patience and
+              conversations, and if those conversations displayed patience and
               understanding, success was ultimately found.
             </p>
           </section>

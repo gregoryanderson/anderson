@@ -30,6 +30,7 @@ a {
     /* padding: 20% 0; */
     background-color: #454360;
     height: 68vh;
+    overflow: scroll;
 }
 
 .main--sontent {
