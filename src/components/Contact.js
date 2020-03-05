@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Contact.css";
+import "./css/Contact.css";
 
 const Contact = props => {
   const [email, setEmail] = useState(false);
@@ -43,7 +43,7 @@ const Contact = props => {
       return (
         <section>
           <img
-            src={require("./GREG-01.png")}
+            src={require("./assets/GREG-01.png")}
             alt="Gregory Anderson"
             className="projects--img"
           />

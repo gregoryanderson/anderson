@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "./Main.css";
+import React from "react";
+import "./css/Main.css";
 
 const Content = () => {
   return (

@@ -1,0 +1,91 @@
+.Main {
+  margin: 10vh 10vh 10vh 0;
+  width: 80%;
+  text-align: center;
+  background-color: #383756;
+  color: white;
+  font-size: 1.5em;
+}
+
+a {
+  text-decoration: none;
+}
+
+#main__img {
+  margin: 7vh 0 3vh 0;
+  width: 20%;
+}
+
+.main--links {
+  margin: 1em auto 1em auto;
+  display: flex;
+  width: 20%;
+  justify-content: space-around;
+}
+
+.main--content {
+  margin: 0 1vh 1vh 0;
+  background-color: #454360;
+  height: 68vh;
+  overflow: scroll;
+}
+
+.main--sontent {
+  margin: 1vh 1vh 1vh 0;
+  background-color: #454360;
+  height: 78vh;
+}
+
+.main--rocket {
+  height: 10vh;
+  display: flex;
+  justify-content: flex-end;
+  background-color: #454360;
+  margin: 1vh 1vh 0 0;
+}
+
+.main--socket {
+  height: 10vh;
+  display: flex;
+  justify-content: flex-end;
+  background-color: #454360;
+  margin: 1vh 1vh 0 0;
+}
+
+#main--button {
+  color: #fff;
+  background-color: #eb6d4a;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: none;
+  font-size: 1em;
+}
+
+#main--button:hover {
+  font-size: 1.25em;
+}
+
+.main--link {
+  justify-content: space-between;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+.video {
+  border: 2vh solid #383756;
+  width: fit-content;
+  display: flex;
+  margin: auto;
+}
+
+.video--text {
+  margin-top: 2vh;
+}
+
+.video--location {
+  color: #cc4e2f;
+  font-size: 0.8em;
+}

@@ -3,9 +3,7 @@
     margin: 10vh 0 10vh 10vh; 
     height: 80vh;
     background-color: #383756;
-    /* border-right: 1px solid #454360; */
     color: #FFF;
-    /* opacity: .5; */
 }
 
 .nav__p--links {
@@ -16,7 +14,6 @@
 }
 
 .nav__p--links:hover {
-    /* text-decoration: underline; */
     color: #EB6D4A;
     font-size: 1.5em;
 }
@@ -46,7 +43,6 @@
 
 #scoreboard--content {
     color:#EB6D4A;
-    /* font-size: 2em; */
 }
 
 #scoreboard--title {

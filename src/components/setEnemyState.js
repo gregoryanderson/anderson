@@ -84,7 +84,7 @@ export const setEnemyState = num => {
       { left: 40, top: 0, row: 1 }
     ];
   } else {
-     return [
+    return [
       { left: 20, top: 75, row: 2 },
       { left: 30, top: 75, row: 2 },
       { left: 40, top: 75, row: 2 },

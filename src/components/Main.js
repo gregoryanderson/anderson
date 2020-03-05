@@ -1,5 +1,5 @@
 import React from "react";
-import "./Main.css";
+import "./css/Main.css";
 import { AiOutlineRocket } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Home from "./Home";
@@ -9,7 +9,6 @@ import Content from "./Content";
 import Projects from "./Projects";
 import Game from "./Game";
 import Resume from "./Resume";
-
 
 const Main = props => {
   const determineTheRoute = () => {
@@ -89,7 +88,12 @@ const Main = props => {
       return (
         <>
           <section className="main--sontent">
-            <Game route="game" displayScore={props.displayScore} displayRound={props.displayRound} hof={props.hof}/>
+            <Game
+              route="game"
+              displayScore={props.displayScore}
+              displayRound={props.displayRound}
+              hof={props.hof}
+            />
           </section>
         </>
       );

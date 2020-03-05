@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Projects.css";
+import "./css/Projects.css";
 
 const Projects = props => {
   const [agency, setAgency] = useState(false);
@@ -39,8 +39,18 @@ const Projects = props => {
               Demo Competition.
             </p>
             <section className="project-links-section">
-              <a href="https://github.com/gregoryanderson/Agency-fe" className="project-links">Github</a>
-              <a href="http://agency-fe.s3-website-us-east-1.amazonaws.com/" className="project-links">Live Site</a>
+              <a
+                href="https://github.com/gregoryanderson/Agency-fe"
+                className="project-links"
+              >
+                Github
+              </a>
+              <a
+                href="http://agency-fe.s3-website-us-east-1.amazonaws.com/"
+                className="project-links"
+              >
+                Live Site
+              </a>
             </section>
           </section>
         </>
@@ -57,8 +67,18 @@ const Projects = props => {
               project.
             </p>
             <section className="project-links-section">
-              <a href="https://github.com/gregoryanderson/heart" className="project-links">Github</a>
-              <a href="https://heart-art.herokuapp.com/" className="project-links">Live Site</a>
+              <a
+                href="https://github.com/gregoryanderson/heart"
+                className="project-links"
+              >
+                Github
+              </a>
+              <a
+                href="https://heart-art.herokuapp.com/"
+                className="project-links"
+              >
+                Live Site
+              </a>
             </section>
           </section>
         </>
@@ -75,8 +95,18 @@ const Projects = props => {
               relationship. A paired project
             </p>
             <section className="project-links-section">
-              <a href="https://github.com/gregoryanderson/frontend-palette-picker" className="project-links">Github</a>
-              <a href="https://fe-palette.herokuapp.com/" className="project-links">Live Site</a>
+              <a
+                href="https://github.com/gregoryanderson/frontend-palette-picker"
+                className="project-links"
+              >
+                Github
+              </a>
+              <a
+                href="https://fe-palette.herokuapp.com/"
+                className="project-links"
+              >
+                Live Site
+              </a>
             </section>
           </section>
         </>
@@ -85,7 +115,7 @@ const Projects = props => {
       return (
         <section>
           <img
-            src={require("./GREG-01.png")}
+            src={require("./assets/GREG-01.png")}
             alt="Gregory Anderson"
             className="projects--img"
           />

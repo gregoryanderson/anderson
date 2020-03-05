@@ -1,5 +1,5 @@
 import React from "react";
-import "./Main.css";
+import "./css/Main.css";
 import { FaLinkedinIn, FaGithub, FaMedium } from "react-icons/fa";
 
 const Home = props => {
@@ -7,7 +7,7 @@ const Home = props => {
     <section className="main--content">
       <section id="main--outline">
         <img
-          src={require("./GREG-01.png")}
+          src={require("./assets/GREG-01.png")}
           alt="Gregory Anderson"
           id="main__img"
         />

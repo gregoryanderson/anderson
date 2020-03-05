@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./Game.css";
-import "./Main.css";
+import "./css/Game.css";
+import "./css/Main.css";
 import Hero from "./Hero";
 import Missiles from "./Missiles";
 import Enemies from "./Enemies";
 import HallOfFame from "./HallOfFame";
-
 import setEnemyState from "./setEnemyState";
-import "./Projects.css";
-import "./Contact.css";
+import "./css/Projects.css";
+import "./css/Contact.css";
 import { postPlayer, getPlayers, getScores, postScore } from "./apiCalls";
 
 class Game extends Component {
@@ -104,7 +103,6 @@ class Game extends Component {
     console.log(lowestQualifier);
     console.log(this.state.score);
     if (this.state.score > lowestQualifier) {
-      // console.log("lalala");
       this.setState({ highScore: true });
     }
   };
@@ -426,7 +424,7 @@ class Game extends Component {
           </section>
           <section id="sideboard--img">
             <img
-              src={require("./GREG-01.png")}
+              src={require("./assets/GREG-01.png")}
               alt="Gregory Anderson"
               className="game--image"
             />

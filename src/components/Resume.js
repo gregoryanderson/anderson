@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./Main.css";
-import "./Projects.css";
+import "./css/Main.css";
+import "./css/Projects.css";
 
 const Resume = () => {
   const [printer, setPrinter] = useState(false);
@@ -17,7 +17,7 @@ const Resume = () => {
     if (printer) {
       return (
         <iframe
-          src={require("./PrinterResume.pdf")}
+          src={require("./assets/PrinterResume.pdf")}
           width="560"
           height="315"
         ></iframe>
@@ -25,7 +25,7 @@ const Resume = () => {
     } else {
       return (
         <iframe
-          src={require("./ResumeForGregoryAnderson.pdf")}
+          src={require("./assets/ResumeForGregoryAnderson.pdf")}
           width="560"
           height="315"
         ></iframe>

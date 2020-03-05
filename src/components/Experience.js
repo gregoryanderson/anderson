@@ -1,36 +1,30 @@
 import React, { useState } from "react";
-import "./Main.css";
+import "./css/Main.css";
 
 const Experience = props => {
   const [teach, setTeach] = useState(false);
-  const [husband, setHusband] = useState(false);
   const [soldier, setSoldier] = useState(false);
   const [chief, setChief] = useState(false);
 
   const handleClick = name => {
     if (name === "teach") {
       setTeach(true);
-      setHusband(false);
       setSoldier(false);
       setChief(false);
     } else if (name === "husband") {
       setTeach(false);
-      setHusband(true);
       setSoldier(false);
       setChief(false);
     } else if (name === "soldier") {
       setTeach(false);
-      setHusband(false);
       setSoldier(true);
       setChief(false);
     } else if (name === "chief") {
       setTeach(false);
-      setHusband(false);
       setSoldier(false);
       setChief(true);
     } else {
       setTeach(false);
-      setHusband(false);
       setChief(false);
       setSoldier(false);
     }
@@ -43,30 +37,34 @@ const Experience = props => {
           <section className="projects--story">
             <h1 className="job-title">Preschool Teacher</h1>
             <p className="job-p">
-              Working in a preschool was a fascinating experience with an
-              incredible amount of good humor. It gave me the chance to be in an
-              workplace where the numbers heavily favor the opposite sex. This
-              has made inclusion an important exercise of mine. Finally, it was
-              my first time practicing selflessness. Helping others find their
-              voices and agency is rewarded with laughter every single day.{" "}
+              Working in a preschool was a fascinating experience. For starters,
+              there is an incredible amount of good humor in the typical day at
+              the preschool. Even when the bad times roll in they do not stay
+              for long and they offer an important moment for a child to
+              practice conflict resolution. It also gave me the chance to be in
+              an environment where the numbers heavily favor the opposite sex. I
+              often felt unheard because of the bias towards a maternal opinion
+              in development. I have held onto that feeling and have made a
+              point to listen to everyone during my time in leadership. Finally,
+              it was my first true period of practicing selflessness. It felt
+              good to help others find their voices and agency. I was rewarded
+              with laughter every single day.{" "}
             </p>
             <p>
-              Conventions that I have taken from that time relate to how
-              important compassion is within a business model. Our product was
-              the developmental growth of children. Our clients were parents who
-              cared very deeply about those children. Working with them to
-              ensure that goals were met included having difficult
-              conversations, and if those conversations displayed patience and
-              understanding, success was ultimately found.
+              The practices that I have taken from that time relate to how
+              important compassion is within a business model. The developmental
+              growth of children was our product. Our clients were parents who
+              cared very deeply about the product's outcome. Often this involved
+              traversing sensitive topics such as behavioral issues and
+              administering an individual education plans. Times like these
+              called for collaboration between us and the parents and began with
+              defining our vocabulary and our expectations. The goal was to
+              always start with finding common ground to collaborate with on a
+              path forward. When both sides agreed on small, achievable goals
+              and shared open communication about expectations, success was
+              often found.
             </p>
           </section>
-          {/* <section className="projects--img">
-            <img
-              src={require("./GREG-01.png")}
-              alt="Gregory Anderson"
-              className="projects--image"
-            />
-          </section> */}
         </>
       );
     } else if (soldier) {
@@ -95,28 +93,6 @@ const Experience = props => {
               time.{" "}
             </p>
           </section>
-          {/* <section className="projects--img">
-            <img
-              src={require("./GREG-01.png")}
-              alt="Gregory Anderson"
-              className="projects--image"
-            />
-          </section> */}
-        </>
-      );
-    } else if (husband) {
-      return (
-        <>
-          <section className="projects--story">
-            <p>husband</p>
-          </section>
-          {/* <section className="projects--img">
-            <img
-              src={require("./GREG-01.png")}
-              alt="Gregory Anderson"
-              className="projects--image"
-            />
-          </section> */}
         </>
       );
     } else if (chief) {
@@ -145,20 +121,13 @@ const Experience = props => {
               was named as the training manager for the 100 person division.
             </p>
           </section>
-          {/* <section className="projects--img">
-            <img
-              src={require("./GREG-01.png")}
-              alt="Gregory Anderson"
-              className="projects--image"
-            />
-          </section> */}
         </>
       );
     } else {
       return (
         <section>
           <img
-            src={require("./GREG-01.png")}
+            src={require("./assets/GREG-01.png")}
             alt="Gregory Anderson"
             className="projects--img"
           />
@@ -178,14 +147,6 @@ const Experience = props => {
             Preschool Teacher
           </button>
         </section>
-        {/* <section className="projects--btns">
-          <button
-            className={husband ? "projects__button--true" : "projects__button"}
-            onClick={() => handleClick("husband")}
-          >
-            Husband
-          </button>
-        </section> */}
         <section className="projects--btns">
           <button
             className={soldier ? "projects__button--true" : "projects__button"}

@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import Enemy from "./Enemy";
-import "./Game.css";
+import "./css/Game.css";
 
 const Enemies = props => {
   const drawEnemies = () => {

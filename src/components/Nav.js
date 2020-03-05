@@ -8,8 +8,8 @@ import {
   AiOutlineVideoCamera,
   AiOutlinePaperClip
 } from "react-icons/ai";
-import "./Nav.css";
-import "./Game.css";
+import "./css/Nav.css";
+import "./css/Game.css";
 import { Link } from "react-router-dom";
 
 const Nav = props => {
@@ -109,7 +109,6 @@ const Nav = props => {
             <h1 className="score">Score </h1>
             <h1 className="points">{props.score}</h1>
           </section>
-          {/* <h1 className="text">Invaders</h1> */}
         </section>
       );
     } else {

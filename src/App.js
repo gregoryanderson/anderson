@@ -37,11 +37,11 @@ class App extends Component {
       let player = allPlayers.find(player => player.id === score.player_id);
       hof.push({ scr: score.score, plyr: player.name });
     });
-    hof.sort((a,b) => {
-      return b.scr - a.scr
-    })
-    if (hof.length > 10){
-      let shortHof = hof.slice(0, 9)
+    hof.sort((a, b) => {
+      return b.scr - a.scr;
+    });
+    if (hof.length > 10) {
+      let shortHof = hof.slice(0, 9);
       this.setState({ hallOfFame: shortHof });
     } else {
       this.setState({ hallOfFame: hof });
@@ -51,7 +51,7 @@ class App extends Component {
   componentDidMount() {
     this.setHof();
   }
-  
+
   render() {
     return (
       <div className="App">
