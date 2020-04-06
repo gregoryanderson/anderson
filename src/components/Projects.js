@@ -1,28 +1,118 @@
 import React, { useState } from "react";
 import "./css/Projects.css";
 
-const Projects = props => {
+const Projects = (props) => {
   const [agency, setAgency] = useState(false);
   const [heart, setHeart] = useState(false);
   const [palette, setPalette] = useState(false);
+  const [ruby, setRuby] = useState(false);
+  const [js, setJs] = useState(false);
 
-  const handleClick = name => {
+  const handleClick = (name) => {
     if (name === "agency") {
       setAgency(true);
       setHeart(false);
       setPalette(false);
+      setRuby(false);
+      setJs(false);
     } else if (name === "heart") {
       setAgency(false);
       setHeart(true);
       setPalette(false);
+      setRuby(false);
+      setJs(false);
     } else if (name === "palette") {
       setAgency(false);
       setHeart(false);
       setPalette(true);
+      setRuby(false);
+      setJs(false);
+    } else if (name === "ruby") {
+      setAgency(false);
+      setHeart(false);
+      setPalette(false);
+      setRuby(true);
+      setJs(false);
+    } else if (name === "js") {
+      setAgency(false);
+      setHeart(false);
+      setPalette(false);
+      setRuby(false);
+      setJs(true);
     } else {
       setAgency(false);
       setHeart(false);
       setPalette(false);
+      setRuby(false);
+      setJs(false);
+    }
+  };
+
+  const determineButtons = () => {
+    if (ruby) {
+      return (
+        <>
+          <section className="projects--btns">
+            <button
+              className={agency ? "projects__button--true" : "projects__button"}
+              onClick={() => handleClick("agency")}
+            >
+              Web Chat
+            </button>
+          </section>
+          <section className="projects--btns">
+            <button
+              className={
+                palette ? "projects__button--true" : "projects__button"
+              }
+              onClick={() => handleClick("palette")}
+            >
+              Alpha Blog
+            </button>
+          </section>
+          <section className="projects--btns">
+            <button
+              className={heart ? "projects__button--true" : "projects__button"}
+              onClick={() => handleClick("heart")}
+            >
+              Finance Tracker
+            </button>
+          </section>
+        </>
+      );
+    } else if (js) {
+      return (
+        <>
+          <section className="projects--btns">
+            <button
+              className={agency ? "projects__button--true" : "projects__button"}
+              onClick={() => handleClick("agency")}
+            >
+              Agency
+            </button>
+          </section>
+          <section className="projects--btns">
+            <button
+              className={
+                palette ? "projects__button--true" : "projects__button"
+              }
+              onClick={() => handleClick("palette")}
+            >
+              Pallette-Picker
+            </button>
+          </section>
+          <section className="projects--btns">
+            <button
+              className={heart ? "projects__button--true" : "projects__button"}
+              onClick={() => handleClick("heart")}
+            >
+              Heart
+            </button>
+          </section>
+        </>
+      );
+    } else {
+      return
     }
   };
 
@@ -129,6 +219,24 @@ const Projects = props => {
       <section className="contact--buttons">
         <section className="projects--btns">
           <button
+            className={ruby ? "projects__button--true" : "projects__button"}
+            onClick={() => handleClick("ruby")}
+          >
+            Ruby/Rails
+          </button>
+        </section>
+        <section className="projects--btns">
+          <button
+            className={js ? "projects__button--true" : "projects__button"}
+            onClick={() => handleClick("js")}
+          >
+            Javascript/React
+          </button>
+        </section>
+      </section>
+      <section className="contact--buttons">
+        {/* <section className="projects--btns">
+          <button
             className={agency ? "projects__button--true" : "projects__button"}
             onClick={() => handleClick("agency")}
           >
@@ -150,7 +258,8 @@ const Projects = props => {
           >
             Heart
           </button>
-        </section>
+        </section> */}
+        <section>{determineButtons()}</section>
       </section>
       <section className="contact--text">{determineText()}</section>
     </section>
