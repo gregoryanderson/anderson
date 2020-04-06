@@ -7,7 +7,7 @@ const Projects = (props) => {
   const [palette, setPalette] = useState(false);
   const [finance, setFinance] = useState(false);
   const [chat, setChat] = useState(false);
-  const [alpha, setAlpha] = useState(false);
+  const [uni, setUni] = useState(false);
   const [ruby, setRuby] = useState(false);
   const [js, setJs] = useState(false);
 
@@ -32,42 +32,42 @@ const Projects = (props) => {
       setPalette(false);
       setFinance(false);
       setChat(false);
-      setAlpha(false);
+      setUni(false);
     } else if (name === "heart") {
       setAgency(false);
       setHeart(true);
       setPalette(false);
       setFinance(false);
       setChat(false);
-      setAlpha(false);
+      setUni(false);
     } else if (name === "palette") {
       setAgency(false);
       setHeart(false);
       setPalette(true);
       setFinance(false);
       setChat(false);
-      setAlpha(false);
+      setUni(false);
     } else if (name === "finance") {
       setAgency(false);
       setHeart(false);
       setPalette(false);
       setFinance(true);
       setChat(false);
-      setAlpha(false);
+      setUni(false);
     } else if (name === "chat") {
       setAgency(false);
       setHeart(false);
       setPalette(false);
       setFinance(false);
       setChat(true);
-      setAlpha(false);
-    } else if (name === "alpha") {
+      setUni(false);
+    } else if (name === "uni") {
       setAgency(false);
       setHeart(false);
       setPalette(false);
       setFinance(false);
       setChat(false);
-      setAlpha(true);
+      setUni(true);
     }
   }
 
@@ -88,9 +88,9 @@ const Projects = (props) => {
               className={
                 palette ? "projects__button--true" : "projects__button"
               }
-              onClick={() => handleClickTwo("alpha")}
+              onClick={() => handleClickTwo("uni")}
             >
-              Alpha Blog
+              Tech University
             </button>
           </section>
           <section className="projects--btns">
@@ -188,6 +188,81 @@ const Projects = (props) => {
               </a>
               <a
                 href="https://heart-art.herokuapp.com/"
+                className="project-links"
+              >
+                Live Site
+              </a>
+            </section>
+          </section>
+        </>
+      );
+    } else if (uni) {
+      return (
+        <>
+          <section className="projects--story">
+            <h1 className="job-title">Tech University</h1>
+            <p className="job-p">
+              A university app that signs up users for courses. 
+            </p>
+            <section className="project-links-section">
+              <a
+                href="https://github.com/gregoryanderson/tech-uni"
+                className="project-links"
+              >
+                Github
+              </a>
+              <a
+                href="https://tech-uni.herokuapp.com/"
+                className="project-links"
+              >
+                Live Site
+              </a>
+            </section>
+          </section>
+        </>
+      );
+    } else if (finance) {
+      return (
+        <>
+          <section className="projects--story">
+            <h1 className="job-title">Finance Tracker</h1>
+            <p className="job-p">
+              A Rails app built that tracks personal stocks, as well as keeps you updated on your friends stocks. 
+            </p>
+            <section className="project-links-section">
+              <a
+                href="https://github.com/gregoryanderson/finance-tracker"
+                className="project-links"
+              >
+                Github
+              </a>
+              <a
+                href="https://finance-friend.herokuapp.com/"
+                className="project-links"
+              >
+                Live Site
+              </a>
+            </section>
+          </section>
+        </>
+      );
+    } else if (chat) {
+      return (
+        <>
+          <section className="projects--story">
+            <h1 className="job-title">Web Chat</h1>
+            <p className="job-p">
+              A web chat 
+            </p>
+            <section className="project-links-section">
+              <a
+                href="https://github.com/gregoryanderson/instant-message"
+                className="project-links"
+              >
+                Github
+              </a>
+              <a
+                href="https://instant-message-me.herokuapp.com/"
                 className="project-links"
               >
                 Live Site
