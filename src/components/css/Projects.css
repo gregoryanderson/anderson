@@ -112,3 +112,10 @@
     padding: 5vh;
     font-size: 2em;
 }
+
+.project--text {
+    padding: 3vh;
+    height: 46vh;
+    display: flex;
+    justify-content: center;
+}

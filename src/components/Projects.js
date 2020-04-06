@@ -5,57 +5,80 @@ const Projects = (props) => {
   const [agency, setAgency] = useState(false);
   const [heart, setHeart] = useState(false);
   const [palette, setPalette] = useState(false);
+  const [finance, setFinance] = useState(false);
+  const [chat, setChat] = useState(false);
+  const [alpha, setAlpha] = useState(false);
   const [ruby, setRuby] = useState(false);
   const [js, setJs] = useState(false);
 
   const handleClick = (name) => {
-    if (name === "agency") {
-      setAgency(true);
-      setHeart(false);
-      setPalette(false);
-      setRuby(false);
-      setJs(false);
-    } else if (name === "heart") {
-      setAgency(false);
-      setHeart(true);
-      setPalette(false);
-      setRuby(false);
-      setJs(false);
-    } else if (name === "palette") {
-      setAgency(false);
-      setHeart(false);
-      setPalette(true);
-      setRuby(false);
-      setJs(false);
-    } else if (name === "ruby") {
-      setAgency(false);
-      setHeart(false);
-      setPalette(false);
+    if (name === "ruby") {
+
       setRuby(true);
       setJs(false);
     } else if (name === "js") {
-      setAgency(false);
-      setHeart(false);
-      setPalette(false);
       setRuby(false);
       setJs(true);
     } else {
-      setAgency(false);
-      setHeart(false);
-      setPalette(false);
       setRuby(false);
       setJs(false);
     }
   };
 
+  const handleClickTwo = (name) => {
+    if (name === "agency") {
+      setAgency(true);
+      setHeart(false);
+      setPalette(false);
+      setFinance(false);
+      setChat(false);
+      setAlpha(false);
+    } else if (name === "heart") {
+      setAgency(false);
+      setHeart(true);
+      setPalette(false);
+      setFinance(false);
+      setChat(false);
+      setAlpha(false);
+    } else if (name === "palette") {
+      setAgency(false);
+      setHeart(false);
+      setPalette(true);
+      setFinance(false);
+      setChat(false);
+      setAlpha(false);
+    } else if (name === "finance") {
+      setAgency(false);
+      setHeart(false);
+      setPalette(false);
+      setFinance(true);
+      setChat(false);
+      setAlpha(false);
+    } else if (name === "chat") {
+      setAgency(false);
+      setHeart(false);
+      setPalette(false);
+      setFinance(false);
+      setChat(true);
+      setAlpha(false);
+    } else if (name === "alpha") {
+      setAgency(false);
+      setHeart(false);
+      setPalette(false);
+      setFinance(false);
+      setChat(false);
+      setAlpha(true);
+    }
+  }
+
   const determineButtons = () => {
     if (ruby) {
       return (
-        <>
+        <section className="contact--buttons">
           <section className="projects--btns">
             <button
               className={agency ? "projects__button--true" : "projects__button"}
-              onClick={() => handleClick("agency")}
+              onClick={() => handleClickTwo("chat")}
             >
               Web Chat
             </button>
@@ -65,7 +88,7 @@ const Projects = (props) => {
               className={
                 palette ? "projects__button--true" : "projects__button"
               }
-              onClick={() => handleClick("palette")}
+              onClick={() => handleClickTwo("alpha")}
             >
               Alpha Blog
             </button>
@@ -73,46 +96,46 @@ const Projects = (props) => {
           <section className="projects--btns">
             <button
               className={heart ? "projects__button--true" : "projects__button"}
-              onClick={() => handleClick("heart")}
+              onClick={() => handleClickTwo("finance")}
             >
               Finance Tracker
             </button>
           </section>
-        </>
+        </section>
       );
     } else if (js) {
       return (
-        <>
-          <section className="projects--btns">
-            <button
-              className={agency ? "projects__button--true" : "projects__button"}
-              onClick={() => handleClick("agency")}
-            >
-              Agency
-            </button>
+          <section className="contact--buttons">
+            <section className="projects--btns">
+              <button
+                className={agency ? "projects__button--true" : "projects__button"}
+                onClick={() => handleClickTwo("agency")}
+              >
+                Agency
+              </button>
+            </section>
+            <section className="projects--btns">
+              <button
+                className={
+                  palette ? "projects__button--true" : "projects__button"
+                }
+                onClick={() => handleClickTwo("palette")}
+              >
+                Pallette-Picker
+              </button>
+            </section>
+            <section className="projects--btns">
+              <button
+                className={heart ? "projects__button--true" : "projects__button"}
+                onClick={() => handleClickTwo("heart")}
+              >
+                Heart
+              </button>
+            </section>
           </section>
-          <section className="projects--btns">
-            <button
-              className={
-                palette ? "projects__button--true" : "projects__button"
-              }
-              onClick={() => handleClick("palette")}
-            >
-              Pallette-Picker
-            </button>
-          </section>
-          <section className="projects--btns">
-            <button
-              className={heart ? "projects__button--true" : "projects__button"}
-              onClick={() => handleClick("heart")}
-            >
-              Heart
-            </button>
-          </section>
-        </>
       );
     } else {
-      return
+      return <section className="contact--buttons"></section>
     }
   };
 
@@ -234,7 +257,6 @@ const Projects = (props) => {
           </button>
         </section>
       </section>
-      <section className="contact--buttons">
         {/* <section className="projects--btns">
           <button
             className={agency ? "projects__button--true" : "projects__button"}
@@ -260,8 +282,7 @@ const Projects = (props) => {
           </button>
         </section> */}
         <section>{determineButtons()}</section>
-      </section>
-      <section className="contact--text">{determineText()}</section>
+      <section className="project--text">{determineText()}</section>
     </section>
   );
 };
