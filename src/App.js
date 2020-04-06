@@ -164,6 +164,17 @@ class App extends Component {
             )}
           />
         }
+        {
+          <Route
+            path="/index.html"
+            render={() => (
+              <>
+                <Nav route="home" />
+                <Main route="home" />
+              </>
+            )}
+          />
+        }
       </div>
     );
   }
