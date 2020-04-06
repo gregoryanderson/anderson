@@ -13,7 +13,6 @@ const Projects = (props) => {
 
   const handleClick = (name) => {
     if (name === "ruby") {
-
       setRuby(true);
       setJs(false);
     } else if (name === "js") {
@@ -69,7 +68,7 @@ const Projects = (props) => {
       setChat(false);
       setUni(true);
     }
-  }
+  };
 
   const determineButtons = () => {
     if (ruby) {
@@ -105,37 +104,37 @@ const Projects = (props) => {
       );
     } else if (js) {
       return (
-          <section className="contact--buttons">
-            <section className="projects--btns">
-              <button
-                className={agency ? "projects__button--true" : "projects__button"}
-                onClick={() => handleClickTwo("agency")}
-              >
-                Agency
-              </button>
-            </section>
-            <section className="projects--btns">
-              <button
-                className={
-                  palette ? "projects__button--true" : "projects__button"
-                }
-                onClick={() => handleClickTwo("palette")}
-              >
-                Pallette-Picker
-              </button>
-            </section>
-            <section className="projects--btns">
-              <button
-                className={heart ? "projects__button--true" : "projects__button"}
-                onClick={() => handleClickTwo("heart")}
-              >
-                Heart
-              </button>
-            </section>
+        <section className="contact--buttons">
+          <section className="projects--btns">
+            <button
+              className={agency ? "projects__button--true" : "projects__button"}
+              onClick={() => handleClickTwo("agency")}
+            >
+              Agency
+            </button>
           </section>
+          <section className="projects--btns">
+            <button
+              className={
+                palette ? "projects__button--true" : "projects__button"
+              }
+              onClick={() => handleClickTwo("palette")}
+            >
+              Pallette-Picker
+            </button>
+          </section>
+          <section className="projects--btns">
+            <button
+              className={heart ? "projects__button--true" : "projects__button"}
+              onClick={() => handleClickTwo("heart")}
+            >
+              Heart
+            </button>
+          </section>
+        </section>
       );
     } else {
-      return <section className="contact--buttons"></section>
+      return <section className="contact--buttons"></section>;
     }
   };
 
@@ -202,7 +201,7 @@ const Projects = (props) => {
           <section className="projects--story">
             <h1 className="job-title">Tech University</h1>
             <p className="job-p">
-              A university app that signs up users for courses. 
+              An Rails application that lists courses and gives a short synopsis of each course. Students may enroll for courses and see what courses other students have signed up for. Utilizing Material-UI for views. A solo project. Username, 'guest@example.com', and password, 'password'.
             </p>
             <section className="project-links-section">
               <a
@@ -227,7 +226,8 @@ const Projects = (props) => {
           <section className="projects--story">
             <h1 className="job-title">Finance Tracker</h1>
             <p className="job-p">
-              A Rails app built that tracks personal stocks, as well as keeps you updated on your friends stocks. 
+              A Rails app built that tracks personal stocks, as well as keeps
+              you updated on your friends stocks. Utilizing bootstrap for the front end views. A solo project. 
             </p>
             <section className="project-links-section">
               <a
@@ -250,10 +250,8 @@ const Projects = (props) => {
       return (
         <>
           <section className="projects--story">
-            <h1 className="job-title">Web Chat</h1>
-            <p className="job-p">
-              A web chat 
-            </p>
+            <h1 className="job-title">Message Me</h1>
+            <p className="job-p">A web chat built in Ruby/Rails that accesses web sockets for immediate messaging on the screen. The front-end utilizes Semantic-UI for a stylish, complete look. A solo project. Use the name, "guest", and the password, "password", for access!</p>
             <section className="project-links-section">
               <a
                 href="https://github.com/gregoryanderson/instant-message"
@@ -332,31 +330,7 @@ const Projects = (props) => {
           </button>
         </section>
       </section>
-        {/* <section className="projects--btns">
-          <button
-            className={agency ? "projects__button--true" : "projects__button"}
-            onClick={() => handleClick("agency")}
-          >
-            Agency
-          </button>
-        </section>
-        <section className="projects--btns">
-          <button
-            className={palette ? "projects__button--true" : "projects__button"}
-            onClick={() => handleClick("palette")}
-          >
-            Pallette-Picker
-          </button>
-        </section>
-        <section className="projects--btns">
-          <button
-            className={heart ? "projects__button--true" : "projects__button"}
-            onClick={() => handleClick("heart")}
-          >
-            Heart
-          </button>
-        </section> */}
-        <section>{determineButtons()}</section>
+      <section>{determineButtons()}</section>
       <section className="project--text">{determineText()}</section>
     </section>
   );
